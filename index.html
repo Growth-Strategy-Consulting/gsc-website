@@ -10,169 +10,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      /* Brand palette (Concept 3) tuned to the mockup */
-      --green:  #1F4D3A;
-      --navy:   #1E2D3F;
-      --sand:   #D9C8A6;
-      --gold:   #C2A36B;   /* accent on dark sections */
-      --cream:  #F6F4F1;
-      --gray:   #E5E7EB;
-      --ink:    #1A1A1A;   /* dark sections + primary buttons */
-      --text:   #2B2B2B;
-      --muted:  #6B6B6B;
-      --max:    1140px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "Inter", system-ui, sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 600; line-height: 1.1; margin: 0; }
-    p { margin: 0 0 1rem; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* ---------- Buttons ---------- */
-    .btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      padding: 14px 28px; font-size: 13px; font-weight: 600;
-      letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
-      border: none; transition: transform .15s ease, opacity .15s ease;
-    }
-    .btn:hover { transform: translateY(-1px); opacity: .92; }
-    .btn--dark { background: var(--ink); color: #fff; }
-    .btn--gold { background: var(--gold); color: var(--ink); }
-    .btn--text { background: none; padding: 14px 4px; color: var(--ink); }
-
-    /* ---------- Header ---------- */
-    header { background: var(--cream); }
-    .nav { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
-    .logo { font-family: "Playfair Display", serif; line-height: 1; }
-    .logo b { display: block; font-size: 26px; font-weight: 700; letter-spacing: .02em; }
-    .logo span { display: block; font-family: "Inter", sans-serif; font-size: 10px; letter-spacing: .28em; color: var(--muted); margin-top: 4px; }
-    .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; font-size: 13px; letter-spacing: .1em; }
-    .nav-links a { color: var(--text); padding-bottom: 4px; }
-    .nav-links a.active, .nav-links a:hover { border-bottom: 2px solid var(--gold); }
-
-    /* ---------- Hero ---------- */
-    .hero { display: grid; grid-template-columns: 1.05fr 1fr; align-items: stretch; }
-    .hero-text { padding: 70px 60px 70px 0; }
-    .hero-text h1 { font-size: clamp(40px, 5.2vw, 64px); margin-bottom: 24px; }
-    .hero-text p { font-size: 17px; color: #4a4a4a; max-width: 440px; }
-    .hero-cta { display: flex; align-items: center; gap: 18px; margin-top: 28px; flex-wrap: wrap; }
-    .hero-img { background: var(--gray) center/cover no-repeat; min-height: 460px;
-      background-image: url("https://images.unsplash.com/photo-1497032205916-ac775f0649ae?auto=format&fit=crop&w=1100&q=80"); }
-
-    /* ---------- Feature row ---------- */
-    .features { background: var(--sand); }
-    .feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; text-align: center; padding: 50px 0; }
-    .feature { padding: 0 26px; border-right: 1px solid rgba(0,0,0,.10); }
-    .feature:last-child { border-right: none; }
-    .feature .ic { width: 46px; height: 46px; margin: 0 auto 16px; color: var(--gold); }
-    .feature h3 { font-size: 21px; margin-bottom: 8px; }
-    .feature p { font-size: 14px; color: #5a5346; margin: 0; }
-
-    /* ---------- Dark "Get Unstuck" ---------- */
-    .unstuck { background: var(--ink); color: #e9e7e2; position: relative; }
-    .unstuck-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: center; }
-    .unstuck-text { padding: 80px 60px 80px 0; }
-    .eyebrow { font-size: 12px; letter-spacing: .22em; color: var(--gold); margin-bottom: 18px; font-weight: 600; }
-    .unstuck-text h2 { font-size: clamp(32px, 4vw, 46px); color: #fff; margin-bottom: 22px; }
-    .unstuck-text p { color: #b9b6af; max-width: 430px; }
-    .unstuck-media { position: relative; min-height: 520px;
-      background: #333 center/cover no-repeat;
-      background-image: url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1100&q=80"); }
-    .focus-card {
-      position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
-      background: var(--cream); color: var(--text); padding: 34px 32px; max-width: 280px;
-      box-shadow: 0 24px 60px rgba(0,0,0,.28);
-    }
-    .focus-card h3 { font-size: 24px; margin-bottom: 18px; }
-    .focus-card ul { list-style: none; margin: 0; padding: 0; }
-    .focus-card li { display: flex; align-items: center; gap: 12px; padding: 7px 0; font-size: 15px; }
-    .focus-card li svg { width: 18px; height: 18px; color: var(--gold); flex: none; }
-
-    /* ---------- Testimonial ---------- */
-    .quote { background: var(--cream); padding: 56px 0; }
-    .quote-inner { display: grid; grid-template-columns: 40px 1fr auto; gap: 28px; align-items: center; }
-    .quote .mark { font-family: "Playfair Display", serif; font-size: 80px; color: var(--gold); line-height: .8; }
-    .quote blockquote { margin: 0; font-size: 19px; font-style: italic; color: #3a3a3a; max-width: 560px; }
-    .quote .who { display: flex; align-items: center; gap: 16px; border-left: 1px solid var(--gray); padding-left: 28px; }
-    .quote .who img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
-    .quote .who b { display: block; font-size: 14px; letter-spacing: .06em; }
-    .quote .who span { font-size: 13px; color: var(--muted); }
-
-    /* ---------- CTA band ---------- */
-    .cta-band { background: var(--ink); color: #fff; padding: 44px 0; }
-    .cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-    .cta-inner h2 { font-size: clamp(28px, 3.4vw, 40px); }
-    .cta-inner p { margin: 6px 0 0; color: #c7c5c0; }
-
-    /* ---------- Footer trust row ---------- */
-    footer { background: var(--cream); padding: 40px 0; border-top: 1px solid var(--gray); }
-    .trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .trust .item { display: flex; align-items: center; gap: 14px; }
-    .trust .item svg { width: 34px; height: 34px; color: var(--gold); flex: none; }
-    .trust .item b { font-size: 15px; font-weight: 600; }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hero, .unstuck-grid { grid-template-columns: 1fr; }
-      .hero-text { padding: 50px 0 40px; }
-      .hero-img, .unstuck-media { min-height: 320px; }
-      .unstuck-text { padding: 60px 0; }
-      .focus-card { position: static; transform: none; margin: -60px auto 40px; max-width: 100%; }
-      .feature-grid { grid-template-columns: 1fr 1fr; gap: 36px 0; }
-      .feature:nth-child(2) { border-right: none; }
-      .quote-inner { grid-template-columns: 1fr; text-align: left; }
-      .quote .who { border-left: none; padding-left: 0; }
-      .trust { grid-template-columns: 1fr 1fr; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
 
   <!-- ===== Header ===== -->
   <header>
     <div class="wrap nav">
-      <a class="logo" href="#"><b>GROWTH</b><span>STRATEGY CONSULTING</span></a>
+      <a class="logo" href="index.html"><b>GROWTH</b><span>STRATEGY CONSULTING</span></a>
       <ul class="nav-links">
-        <li><a href="#" class="active">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">SERVICES</a></li>
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="#what-we-do">SERVICES</a></li>
         <li><a href="#results">RESULTS</a></li>
-        <li><a href="#resources">RESOURCES</a></li>
+        <li><a href="#connect">CONTACT</a></li>
       </ul>
-      <a class="btn btn--dark" href="#book">Book a Strategy Call</a>
+      <a class="btn btn--dark" href="mailto:hello@growthstrategyconsulting.org?subject=Strategy%20Call%20Request" target="_blank" rel="noopener">Book a Strategy Call</a>
     </div>
   </header>
 
   <!-- ===== Hero ===== -->
-  <section class="hero wrap" style="max-width:none;padding:0">
-    <div class="hero-text" style="padding-left:max(24px, calc((100vw - var(--max))/2 + 24px))">
+  <section class="hero">
+    <div class="hero-text edge-left">
       <h1>Smart Strategy.<br />Stronger Growth.</h1>
       <p>We help small businesses uncover what's holding them back and create a clear plan to grow revenue, improve profit, and build a business that runs better.</p>
       <div class="hero-cta">
-        <a class="btn btn--dark" href="#book">Book a Strategy Call</a>
-        <a class="btn btn--text" href="#about">See How We Help →</a>
+        <a class="btn btn--dark" href="mailto:hello@growthstrategyconsulting.org?subject=Strategy%20Call%20Request" target="_blank" rel="noopener">Book a Strategy Call</a>
+        <a class="btn btn--text" href="#what-we-do">See How We Help →</a>
       </div>
     </div>
-    <div class="hero-img" role="img" aria-label="A calm, modern workspace with a laptop and plant"></div>
+    <div class="hero-img" role="img" aria-label="Warm, inviting small-business interior"></div>
   </section>
 
   <!-- ===== Feature row ===== -->
-  <section class="features">
+  <section class="features" id="what-we-do">
     <div class="wrap feature-grid">
       <div class="feature">
         <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
@@ -198,16 +69,16 @@
   </section>
 
   <!-- ===== Get Unstuck (dark) ===== -->
-  <section class="unstuck" id="about">
-    <div class="wrap unstuck-grid" style="max-width:none;padding:0">
-      <div class="unstuck-text" style="padding-left:max(24px, calc((100vw - var(--max))/2 + 24px))">
+  <section class="unstuck" id="approach">
+    <div class="unstuck-grid">
+      <div class="unstuck-text edge-left">
         <div class="eyebrow">GROW WITH CONFIDENCE</div>
         <h2>Get Unstuck.<br />Grow With Direction.</h2>
         <p>Running a business is hard. You're pulled in a million directions, and it's tough to know what's actually worth your time. That's where we come in.</p>
         <p>We bring an outside perspective, proven frameworks, and a focus on results—so you can stop guessing and start growing.</p>
-        <a class="btn btn--gold" href="#about" style="margin-top:10px">Learn More About Us</a>
+        <a class="btn btn--gold" href="about.html" style="margin-top:10px">Learn More About Us</a>
       </div>
-      <div class="unstuck-media" role="img" aria-label="A consultant reviewing performance charts">
+      <div class="unstuck-media" role="img" aria-label="Consultant reviewing business performance">
         <div class="focus-card">
           <h3>We focus on what matters most in your business:</h3>
           <ul>
@@ -222,34 +93,55 @@
     </div>
   </section>
 
+  <!-- ===== Meet Elena ===== -->
+  <section class="founder" id="meet-elena">
+    <div class="wrap founder-grid">
+      <div class="founder-photo">
+        <img src="assets/elena.png" alt="Elena Corrao, founder of Growth Strategy Consulting" />
+      </div>
+      <div class="founder-text">
+        <div class="eyebrow">MEET ELENA</div>
+        <h2>The strategist in your corner.</h2>
+        <p>I help good businesses that have hit a wall get unstuck. Across eight hands-on turnarounds&mdash;caf&eacute;s, boutique hotels, plant shops, IT firms, even film sets&mdash;I've walked in, found what was quietly draining time, profit, and energy, and built the systems to fix it.</p>
+        <p>No fluff. No get-rich-quick promises. Just clear strategy, honest conversations, and practical changes that help your business run better and make more money.</p>
+        <div class="founder-stats">
+          <div class="s"><b>8</b><span>Business turnarounds</span></div>
+          <div class="s"><b>5+</b><span>Industries</span></div>
+          <div class="s"><b>1</b><span>Focus: your growth</span></div>
+        </div>
+        <div class="signature">&mdash; Elena</div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Testimonial ===== -->
   <section class="quote" id="results">
     <div class="wrap quote-inner">
       <div class="mark">&ldquo;</div>
-      <blockquote>Growth Strategy Consulting helped us see what was really holding us back. We increased our profit by 28% in just 90 days by focusing on the right things.</blockquote>
+      <blockquote>Elena has been right beside me every step of the way&mdash;helping me build my brand and grow Knotted Roots year after year. She doesn't just hand you a plan and leave; she stays in it with you until it actually works.</blockquote>
       <div class="who">
-        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&q=80" alt="Jennifer L." />
+        <img src="assets/sadie.jpg" alt="Sadie LeBlanc" onerror="this.style.display='none'" />
         <div>
-          <b>— JENNIFER L.</b>
-          <span>Owner, Home &amp; Design Co.</span>
+          <b>— SADIE LEBLANC</b>
+          <span>Owner, Knotted Roots &middot; St. Pete, FL</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== CTA band ===== -->
-  <section class="cta-band" id="book">
+  <section class="cta-band">
     <div class="wrap cta-inner">
       <div>
         <h2>Ready to Grow Smarter?</h2>
         <p>Let's uncover what's next for your business.</p>
       </div>
-      <a class="btn btn--gold" href="https://growthstrategyconsulting.io">Book a Strategy Call</a>
+      <a class="btn btn--gold" href="mailto:hello@growthstrategyconsulting.org?subject=Strategy%20Call%20Request" target="_blank" rel="noopener">Book a Strategy Call</a>
     </div>
   </section>
 
-  <!-- ===== Footer trust row ===== -->
-  <footer id="resources">
+  <!-- ===== Trust band ===== -->
+  <section class="trust-band">
     <div class="wrap trust">
       <div class="item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-5 7-5s7 1.7 7 5M17 11a3 3 0 100-6M16 15c3 .3 5 2 5 5"/></svg>
@@ -267,6 +159,33 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M6 20v-6M11 20V8M16 20v-9M21 20V5"/></svg>
         <b>More Profit.<br />More Freedom.</b>
       </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer" id="connect">
+    <div class="wrap footer-main">
+      <div class="footer-brand">
+        <a class="logo" href="index.html"><b>GROWTH</b><span>STRATEGY CONSULTING</span></a>
+        <p>Approachable. Growth-focused. Modern. Helping established small businesses get unstuck, run better, and make more money.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#what-we-do">Services</a>
+        <a href="#results">Results</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="mailto:hello@growthstrategyconsulting.org">hello@growthstrategyconsulting.org</a>
+        <a href="https://instagram.com/growthstrategy.consulting" target="_blank" rel="noopener">Instagram @growthstrategy.consulting</a>
+        <a href="mailto:hello@growthstrategyconsulting.org?subject=Strategy%20Call%20Request" target="_blank" rel="noopener">Book a Strategy Call</a>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>&copy; 2026 Growth Strategy Consulting. All rights reserved.</span>
+      <span>St. Petersburg, FL</span>
     </div>
   </footer>
 
