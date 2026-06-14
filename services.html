@@ -108,11 +108,83 @@
       <h2>Not sure where you fit?</h2>
       <p>Tell me a little about your business and I'll tell you straight whether I can help &mdash; and where to start. No pitch, no pressure.</p>
 
-      <!-- FORM EMBED GOES HERE: qualifier questions + email capture (to be added next) -->
+      <form id="fitForm" class="fit-form" novalidate>
+        <div class="ff-row">
+          <div class="ff-field">
+            <label for="ff-name">First name *</label>
+            <input id="ff-name" name="firstname" type="text" autocomplete="given-name" required />
+          </div>
+          <div class="ff-field">
+            <label for="ff-email">Email *</label>
+            <input id="ff-email" name="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
+        <div class="ff-field">
+          <label for="ff-company">Business name</label>
+          <input id="ff-company" name="company" type="text" autocomplete="organization" />
+        </div>
+        <div class="ff-field">
+          <label for="ff-challenge">What's slowing you down most? *</label>
+          <select id="ff-challenge" name="challenge" required>
+            <option value="" disabled selected>Choose one&hellip;</option>
+            <option>Revenue / sales have gone flat</option>
+            <option>I'm drowning &mdash; no real systems or processes</option>
+            <option>Team, hiring, or culture problems</option>
+            <option>Profit's thin / cash is tight</option>
+            <option>Marketing isn't working</option>
+            <option>I need to rebrand or pivot</option>
+            <option>Honestly, not sure &mdash; that's why I'm here</option>
+          </select>
+        </div>
+        <label class="ff-consent">
+          <input id="ff-consent" type="checkbox" required />
+          <span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and to being contacted about my inquiry.</span>
+        </label>
+        <button type="submit" class="btn btn--dark" id="ff-submit">Send &amp; See If We're a Fit</button>
+        <p class="ff-status" id="ff-status" aria-live="polite"></p>
+      </form>
 
-      <a class="btn btn--gold" href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a 15-Min Consultation</a>
+      <p style="margin-top:6px;font-size:14px;color:var(--muted)">Prefer to just talk? <a href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline">Book a 15-minute call &rarr;</a></p>
     </div>
   </section>
+
+  <!-- Fit-check form -> HubSpot Forms API -->
+  <script>
+  (function () {
+    var form = document.getElementById('fitForm');
+    if (!form) return;
+    function cookie(n){ var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)'); return m ? m.pop() : ''; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var status = document.getElementById('ff-status');
+      var btn = document.getElementById('ff-submit');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      status.textContent = ''; btn.disabled = true; btn.textContent = 'Sending…';
+      var fields = [
+        { name: 'firstname', value: form.firstname.value.trim() },
+        { name: 'email', value: form.email.value.trim() },
+        { name: 'company', value: form.company.value.trim() },
+        { name: 'message', value: form.challenge.value }
+      ].filter(function (f) { return f.value; });
+      var ctx = { pageUri: location.href, pageName: document.title };
+      var hutk = cookie('hubspotutk'); if (hutk) ctx.hutk = hutk;
+      fetch('https://api.hsforms.com/submissions/v3/integration/submit/246490220/d6481086-9a01-4f7c-b24e-f7b85ea9416c', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields: fields, context: ctx })
+      }).then(function (r) { if (!r.ok) throw new Error('bad status'); return r.json(); })
+        .then(function () {
+          form.innerHTML = '<div class="ff-thanks"><h3>Got it &mdash; thank you!</h3>' +
+            '<p>I read every one of these myself. I\'ll be in touch within one business day.</p>' +
+            '<p>Want to skip the wait? Grab a free 15-minute call right now:</p>' +
+            '<a class="btn btn--gold" href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a 15-Min Consultation</a></div>';
+        })
+        .catch(function () {
+          btn.disabled = false; btn.textContent = "Send & See If We're a Fit";
+          status.innerHTML = 'Hmm, that didn\'t send. Please email me directly at <a href="mailto:hello@growthstrategyconsulting.org" style="color:var(--green);text-decoration:underline">hello@growthstrategyconsulting.org</a>.';
+        });
+    });
+  })();
+  </script>
 
   <!-- ===== CTA band ===== -->
   <section class="cta-band">
