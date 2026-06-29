@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Profit Leak Scorecard | Growth Strategy Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FBF8F1; --paper-2:#F4EEE3; --ink:#2A2521; --text:#4A443D;
+    --terra:#BF6E3F; --terra-deep:#A85C30; --sage:#6F8A74; --sand:#E9E0CE;
+    --muted:#9C8F7D; --line:#E5DBC8; --max:880px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--paper);color:var(--text);font-family:"Hanken Grotesk",system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:500;line-height:1.1;margin:0;color:var(--ink);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);font-weight:700;}
+
+  /* Hero */
+  .top{background:var(--paper-2);border-bottom:1px solid var(--line);padding:56px 0 48px;}
+  .top h1{font-size:clamp(34px,5vw,52px);margin:14px 0 16px;}
+  .top h1 em{font-style:italic;color:var(--terra);}
+  .top p{font-size:18px;color:var(--text);max-width:560px;margin:0;}
+  .meta{display:flex;gap:26px;margin-top:24px;font-size:13px;letter-spacing:.04em;color:var(--muted);flex-wrap:wrap;}
+  .meta b{color:var(--ink);font-weight:600;}
+
+  /* Instructions */
+  .howto{padding:38px 0 6px;}
+  .howto p{font-size:17px;max-width:620px;}
+  .howto .big{font-family:"Fraunces",serif;font-style:italic;font-size:20px;color:var(--ink);}
+
+  /* Profile */
+  .profile{background:var(--sage);color:#F3F1E9;border-radius:8px;padding:30px 30px 32px;margin:20px 0;}
+  .profile .phead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px;}
+  .profile .phead .k{font-family:"Fraunces",serif;font-style:italic;font-size:26px;color:#F0D9C7;line-height:1;}
+  .profile .phead h3{color:#fff;font-size:22px;}
+  .profile .note{font-size:14px;color:#DDE4DC;margin:0 0 20px;}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .pfield label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:#E7EDE6;margin-bottom:7px;}
+  .pfield select{width:100%;padding:12px 14px;font-family:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid rgba(255,255,255,.4);border-radius:6px;appearance:none;cursor:pointer;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23BF6E3F' stroke-width='2.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 14px center;}
+  .pfield select:focus{outline:none;border-color:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.25);}
+
+  /* Pillar blocks */
+  .pillar{background:#fff;border:1px solid var(--line);border-radius:8px;padding:30px 30px 12px;margin:20px 0;}
+  .pillar-head{display:flex;align-items:baseline;gap:14px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:8px;}
+  .pillar-head .k{font-family:"Fraunces",serif;font-style:italic;font-size:26px;color:var(--terra);line-height:1;}
+  .pillar-head h3{font-size:22px;}
+  .pillar-head .sub{margin-left:auto;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;align-self:center;}
+
+  .check{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid #F1EADC;cursor:pointer;user-select:none;}
+  .check:last-child{border-bottom:none;}
+  .check input{position:absolute;opacity:0;width:0;height:0;}
+  .box{flex:none;width:24px;height:24px;border:1.5px solid var(--sand);border-radius:6px;background:var(--paper);margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .15s ease;}
+  .box svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .12s ease;}
+  .check input:checked + .box{background:var(--terra);border-color:var(--terra);}
+  .check input:checked + .box svg{opacity:1;}
+  .check span{font-size:16px;color:var(--text);}
+  .check input:checked ~ span{color:var(--ink);}
+
+  /* Calculate bar */
+  .calcbar{position:sticky;bottom:0;background:rgba(251,248,241,.94);backdrop-filter:blur(6px);border-top:1px solid var(--line);padding:16px 0;margin-top:24px;z-index:5;}
+  .calcbar .inner{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .counter{font-size:14px;color:var(--muted);}
+  .counter b{font-family:"Fraunces",serif;font-style:italic;color:var(--ink);font-size:20px;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;font-family:"Hanken Grotesk",sans-serif;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:none;border-radius:6px;cursor:pointer;background:var(--terra);color:#fff;transition:transform .15s,background .15s;}
+  .btn:hover{transform:translateY(-1px);background:var(--terra-deep);}
+
+  /* Result */
+  .result{display:none;padding:30px 0 70px;}
+  .result.show{display:block;animation:rise .4s ease;}
+  @keyframes rise{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+  .scorecard{background:var(--ink);color:#EDE6D8;border-radius:12px;padding:42px 40px;text-align:center;}
+  .snapshot{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-bottom:18px;}
+  .scorecard .num{font-family:"Fraunces",serif;font-size:72px;line-height:1;color:#fff;}
+  .scorecard .num small{font-size:26px;color:var(--sand);}
+  .scorecard .verdict{font-family:"Fraunces",serif;font-style:italic;font-size:26px;color:#E0996B;margin:8px 0 14px;}
+  .scorecard .sayso{max-width:520px;margin:0 auto;color:#CFC6B6;font-size:16px;}
+  .bars{max-width:560px;margin:30px auto 0;text-align:left;}
+  .bar-row{display:grid;grid-template-columns:150px 1fr 44px;align-items:center;gap:12px;margin:11px 0;font-size:14px;}
+  .bar-row .lab{color:#CFC6B6;}
+  .bar-track{height:9px;background:rgba(255,255,255,.12);border-radius:6px;overflow:hidden;}
+  .bar-fill{height:100%;background:var(--terra);border-radius:6px;width:0;transition:width .6s ease;}
+  .bar-row .val{text-align:right;color:#fff;font-weight:600;font-family:"Fraunces",serif;font-style:italic;}
+  .topleak{margin:26px auto 0;max-width:560px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:18px 22px;font-size:15px;color:#E7DECC;}
+  .topleak b{color:#fff;}
+
+  /* CTA */
+  .next{background:#fff;border:1px solid var(--line);border-radius:12px;padding:36px 36px;margin-top:22px;text-align:center;}
+  .next h2{font-size:28px;margin-bottom:10px;}
+  .next p{max-width:520px;margin:0 auto 22px;color:var(--text);font-size:16px;}
+  .gate{display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+  .gate input{flex:1;min-width:200px;padding:13px 16px;font-family:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--sand);border-radius:6px;}
+  .gate input:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(191,110,63,.14);}
+  .consent{display:flex;gap:9px;align-items:flex-start;max-width:460px;margin:14px auto 16px;text-align:left;font-size:13px;color:var(--muted);}
+  .consent input{margin-top:3px;flex:none;accent-color:var(--terra);}
+  .consent a{color:var(--terra);text-decoration:underline;}
+  .gate-thanks h2{color:var(--sage);}
+  .finehint{margin-top:14px;font-size:13px;color:var(--muted);}
+  .or{margin:20px 0 0;font-size:14px;color:var(--muted);}
+  .or a{color:var(--terra);font-weight:600;text-decoration:none;}
+
+  /* Footer note */
+  .brandline{text-align:center;letter-spacing:.2em;font-size:12px;text-transform:uppercase;color:var(--muted);padding:30px 0;}
+  .brandline b{color:var(--ink);font-family:"Fraunces",serif;font-style:italic;letter-spacing:0;text-transform:none;font-size:15px;}
+
+  @media (max-width:640px){
+    .pillar-head .sub{display:none;}
+    .pgrid{grid-template-columns:1fr;}
+    .bar-row{grid-template-columns:104px 1fr 40px;}
+    .scorecard{padding:32px 22px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="top">
+    <div class="wrap">
+      <div class="eyebrow">Free Resource &middot; Growth Strategy Consulting</div>
+      <h1>The Profit Leak <em>Scorecard</em></h1>
+      <p>Most businesses that stall aren't leaking in one place. They're leaking in four. Answer a few questions about your business and see exactly where the money, time, and energy are draining out.</p>
+      <div class="meta">
+        <span><b>28</b> quick checks</span>
+        <span><b>4</b> areas of your business</span>
+        <span><b>10</b> minutes</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to -->
+  <div class="wrap howto">
+    <p class="big">Be honest. The boxes you don't want to check are usually the ones costing you the most.</p>
+    <p>Start with a few basics so the read is tailored to a business like yours. Then check every statement that's true right now. Each one is a leak I see again and again.</p>
+  </div>
+
+  <!-- Scorecard form -->
+  <div class="wrap">
+    <form id="scorecard">
+
+      <!-- Profile -->
+      <div class="profile">
+        <div class="phead"><span class="k">00</span><h3>First, the basics</h3></div>
+        <p class="note">This stays private. It just lets me read your score the way I'd read it sitting across from you.</p>
+        <div class="pgrid">
+          <div class="pfield">
+            <label for="p-type">What kind of business?</label>
+            <select id="p-type">
+              <option value="" selected>Choose one</option>
+              <option>Retail or shop</option>
+              <option>Food &amp; beverage</option>
+              <option>Service business (local)</option>
+              <option>Professional services</option>
+              <option>E-commerce / online</option>
+              <option>Health, wellness, or beauty</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="pfield">
+            <label for="p-years">How long in business?</label>
+            <select id="p-years">
+              <option value="" selected>Choose one</option>
+              <option>Under 2 years</option>
+              <option>2 to 5 years</option>
+              <option>5 to 10 years</option>
+              <option>10+ years</option>
+            </select>
+          </div>
+          <div class="pfield">
+            <label for="p-rev">Rough annual revenue?</label>
+            <select id="p-rev">
+              <option value="" selected>Choose one</option>
+              <option>Under $250k</option>
+              <option>$250k to $1M</option>
+              <option>$1M to $5M</option>
+              <option>$5M+</option>
+              <option>Rather not say</option>
+            </select>
+          </div>
+          <div class="pfield">
+            <label for="p-team">How big is your team?</label>
+            <select id="p-team">
+              <option value="" selected>Choose one</option>
+              <option>Just me</option>
+              <option>2 to 5 people</option>
+              <option>6 to 15 people</option>
+              <option>16+ people</option>
+            </select>
+          </div>
+          <div class="pfield">
+            <label for="p-goal">What would move the needle most?</label>
+            <select id="p-goal">
+              <option value="" selected>Choose one</option>
+              <option>More revenue coming in</option>
+              <option>Keeping more of what I make</option>
+              <option>Getting my time back</option>
+              <option>A team I can rely on</option>
+              <option>Honestly, not sure yet</option>
+            </select>
+          </div>
+          <div class="pfield">
+            <label for="p-tried">Worked with a consultant before?</label>
+            <select id="p-tried">
+              <option value="" selected>Choose one</option>
+              <option>No, this would be a first</option>
+              <option>Yes, and it helped</option>
+              <option>Yes, and it didn't</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 1 -->
+      <div class="pillar" data-pillar="Revenue">
+        <div class="pillar-head"><span class="k">01</span><h3>Revenue</h3><span class="sub">The top line</span></div>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You haven't raised your prices in over a year, even as your costs went up.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You can't name your single most profitable product or service off the top of your head.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>More than half your revenue depends on a handful of customers.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You're busy, but revenue has been flat or sliding for two quarters or more.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You have no reliable way to land a new customer this month. It's word of mouth and luck.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Your sales lean on discounts or promotions to move.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You don't actually track where your new customers come from.</span></label>
+      </div>
+
+      <!-- Pillar 2 -->
+      <div class="pillar" data-pillar="Overhead">
+        <div class="pillar-head"><span class="k">02</span><h3>Overhead</h3><span class="sub">The bottom line</span></div>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You couldn't say right now what your three biggest monthly expenses are.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You're paying for software, subscriptions, or vendors you're not sure you still use.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Inventory or supply ordering runs on gut, not numbers.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Payroll has crept up, but output hasn't moved with it.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You haven't renegotiated a major vendor, lease, or contract in over a year.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You don't know your profit margin on a typical sale.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Cash feels tight even in months that looked busy.</span></label>
+      </div>
+
+      <!-- Pillar 3 -->
+      <div class="pillar" data-pillar="Systems">
+        <div class="pillar-head"><span class="k">03</span><h3>Systems &amp; Processes</h3><span class="sub">The machine</span></div>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>The business can't get through a normal day without you physically there.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Key tasks live in your head, not in a written process.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>The same problems keep coming back no matter how many times you fix them.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You're the bottleneck. Things stall the moment they hit your desk.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You couldn't hand a new hire a document that shows them how things are done.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Customer follow-up or invoicing slips through the cracks when things get busy.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You're still doing tasks a capable hire could handle for a fraction of your time.</span></label>
+      </div>
+
+      <!-- Pillar 4 -->
+      <div class="pillar" data-pillar="Team">
+        <div class="pillar-head"><span class="k">04</span><h3>Culture &amp; Team</h3><span class="sub">The glue</span></div>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You've lost a good employee in the last year and you're still not sure why.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You avoid the hard conversations with people who aren't pulling their weight.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Your team waits to be told what to do instead of taking ownership.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Hiring feels like a gamble every single time.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>If you took two weeks off, things would quietly fall apart.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>Training a new hire means they shadow you and hope it sticks.</span></label>
+        <label class="check"><input type="checkbox"><span class="box"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></span><span>You're working more hours than anyone else on your team.</span></label>
+      </div>
+
+    </form>
+  </div>
+
+  <!-- Sticky calculate bar -->
+  <div class="calcbar">
+    <div class="wrap inner">
+      <div class="counter"><b id="liveCount">0</b> of 28 leaks checked</div>
+      <button class="btn" type="button" id="calcBtn">See where I'm leaking</button>
+    </div>
+  </div>
+
+  <!-- Result -->
+  <div class="wrap result" id="result">
+    <div class="scorecard">
+      <div class="snapshot" id="snapshot">&nbsp;</div>
+      <div class="num"><span id="scoreNum">0</span><small>/28</small></div>
+      <div class="verdict" id="verdict">&nbsp;</div>
+      <p class="sayso" id="sayso">&nbsp;</p>
+
+      <div class="bars" id="bars">
+        <div class="bar-row"><span class="lab">Revenue</span><div class="bar-track"><div class="bar-fill" data-k="Revenue"></div></div><span class="val" data-v="Revenue">0</span></div>
+        <div class="bar-row"><span class="lab">Overhead</span><div class="bar-track"><div class="bar-fill" data-k="Overhead"></div></div><span class="val" data-v="Overhead">0</span></div>
+        <div class="bar-row"><span class="lab">Systems</span><div class="bar-track"><div class="bar-fill" data-k="Systems"></div></div><span class="val" data-v="Systems">0</span></div>
+        <div class="bar-row"><span class="lab">Culture &amp; Team</span><div class="bar-track"><div class="bar-fill" data-k="Team"></div></div><span class="val" data-v="Team">0</span></div>
+      </div>
+
+      <div class="topleak" id="topleak">&nbsp;</div>
+    </div>
+
+    <!-- CTA / gate -->
+    <div class="next" id="gateWrap">
+      <h2>Want the fixes, not just the score?</h2>
+      <p>Drop your name and email and I'll send the full breakdown: what each leak is costing you and the first three to plug. No spam, no pitch.</p>
+      <div class="gate">
+        <input type="text" placeholder="First name" id="fname" autocomplete="given-name" />
+        <input type="email" placeholder="you@yourbusiness.com" id="email" autocomplete="email" />
+      </div>
+      <label class="consent"><input type="checkbox" id="consent" /><span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and to being contacted about my results.</span></label>
+      <button class="btn" type="button" id="sendBtn">Send my breakdown</button>
+      <p class="finehint" id="gateHint">No spam. Your breakdown, and the occasional thing actually worth reading.</p>
+      <p class="or">Leaking in three or four areas? <a href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a free 15-minute consultation &rarr;</a></p>
+    </div>
+  </div>
+
+  <div class="brandline"><b>We grow your strategy.</b> &nbsp; Outside &middot; Direct &middot; Real</div>
+
+<script>
+  // ===== HubSpot (mirrors the Services qualifier form) =====
+  var HS_PORTAL = '246490220';
+  var HS_FORM_ID = '5488f7cf-a31d-420a-8162-1c1cdf594982'; // Profit Leak Scorecard form
+  var lastResult = null;
+
+  var form = document.getElementById('scorecard');
+  var boxes = form.querySelectorAll('input[type=checkbox]');
+  var liveCount = document.getElementById('liveCount');
+  var TOTAL = boxes.length;
+
+  function total(){ var n=0; boxes.forEach(function(b){ if(b.checked) n++; }); return n; }
+  boxes.forEach(function(b){ b.addEventListener('change', function(){ liveCount.textContent = total(); }); });
+
+  function perPillar(){
+    var out = {Revenue:0,Overhead:0,Systems:0,Team:0,_max:{}};
+    form.querySelectorAll('.pillar').forEach(function(p){
+      var key = p.getAttribute('data-pillar'); var c=0;
+      p.querySelectorAll('input').forEach(function(i){ if(i.checked) c++; });
+      out[key]=c;
+      out._max[key]=p.querySelectorAll('input').length;
+    });
+    return out;
+  }
+
+  function profile(){
+    function v(id){ var s=document.getElementById(id); return s.value; }
+    return {type:v('p-type'),years:v('p-years'),rev:v('p-rev'),team:v('p-team'),goal:v('p-goal'),tried:v('p-tried')};
+  }
+
+  var verdicts = [
+    {pct:.20, v:'Tight ship.',                     t:'Only a few small leaks. You’re running cleaner than most. Tighten these and protect your margins before they widen.'},
+    {pct:.45, v:'You’re leaking.',                  t:'A handful of real leaks across your business. Individually they look minor. Together they’re the reason growth feels harder than it should.'},
+    {pct:.72, v:'Multiple leaks.',                  t:'This is what a stalled business looks like from the inside. The good news: leaks this clear are also the fastest to plug once someone names them.'},
+    {pct:1.01,v:'The whole machine is bleeding.',   t:'You’re not bad at this. You just can’t see it from inside, and you’ve been carrying all four areas at once. This is exactly the kind of business I turn around.'}
+  ];
+
+  document.getElementById('calcBtn').addEventListener('click', function(){
+    var score = total();
+    var pp = perPillar();
+    var pr = profile();
+    document.getElementById('scoreNum').textContent = score;
+
+    // snapshot line from profile (only what they filled in)
+    var snap = [pr.type, pr.years, pr.rev, (pr.team? pr.team+' on the team':'')].filter(Boolean);
+    document.getElementById('snapshot').textContent = snap.length? snap.join('  ·  ') : 'Your snapshot';
+
+    var ratio = score / TOTAL;
+    var pick = verdicts.find(function(x){ return ratio <= x.pct; });
+    document.getElementById('verdict').textContent = pick.v;
+    // goal-aware closing line
+    var goalLine = {
+      'More revenue coming in':' You told me the top line is what matters most, and that’s where two of your leaks sit.',
+      'Keeping more of what I make':' You said keeping more of what you make is the goal. Overhead and systems are usually where it’s slipping.',
+      'Getting my time back':' You want your time back. Every systems and team box you checked is an hour you’re not getting back yet.',
+      'A team I can rely on':' You want a team you can rely on. That’s built, not hired, and it starts with the boxes above.'
+    }[pr.goal] || '';
+    document.getElementById('sayso').textContent = pick.t + goalLine;
+
+    // bars
+    document.querySelectorAll('.bar-fill').forEach(function(f){
+      var k=f.getAttribute('data-k'); f.style.width = (pp[k]/pp._max[k]*100)+'%';
+    });
+    document.querySelectorAll('.val').forEach(function(v){
+      var k=v.getAttribute('data-v'); v.textContent = pp[k]+'/'+pp._max[k];
+    });
+
+    // top leak callout
+    var keys=['Revenue','Overhead','Systems','Team'];
+    var max = Math.max(pp.Revenue,pp.Overhead,pp.Systems,pp.Team);
+    var names={Revenue:'Revenue',Overhead:'Overhead',Systems:'Systems & Processes',Team:'Culture & Team'};
+    var leaders = keys.filter(function(k){ return pp[k]===max && max>0; }).map(function(k){return names[k];});
+    var tl = document.getElementById('topleak');
+    if(max===0){ tl.innerHTML = 'Nothing checked yet. Be honest and run it again.'; }
+    else if(leaders.length===1){ tl.innerHTML = 'Your biggest leak right now: <b>'+leaders[0]+'</b>. That’s where I’d start.'; }
+    else { tl.innerHTML = 'You’re leaking most in <b>'+leaders.join(' and ')+'</b>. That’s where I’d start.'; }
+
+    // stash a tidy summary for the HubSpot submission
+    lastResult = {
+      score: score, total: TOTAL, verdict: pick.v,
+      biggest: (max===0 ? 'none yet' : leaders.join(' and ')),
+      pillars: 'Revenue '+pp.Revenue+'/'+pp._max.Revenue+', Overhead '+pp.Overhead+'/'+pp._max.Overhead+
+               ', Systems '+pp.Systems+'/'+pp._max.Systems+', Team '+pp.Team+'/'+pp._max.Team,
+      profile: pr
+    };
+
+    var r=document.getElementById('result'); r.classList.add('show');
+    r.scrollIntoView({behavior:'smooth'});
+  });
+
+  function cookie(n){ var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)'); return m?m.pop():''; }
+
+  document.getElementById('sendBtn').addEventListener('click', function(){
+    var fname=document.getElementById('fname').value.trim();
+    var email=document.getElementById('email').value.trim();
+    var consent=document.getElementById('consent').checked;
+    var hint=document.getElementById('gateHint');
+    var btn=document.getElementById('sendBtn');
+
+    if(!lastResult){ hint.textContent='Run your scorecard first, then I’ll send the breakdown.'; hint.style.color='#C0573B'; return; }
+    if(!email || email.indexOf('@')<1){ hint.textContent='Enter a valid email and I’ll send your full breakdown.'; hint.style.color='#C0573B'; return; }
+    if(!consent){ hint.textContent='Please check the consent box so I’m allowed to email you.'; hint.style.color='#C0573B'; return; }
+
+    // Build the results summary that lands on the HubSpot contact
+    var p=lastResult.profile;
+    var prof=[ p.type&&('Type: '+p.type), p.years&&('In business: '+p.years), p.rev&&('Revenue: '+p.rev),
+               p.team&&('Team: '+p.team), p.goal&&('Goal: '+p.goal), p.tried&&('Prior consultant: '+p.tried)
+             ].filter(Boolean).join(' | ');
+    var message='PROFIT LEAK SCORECARD — Score '+lastResult.score+'/'+lastResult.total+
+                ' ('+lastResult.verdict+'). Biggest leak: '+lastResult.biggest+
+                '. Pillars: '+lastResult.pillars+'. '+(prof?('Profile — '+prof):'');
+
+    var fields=[
+      {name:'firstname', value:fname},
+      {name:'email', value:email},
+      {name:'message', value:message}
+    ].filter(function(f){ return f.value; });
+
+    var ctx={ pageUri:location.href, pageName:document.title };
+    var hutk=cookie('hubspotutk'); if(hutk) ctx.hutk=hutk;
+
+    btn.disabled=true; btn.textContent='Sending…'; hint.textContent=''; hint.style.color='';
+
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL+'/'+HS_FORM_ID, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({ fields:fields, context:ctx })
+    }).then(function(r){ if(!r.ok) throw new Error('bad status'); return r.json(); })
+      .then(function(){
+        document.getElementById('gateWrap').innerHTML=
+          '<div class="gate-thanks"><h2>Got it'+(fname?(', '+fname):'')+'. Check your inbox.</h2>'+
+          '<p>Your full breakdown is on its way. Leaking in three or four areas? Don’t wait on the email.</p>'+
+          '<a class="btn" href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a free 15-minute consultation</a></div>';
+      })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Send my breakdown';
+        hint.innerHTML='Hmm, that didn’t send. Email me directly at <a href="mailto:hello@growthstrategyconsulting.org">hello@growthstrategyconsulting.org</a> and I’ll send it over.';
+        hint.style.color='#C0573B';
+      });
+  });
+</script>
+</body>
+</html>
