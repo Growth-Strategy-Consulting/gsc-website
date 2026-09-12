@@ -1,0 +1,692 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What are you actually chasing? · Elena Corrao</title>
+<meta name="description" content="Five minutes. The questions I would ask you in person, and what is really underneath the goal you named.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --cream:#FDF8F1; --blush:#FAE2CC; --peach:#FCEBDA;
+    --ink:#2E241C; --body:#5E5147; --muted:#645649; --line:#E4D3BF;
+    --deep:#33271F;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;color:var(--body);background:var(--cream);
+       font-family:'Public Sans','Helvetica Neue',Arial,sans-serif;font-size:17px;line-height:1.7;
+       -webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:400;color:var(--ink);margin:0}
+  a{color:inherit}
+
+  /* ---- the atmosphere: the light deepening as you go ---- */
+  .washes{position:fixed;inset:0;z-index:-1;background:var(--cream)}
+  .washes i{position:absolute;inset:0;opacity:0;transition:opacity 1.1s cubic-bezier(.22,1,.36,1)}
+  .washes i.on{opacity:1}
+  .w1 {background:radial-gradient(1100px 680px at 4% 2%,#FCE9D8 0%,transparent 62%),radial-gradient(900px 760px at 96% 98%,#FDF2E6 0%,transparent 64%)}
+  .w2 {background:radial-gradient(1100px 680px at 6% 3%,#FBE5D0 0%,transparent 62%),radial-gradient(900px 760px at 94% 97%,#FCEDDC 0%,transparent 64%)}
+  .w3 {background:radial-gradient(1110px 690px at 8% 2%,#FAE2CA 0%,transparent 63%),radial-gradient(910px 765px at 92% 97%,#FCEAD6 0%,transparent 64%)}
+  .w4 {background:radial-gradient(1120px 695px at 5% 5%,#FAE0C5 0%,transparent 63%),radial-gradient(915px 770px at 95% 95%,#FBE7D1 0%,transparent 65%)}
+  .w5 {background:radial-gradient(1130px 700px at 9% 3%,#F9DDC0 0%,transparent 63%),radial-gradient(920px 775px at 91% 97%,#FBE4CC 0%,transparent 65%)}
+  .w6 {background:radial-gradient(1140px 705px at 4% 6%,#F8DABB 0%,transparent 64%),radial-gradient(925px 780px at 96% 94%,#FAE1C7 0%,transparent 65%)}
+  .w7 {background:radial-gradient(1150px 710px at 8% 2%,#F8D7B6 0%,transparent 64%),radial-gradient(930px 785px at 92% 96%,#F9DEC2 0%,transparent 66%)}
+  .w8 {background:radial-gradient(1160px 715px at 5% 4%,#F7D4B2 0%,transparent 64%),radial-gradient(935px 790px at 95% 95%,#F9DBBE 0%,transparent 66%)}
+  .w9 {background:radial-gradient(1170px 725px at 7% 3%,#F6D1AE 0%,transparent 65%),radial-gradient(940px 795px at 93% 96%,#F8D8BA 0%,transparent 66%)}
+  .w10{background:radial-gradient(1180px 730px at 4% 5%,#F5CEAA 0%,transparent 65%),radial-gradient(945px 800px at 96% 95%,#F7D5B6 0%,transparent 67%)}
+  .w11{background:radial-gradient(1190px 740px at 8% 3%,#F5CBA6 0%,transparent 66%),radial-gradient(950px 805px at 92% 96%,#F6D2B2 0%,transparent 67%)}
+  .w12{background:radial-gradient(1200px 750px at 6% 4%,#F4C8A2 0%,transparent 66%),radial-gradient(955px 810px at 94% 95%,#F6CFAE 0%,transparent 68%)}
+
+  /* ---- page ---- */
+  .page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;
+        max-width:1080px;margin:0 auto;padding:0 clamp(22px,5vw,72px)}
+  .topbar{display:flex;justify-content:space-between;align-items:baseline;
+          padding:22px 0 12px;border-bottom:1px solid var(--line)}
+  .wm{font-family:'Source Serif 4',Georgia,serif;font-size:17px;letter-spacing:.16em;
+      color:var(--ink);text-decoration:none}
+  .idx{font-family:'Source Serif 4',Georgia,serif;font-size:14px;letter-spacing:.1em;color:var(--muted)}
+  .pane{display:flex;flex-direction:column;justify-content:center;
+        padding:clamp(20px,3.6vh,38px) 0}
+  .sig{padding:0 0 22px;font-family:'Source Serif 4',Georgia,serif;font-style:italic;
+       font-size:14.5px;color:var(--muted);max-width:44ch}
+
+  /* ---- question ---- */
+  .q{font-size:clamp(22px,2.2vw,29px);line-height:1.18;margin-bottom:12px;
+     max-width:34ch;text-wrap:balance}
+  .hint{font-size:15px;color:var(--muted);margin:0 0 22px;max-width:56ch;text-wrap:pretty}
+
+  .opts{display:block;border-top:1px solid var(--line);max-width:40rem}
+  .opt{display:grid;grid-template-columns:26px 1fr;gap:14px;align-items:baseline;
+       width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);
+       padding:12px 14px;font:inherit;font-size:16px;line-height:1.4;color:var(--body);cursor:pointer;
+       transition:background-color .16s cubic-bezier(.22,1,.36,1),color .16s cubic-bezier(.22,1,.36,1);
+       animation:rise .34s cubic-bezier(.22,1,.36,1) backwards}
+  @keyframes rise{from{transform:translateY(7px)}to{transform:none}}
+  .opt .ltr{font-family:'Source Serif 4',Georgia,serif;font-style:italic;font-size:14px;
+            color:var(--muted);transition:color .16s cubic-bezier(.22,1,.36,1)}
+  .opt:hover{background:var(--peach);color:var(--ink)}
+  .opt:hover .ltr{color:var(--ink)}
+  .opt[aria-pressed="true"]{background:var(--blush);color:var(--ink)}
+  .opt[aria-pressed="true"] .ltr{color:var(--ink);font-style:normal;font-weight:600}
+
+  .own{margin-top:18px;max-width:40rem}
+  .own label{display:block;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+  input[type=text],input[type=email]{width:100%;max-width:28rem;padding:11px 2px;
+       border:0;border-bottom:1px solid var(--line);background:none;color:var(--ink);
+       font-family:'Source Serif 4',Georgia,serif;font-size:17px}
+  input::placeholder{color:#8E7C6A;font-family:'Public Sans',sans-serif;font-size:15px}
+  input:focus{outline:0;border-bottom-color:var(--ink)}
+
+  .nav{display:flex;align-items:center;gap:24px;margin-top:26px;flex-wrap:wrap}
+  .pill{display:inline-block;background:var(--ink);color:var(--cream);padding:13px 32px;
+        border:0;border-radius:999px;font-family:'Public Sans',sans-serif;font-size:13.5px;font-weight:600;
+        text-decoration:none;cursor:pointer;
+        transition:background-color .18s cubic-bezier(.22,1,.36,1),transform .18s cubic-bezier(.22,1,.36,1)}
+  .pill:hover{background:#171210;transform:translateY(-1px)}
+  .pill[disabled]{opacity:.32;cursor:not-allowed;transform:none;background:var(--ink)}
+  .back{background:none;border:0;font:inherit;font-size:14px;color:var(--muted);cursor:pointer;
+        padding:0 0 3px;border-bottom:1px solid var(--line)}
+  .fine{font-size:14px;color:var(--muted);margin:18px 0 0}
+  .err{font-size:14px;color:#8A3A28;margin:16px 0 0}
+
+  /* ---- result ---- */
+  .kicker{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+  .rtitle{font-size:clamp(26px,2.9vw,38px);line-height:1.14;margin-bottom:24px;max-width:23ch;text-wrap:balance}
+  .rbody p{max-width:62ch;font-size:17px}
+  .doit{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+        padding:26px 0;margin:34px 0 0;max-width:62ch}
+  .doit b{display:block;font-family:'Source Serif 4',Georgia,serif;font-weight:400;font-size:12px;
+          letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .doit p{margin:0;font-size:18px;font-family:'Source Serif 4',Georgia,serif;line-height:1.5;color:var(--ink)}
+  .strip{position:relative;height:260px;overflow:hidden;margin:46px 0 0;
+         width:100vw;margin-left:calc(50% - 50vw)}
+  .strip img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+  .strip .veil{position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(38,29,22,.80) 0%,rgba(38,29,22,.34) 56%,rgba(38,29,22,0) 100%)}
+  .strip .in{position:absolute;inset:0;display:flex;align-items:center;padding:0 clamp(22px,5vw,72px)}
+  .strip .in > div{max-width:1080px;margin:0 auto;width:100%}
+  .strip h3{color:#FFF6EC;font-size:clamp(21px,2.3vw,30px);line-height:1.22;max-width:21ch;margin:0}
+  .after{padding:32px 0 0;max-width:62ch}
+  .after p{margin:0 0 24px;font-size:17px}
+
+  .screen[hidden]{display:none}
+  button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+
+  /* short viewports: the whole question has to stay on one screen */
+  @media(max-height:760px){
+    .topbar{padding:16px 0 10px}
+    .pane{padding:16px 0}
+    .q{font-size:clamp(20px,1.9vw,25px);margin-bottom:10px}
+    .hint{font-size:14.5px;margin-bottom:16px}
+    .opt{padding:9px 14px;font-size:15.5px}
+    .own{margin-top:14px}
+    .own label{margin-bottom:4px}
+    .nav{margin-top:20px}
+    .sig{display:none}
+  }
+
+  @media(max-width:760px){
+    .page{padding:0 20px}
+    .topbar{padding-top:16px}
+    .pane{padding:20px 0;justify-content:flex-start}
+    .q{font-size:clamp(20px,5.4vw,25px);max-width:none}
+    .hint{font-size:14.5px;margin-bottom:18px}
+    .opt{font-size:15.5px;padding:12px 8px;grid-template-columns:22px 1fr;gap:10px}
+    .nav{margin-top:22px}
+    .sig{padding-bottom:18px;font-size:13.5px}
+    .strip{height:200px}
+  }
+</style>
+</head>
+<body>
+
+<div class="washes" id="washes">
+  <i class="w1 on"></i><i class="w2"></i><i class="w3"></i><i class="w4"></i><i class="w5"></i><i class="w6"></i>
+  <i class="w7"></i><i class="w8"></i><i class="w9"></i><i class="w10"></i><i class="w11"></i><i class="w12"></i>
+</div>
+
+<div class="page">
+
+  <div class="topbar">
+    <a class="wm" href="/">ELENA CORRAO</a>
+    <span class="idx" id="idx">Five minutes</span>
+  </div>
+
+  <div class="pane">
+
+    <section class="screen" id="s-intro">
+      <h1 class="q">What are you actually chasing?</h1>
+      <p class="hint">You say you want the money, the business, the move. Underneath each of those is something you are actually after, and it is usually not the thing you named. These are the questions I would ask you in person. Twelve of them, nothing you have to look up.</p>
+      <p class="hint" style="margin-bottom:0">Answer them the way you would at 11pm, not the way you would at a dinner party.</p>
+      <div class="nav"><button class="pill" id="begin">Start</button></div>
+    </section>
+
+    <section class="screen" id="s-q" hidden>
+      <h2 class="q" id="qtext"></h2>
+      <p class="hint" id="qhint"></p>
+      <div class="opts" id="opts" role="group"></div>
+      <div class="own" id="own" hidden>
+        <label for="ownword">Or say it in your own words</label>
+        <input type="text" id="ownword" placeholder="the thing you would actually say" maxlength="90">
+      </div>
+      <div class="nav">
+        <button class="pill" id="next" disabled>Next</button>
+        <button class="back" id="back" hidden>Back</button>
+      </div>
+    </section>
+
+    <section class="screen" id="s-mail" hidden>
+      <h2 class="q">Where should I send this?</h2>
+      <p class="hint">Twelve answers in. This is where I tell you what they add up to. Put your email in and it comes up on the next screen, along with the written version and the three questions I would ask you after this one.</p>
+      <form id="mailform" novalidate>
+        <label for="email" style="position:absolute;left:-9999px">Your email</label>
+        <input type="email" id="email" name="email" placeholder="your email" autocomplete="email" required>
+        <div class="nav">
+          <button class="pill" type="submit" id="mailgo">Show me my answer</button>
+        </div>
+        <p class="err" id="mailerr" hidden>That does not look like an email address.</p>
+        <p class="fine">No spam. Unsubscribe whenever you want.</p>
+      </form>
+    </section>
+
+    <section class="screen" id="s-result" hidden>
+      <div class="kicker">Your answer</div>
+      <h2 class="rtitle" id="rtitle"></h2>
+      <div class="rbody" id="rbody"></div>
+      <div class="doit">
+        <b>This week</b>
+        <p id="rdo"></p>
+      </div>
+      <div class="strip">
+        <img src="assets/w-sunset.jpg" alt="">
+        <div class="veil"></div>
+        <div class="in"><div><h3 id="ctitle"></h3></div></div>
+      </div>
+      <div class="after">
+        <p id="cbody"></p>
+        <a class="pill" id="cbtn" href="/#apply">Read about the eight weeks</a>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="sig" id="sig">The problem you walk in with is usually not the real one.</p>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var Q = [
+    {
+      id:"vehicle",
+      q:"What would you say you want, if someone asked you right now?",
+      hint:"Pick the closest one. If none fit, write it underneath.",
+      own:true,
+      a:[
+        {v:"money",   t:"More money"},
+        {v:"business",t:"My own business"},
+        {v:"job",     t:"Out of this job"},
+        {v:"away",    t:"Out of here, a different life somewhere else"},
+        {v:"unknown", t:"I honestly do not know"}
+      ]
+    },
+    {
+      id:"advice",
+      q:"A friend describes your exact situation back to you, word for word. What do you tell her to do?",
+      hint:"Not what you would say to be kind. What you would actually think.",
+      a:[
+        {v:"leave",  t:"Leave. You already know"},
+        {v:"plan",   t:"Make a real plan, then leave"},
+        {v:"permit", t:"Stop waiting for someone to hand you permission"},
+        {v:"ask",    t:"Ask for what you actually want, out loud"},
+        {v:"fudge",  t:"The same thing I tell myself, which is nothing useful"}
+      ]
+    },
+    {
+      id:"known",
+      q:"And how long has that been your answer too?",
+      hint:"Nobody is reading this over your shoulder.",
+      a:[
+        {v:"weeks", t:"A few weeks"},
+        {v:"year",  t:"Most of this year"},
+        {v:"years", t:"A couple of years"},
+        {v:"long",  t:"Longer than I want to write down"}
+      ]
+    },
+    {
+      id:"driver",
+      q:"If you got it tomorrow, what is the first thing that changes?",
+      hint:"Not what changes on paper. What changes in you.",
+      a:[
+        {v:"safety",     t:"I stop being afraid about money"},
+        {v:"freedom",    t:"I stop needing anyone's permission"},
+        {v:"recognition",t:"People finally take me seriously"},
+        {v:"selfhood",   t:"I feel like myself again"},
+        {v:"worth",      t:"I am proud of myself for once"}
+      ]
+    },
+    {
+      id:"tuesday",
+      q:"Picture an average Tuesday after you have it. What are you doing at three in the afternoon?",
+      hint:"Month eight, not week one. Most people have never asked this about the thing they want most.",
+      a:[
+        {v:"clear",  t:"I can picture it clearly, and I want it"},
+        {v:"boring", t:"I can picture it, and honestly it looks a bit boring"},
+        {v:"never",  t:"I have never pictured it past the moment I get it"},
+        {v:"others", t:"What I picture is other people's reaction, not my day"}
+      ]
+    },
+    {
+      id:"secret",
+      q:"Same thing, but nobody ever finds out. No post, no telling anyone. Do you still want it?",
+      hint:"Take a second on this one.",
+      a:[
+        {v:"same", t:"Yes, exactly as much"},
+        {v:"less", t:"Yes, but less"},
+        {v:"no",   t:"Honestly, no"}
+      ]
+    },
+    {
+      id:"hits",
+      q:"When does it hit you?",
+      hint:"Everybody has a time. This is not a trick question.",
+      a:[
+        {v:"sunday",  t:"Sunday evening"},
+        {v:"threeam", t:"Three in the morning"},
+        {v:"driving", t:"Driving home"},
+        {v:"asked",   t:"When somebody asks how I am"},
+        {v:"other",   t:"When someone I know does the thing I keep not doing"}
+      ]
+    },
+    {
+      id:"smaller",
+      q:"What have you made yourself smaller about this year?",
+      hint:"Pick the one that stung to read.",
+      a:[
+        {v:"want",    t:"What I want"},
+        {v:"good",    t:"What I am good at"},
+        {v:"room",    t:"How much room I take up"},
+        {v:"excited", t:"How excited I let myself get"},
+        {v:"silent",  t:"All of it. I just stopped saying any of it out loud"}
+      ]
+    },
+    {
+      id:"offered",
+      q:"When something good gets offered to you, what is the first thing you think?",
+      hint:"The first thought. Not the one you replace it with.",
+      a:[
+        {v:"handle",  t:"Can I actually handle this"},
+        {v:"deserve", t:"Do I deserve this"},
+        {v:"think",   t:"What will people think"},
+        {v:"want",    t:"Do I even want this"}
+      ]
+    },
+    {
+      id:"but",
+      q:"Finish it. I would change it, but …",
+      hint:"One of these is yours.",
+      a:[
+        {v:"unknown", t:"I do not know what I would change it to"},
+        {v:"money",   t:"The money"},
+        {v:"hurt",    t:"It would hurt someone"},
+        {v:"notbad",  t:"It is not that bad"},
+        {v:"said",    t:"I have said this before and not done it"}
+      ]
+    },
+    {
+      id:"fear",
+      q:"What is the actual fear?",
+      hint:"Under the practical ones.",
+      a:[
+        {v:"fail",    t:"That I try and fail"},
+        {v:"late",    t:"That I waste the whole thing and find out too late"},
+        {v:"special", t:"That I find out I was never that special"},
+        {v:"just",    t:"That nothing is wrong and this is just what it is"}
+      ]
+    },
+    {
+      id:"ready",
+      q:"Which sentence is yours?",
+      hint:"Last one.",
+      a:[
+        {v:"bored",   t:"My life is fine. I am just bored. I know there is more and I do not know what"},
+        {v:"done",    t:"I am miserable and something has to change"},
+        {v:"ended",   t:"Something just ended and I have to decide what is next"},
+        {v:"curious", t:"I am mostly curious"}
+      ]
+    }
+  ];
+
+  var SIGS = [
+    "The problem you walk in with is usually not the real one.",
+    "You will answer this one faster than any other question here.",
+    "Nobody is reading this over your shoulder.",
+    "What you want and what you say you want are two different questions.",
+    "People are not bored by things they genuinely want.",
+    "Nobody is watching. That is the point of this one.",
+    "Everybody has a time. Almost nobody says it out loud.",
+    "Stop making yourself smaller to fit a life you never chose.",
+    "The first thought is the honest one.",
+    "There is a difference between a reason and a reason you repeat.",
+    "The fear is almost never failure.",
+    "Readiness is the qualifier. Not certainty."
+  ];
+
+  var VEHICLE = {
+    money:"more money", business:"your own business", job:"out of the job",
+    away:"a different life somewhere else", unknown:""
+  };
+  var DRIVER = {
+    safety:"to stop being afraid about money",
+    freedom:"to not need anyone's permission",
+    recognition:"to be taken seriously",
+    selfhood:"to feel like yourself again",
+    worth:"to be proud of yourself"
+  };
+  var DRIVER_N = {
+    safety:"not being afraid about money",
+    freedom:"not needing anyone's permission",
+    recognition:"being taken seriously",
+    selfhood:"feeling like yourself again",
+    worth:"being proud of yourself"
+  };
+  var ADVICE = {
+    leave:"to leave, that she already knows",
+    plan:"to make a real plan and then leave",
+    permit:"to stop waiting for somebody to hand her permission",
+    ask:"to ask for what she actually wants, out loud",
+    fudge:"the same thing you tell yourself, which is nothing useful"
+  };
+  var KNOWN = {
+    weeks:"a few weeks", year:"most of this year",
+    years:"a couple of years", long:"longer than you wanted to write down"
+  };
+  var HITS = {
+    sunday:"Sunday evening", threeam:"Three in the morning", driving:"The drive home",
+    asked:"Being asked how you are", other:"Watching somebody else do the thing"
+  };
+  var SMALLER = {
+    want:"what you want", good:"what you are good at", room:"how much room you take up",
+    excited:"how excited you let yourself get", silent:"all of it, by not saying any of it out loud"
+  };
+  var OFFERED = {
+    handle:"can I actually handle this", deserve:"do I deserve this",
+    think:"what will people think", want:"do I even want this"
+  };
+  var BUT = {
+    unknown:"you do not know what you would change it to",
+    money:"the money", hurt:"it would hurt someone", notbad:"it is not that bad",
+    said:"you have said this before and not done it"
+  };
+  var FEAR = {
+    fail:"You said the fear is trying and failing. Most people think that is the fear. It almost never is.",
+    late:"You said the fear is wasting the whole thing and finding out too late. That is the real one, and it is the only one on that list that gets worse the longer you leave it.",
+    special:"You said the fear is finding out you were never that special. That fear is load-bearing. It is doing a lot of work to keep you exactly where you are.",
+    just:"You said the fear is that nothing is wrong and this is just what it is. That is the loneliest one on the list. It is also the easiest one to test."
+  };
+  var LETTERS = ["A","B","C","D","E"];
+
+  function cap(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
+  function el(id){ return document.getElementById(id); }
+
+  var state = {}, i = 0;
+  var screens = ["s-intro","s-q","s-mail","s-result"];
+  var layers = document.querySelectorAll("#washes i");
+
+  function wash(n){
+    n = Math.max(0, Math.min(layers.length - 1, n));
+    for (var k = 0; k < layers.length; k++) layers[k].classList.toggle("on", k === n);
+  }
+  function show(id){
+    screens.forEach(function(s){ el(s).hidden = (s !== id); });
+    window.scrollTo(0,0);
+  }
+  function pad(n){ return (n < 10 ? "0" : "") + n; }
+
+  function render(){
+    var q = Q[i];
+    el("idx").textContent = pad(i+1) + " / " + pad(Q.length);
+    el("sig").textContent = SIGS[i] || SIGS[0];
+    wash(i);
+    el("qtext").textContent = q.q;
+    el("qhint").textContent = q.hint || "";
+    el("qhint").hidden = !q.hint;
+    el("back").hidden = (i === 0);
+
+    var box = el("opts");
+    box.innerHTML = "";
+    q.a.forEach(function(o, n){
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "opt";
+      b.style.animationDelay = (n * 42) + "ms";
+      b.setAttribute("aria-pressed", state[q.id] === o.v ? "true" : "false");
+      var l = document.createElement("span");
+      l.className = "ltr"; l.textContent = LETTERS[n];
+      var t = document.createElement("span");
+      t.textContent = o.t;
+      b.appendChild(l); b.appendChild(t);
+      b.addEventListener("click", function(){
+        state[q.id] = o.v;
+        Array.prototype.forEach.call(box.children, function(c){ c.setAttribute("aria-pressed","false"); });
+        b.setAttribute("aria-pressed","true");
+        el("next").disabled = false;
+      });
+      box.appendChild(b);
+    });
+
+    el("own").hidden = !q.own;
+    el("next").disabled = !state[q.id];
+    el("next").textContent = (i === Q.length - 1) ? "See my answer" : "Next";
+  }
+
+  el("begin").addEventListener("click", function(){ show("s-q"); render(); });
+  el("back").addEventListener("click", function(){ if (i > 0){ i--; render(); } });
+
+  el("next").addEventListener("click", function(){
+    if (Q[i].own){
+      var w = el("ownword").value.trim();
+      if (w) state.ownword = w;
+    }
+    if (i < Q.length - 1){ i++; render(); }
+    else {
+      el("idx").textContent = "Done";
+      el("sig").textContent = "Nearly there.";
+      wash(Q.length - 1);
+      show("s-mail");
+    }
+  });
+
+  // MailerLite embedded-form subscribe endpoint. Public by design, no key in the page.
+  // Account 2518337, form "GSC quiz - what are you chasing", group "GSC - Quiz".
+  var LIST = "https://assets.mailerlite.com/jsonp/2518337/forms/198416778367338121/subscribe";
+
+  el("mailform").addEventListener("submit", function(e){
+    e.preventDefault();
+    var v = el("email").value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ el("mailerr").hidden = false; return; }
+    el("mailerr").hidden = true;
+
+    var go = el("mailgo");
+    go.disabled = true;
+    go.textContent = "One second";
+
+    var fd = new FormData();
+    fd.append("fields[email]", v);
+    fd.append("ml-submit", "1");
+    fd.append("anticsrf", "true");
+
+    // the result is hers either way. a list outage is not her problem.
+    var done = false;
+    function proceed(){ if (!done){ done = true; finish(v); } }
+    setTimeout(proceed, 4000);
+
+    fetch(LIST, { method:"POST", body: fd })
+      .then(proceed)
+      .catch(proceed);
+  });
+
+  function vehicleText(){
+    if (state.ownword) return state.ownword;
+    return VEHICLE[state.vehicle] || "";
+  }
+
+  // every result opens on the friend answer, so the read is theirs, not a label
+  function opener(){
+    if (state.advice === "fudge"){
+      return "When a friend described your exact situation back to you, you said you would tell her the same thing you tell yourself, which is nothing useful. That is worth sitting with. You are the person everyone else asks, and you have taken yourself off the list.";
+    }
+    return "A friend described your exact situation back to you and you told her " + ADVICE[state.advice] +
+           ". You did not have to think about it. Then you told me that has been your own answer for " + KNOWN[state.known] + ".";
+  }
+
+  function verdict(){
+    var v = state.vehicle, t = state.tuesday, s = state.secret;
+
+    if (v === "unknown" && !state.ownword) return "unnamed";
+
+    var proxy = 0;
+    if (t === "boring" || t === "never" || t === "others") proxy += 2;
+    if (s === "no") proxy += 3; else if (s === "less") proxy += 1;
+    if (proxy >= 3) return "proxy";
+
+    // the goal is shaped by an audience
+    if ((state.offered === "think" || state.smaller === "want" || state.smaller === "silent") && s !== "same") return "audience";
+
+    // she has been sitting on her own answer
+    if ((state.known === "years" || state.known === "long") && state.advice !== "fudge") return "knew";
+
+    // a reason she has stopped checking
+    if (state.but === "money" || state.but === "hurt" || state.but === "notbad" || state.but === "said") return "stall";
+
+    return "bridge";
+  }
+
+  var RESULTS = {
+    unnamed: function(){
+      return {
+        title:"You cannot name it for you. You named it for her in four seconds.",
+        body:[
+          opener(),
+          "When I asked what you want, you said you do not know. That is almost never true. What is true is that you have never been allowed to answer it out loud, so the sentence has no practice. Underneath all of it you are after " + DRIVER_N[state.driver] + ". That is a direction without a vehicle, which is a far better problem than most people here have. Nothing has to be undone first.",
+          FEAR[state.fear]
+        ],
+        doit:"For seven days write down one moment a day where you felt more like yourself than usual. One line, no analysis. At the end of the week read them together. That is evidence about you, and it is the only kind that is actually yours."
+      };
+    },
+    proxy: function(){
+      var veh = vehicleText();
+      var tell = state.tuesday === "boring" ? "it looked a bit boring"
+               : state.tuesday === "never"  ? "you had never pictured it at all"
+               : state.tuesday === "others" ? "what you pictured was other people's reaction and not your own day"
+               : "it did not quite hold up";
+      return {
+        title:"You want the feeling. You named the vehicle.",
+        body:[
+          opener(),
+          "You named " + veh + ". Underneath it, what you are actually after is " + DRIVER[state.driver] + ". Here is the tell: when you pictured an ordinary Tuesday on the other side of it, " + tell + ". People are not bored by things they genuinely want. They are bored by things they want to have wanted.",
+          cap(veh) + " is one route to " + DRIVER_N[state.driver] + ". Probably not the fastest and almost certainly the most expensive, because you picked it for what it would mean rather than for what it would be. " + FEAR[state.fear]
+        ],
+        doit:"Write down three other ways a person could get to " + DRIVER_N[state.driver] + " that have nothing to do with " + veh + ". You do not have to pick one. You have to see on paper that what you named was an option, not the option."
+      };
+    },
+    audience: function(){
+      var veh = vehicleText();
+      return {
+        title:"The goal is real. The scoreboard belongs to somebody else.",
+        body:[
+          opener(),
+          "You named " + veh + ", and when nobody ever found out about it you wanted it " + (state.secret === "no" ? "not at all" : "less") + ". You also told me the first thing you think when something good is offered to you is " + OFFERED[state.offered] + ", and that this year you made yourself smaller about " + SMALLER[state.smaller] + ". Those are not three answers. They are one answer, three times.",
+          "Borrowed goals are always respectable ones. Nobody inherits something stupid. That is exactly why it can take years to notice the target was never yours, and why hitting it does not land the way you expected. " + FEAR[state.fear]
+        ],
+        doit:"Write down the last three things you wanted badly and actually got. Next to each one, write who you told first. If it is the same person every time, or the same kind of person, you have found the scoreboard you have been playing for."
+      };
+    },
+    knew: function(){
+      var veh = vehicleText();
+      return {
+        title:"You have known the answer for " + KNOWN[state.known] + ".",
+        body:[
+          opener(),
+          "So this is not a clarity problem, and almost everything sold to you is clarity. You are not confused about what to do. You are waiting, and it is worth naming what for. You finished the sentence with " + BUT[state.but] + ". That is the honest version, and it is the one nobody can solve for you in a caption.",
+          cap(HITS[state.hits]) + " is when it gets loud. That is not random. That is the hour your defences are down and the thing you already know gets through. " + FEAR[state.fear]
+        ],
+        doit:"Write the sentence you would say to that friend. Word for word, the way you would actually say it. Then read it out loud with your own name in it. That is the entire exercise, and most people will not do it."
+      };
+    },
+    stall: function(){
+      var veh = vehicleText();
+      return {
+        title:"You know what you want. You stop in the same place every time.",
+        body:[
+          opener(),
+          "You named " + veh + " and you would still want it if nobody ever found out, so the want is fine. It is not the thing to work on. What you finished the sentence with is: " + BUT[state.but] + ". That is a real constraint, and it is also the one you have been repeating. There is a difference between a reason and a reason you have said often enough that it stopped getting checked.",
+          cap(HITS[state.hits]) + " is when it gets loud. That is the hour the reason stops working. " + FEAR[state.fear]
+        ],
+        doit:"Find the last thing you quit that you actually cared about. Write down what was going on in the week before you quit, not on the day. The pattern lives in that week, and you will recognize it."
+      };
+    },
+    bridge: function(){
+      var veh = vehicleText();
+      return {
+        title:"The want is real. The bridge is missing.",
+        body:[
+          opener(),
+          "You named " + veh + ". You can picture the ordinary version of it, you would still want it if nobody found out, and underneath it is " + DRIVER_N[state.driver] + ". That holds up. It is a real want, not a substitute for one.",
+          "So your problem is distance, not clarity. You have a vivid picture and no map, so it stays a picture, and a picture you carry long enough starts to feel like a personality trait instead of a plan. I know this one from the inside. I always pictured a specific life in detail. What I never had was the how. " + FEAR[state.fear]
+        ],
+        doit:"Write the version of " + veh + " that is one year away instead of five. Then write the single thing that would have to be true by next month for that year to be possible. Not a plan. One thing."
+      };
+    }
+  };
+
+  var CLOSERS = {
+    done: {
+      t:"If you cannot do another year of this, do not spend it reading.",
+      p:"First Principles is eight weeks, one to one. Half conversation, half structure. You leave knowing what you want, why you want it, and what the first real moves are."
+    },
+    ended: {
+      t:"Something ended. What happens next is a decision, not a mood.",
+      p:"This is the moment the old answer stops working and the new one has not arrived yet. First Principles is eight weeks of building the new one on purpose instead of defaulting into it."
+    },
+    bored: {
+      t:"Bored is not nothing. It is the early, survivable version of the same problem.",
+      p:"Nothing forces the issue while it is still fine. That is exactly what makes it possible to spend another five years here. You do not have to change everything today. You do have to stop using that as the reason to change nothing."
+    },
+    curious: {
+      t:"Curious is a fine place to stand.",
+      p:"Read how the eight weeks actually work before you decide anything. If this is not the moment, it is not the moment."
+    }
+  };
+
+  function finish(email){
+    var key = verdict();
+    var r = RESULTS[key]();
+    el("rtitle").textContent = r.title;
+    var body = el("rbody");
+    body.innerHTML = "";
+    r.body.forEach(function(t){
+      var p = document.createElement("p");
+      p.textContent = t;
+      body.appendChild(p);
+    });
+    el("rdo").textContent = r.doit;
+
+    var c = CLOSERS[state.ready] || CLOSERS.curious;
+    el("ctitle").textContent = c.t;
+    el("cbody").textContent = c.p;
+    el("cbtn").textContent = (state.ready === "done" || state.ready === "ended")
+      ? "Read about the eight weeks" : "See how the eight weeks work";
+
+    try { sessionStorage.setItem("chasing", JSON.stringify({answers:state, result:key, email:email})); } catch(e){}
+    el("idx").textContent = "Your answer";
+    el("sig").textContent = "Elena Corrao. Coaching, not therapy. No guaranteed outcomes.";
+    wash(Q.length - 1);
+    show("s-result");
+  }
+})();
+</script>
+</body>
+</html>
