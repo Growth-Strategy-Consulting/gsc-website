@@ -1,206 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Growth Strategy Consulting | We grow your strategy.</title>
-  <meta name="description" content="Business consulting for small businesses that have stopped growing. I find what's quietly draining your time, profit, and energy, then rebuild it to grow revenue, cut overhead, and run better." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Elena Corrao · Direction work</title>
+<meta name="description" content="Direction work for people who know their life is not working and do not know what they want instead.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --stone:#F1F2F3; --stone-2:#E7E9EB; --slate:#1B2026; --slate-2:#252C34;
+    --body:#4A525B; --muted:#5E666F; --line:#DBDEE1;
+    --on-slate:#F1F2F3; --on-slate-mute:#B4BBC2;
+    --pad:56px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--stone);color:var(--body);
+       font-family:'Public Sans','Helvetica Neue',Arial,sans-serif;
+       font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:400;color:var(--slate);margin:0}
+  a{color:inherit}
+  .serif{font-family:'Newsreader',Georgia,serif}
+  .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
 
-  <!-- Warm Clarity brand fonts: Fraunces (headlines) + Hanken Grotesk (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/styles.css?v=2" />
+  /* header */
+  .bar{display:flex;justify-content:space-between;align-items:center;
+       padding:24px var(--pad);border-bottom:1px solid var(--line)}
+  .wm{font-family:'Newsreader',Georgia,serif;font-size:20px;letter-spacing:.14em;color:var(--slate)}
+  nav{display:flex;gap:30px;font-size:14px;color:var(--muted)}
+  nav a{text-decoration:none}
+
+  /* hero */
+  .hero{display:grid;grid-template-columns:1.15fr 1fr;min-height:600px;border-bottom:1px solid var(--line)}
+  .hero-l{padding:84px var(--pad) 78px;display:flex;flex-direction:column;justify-content:center}
+  h1{font-size:60px;line-height:1.08;letter-spacing:-.012em;margin:26px 0;max-width:16ch;text-wrap:balance}
+  .lede{font-size:19px;max-width:50ch;margin:0 0 36px}
+  .cta{display:inline-block;background:var(--slate);color:var(--on-slate);padding:17px 30px;
+       font-size:14px;font-weight:600;text-decoration:none;width:fit-content}
+  .cta.ghost{background:transparent;color:var(--slate);border:1px solid var(--slate)}
+  .alt{margin-top:18px;font-size:14px;color:var(--muted);text-decoration:none;
+       border-bottom:1px solid var(--line);padding-bottom:3px;width:fit-content}
+  .hero-r{position:relative;background:var(--slate);overflow:hidden;min-height:420px}
+  .hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;
+              filter:grayscale(.92) contrast(1.06);opacity:.82}
+  .hero-r:after{content:"";position:absolute;inset:0;
+                background:linear-gradient(180deg,rgba(27,32,38,.10) 0%,rgba(27,32,38,.10) 42%,rgba(27,32,38,.72) 74%,rgba(27,32,38,.94) 100%)}
+  .quote{position:absolute;left:38px;right:38px;bottom:36px;z-index:2;
+         font-family:'Newsreader',Georgia,serif;font-size:20px;line-height:1.5;color:var(--on-slate)}
+  .quote small{display:block;margin-top:12px;font-family:'Public Sans',sans-serif;
+               font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-slate-mute)}
+
+  /* generic section */
+  section{padding:78px 0;border-bottom:1px solid var(--line)}
+  section.dark{background:var(--slate);color:var(--on-slate-mute);border-bottom:0}
+  section.dark h2,section.dark h3{color:var(--on-slate)}
+  .h2{font-size:40px;line-height:1.14;max-width:19ch;margin-bottom:26px;text-wrap:balance}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+
+  /* recognition */
+  .recog{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+  .recog li{font-family:'Newsreader',Georgia,serif;font-size:24px;line-height:1.45;color:var(--slate);
+            padding:20px 0;border-bottom:1px solid var(--line)}
+
+  /* not */
+  .nots{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:8px}
+  .nots div{background:var(--stone);padding:26px 28px}
+  .nots b{display:block;font-family:'Newsreader',Georgia,serif;font-size:22px;color:var(--slate);
+          font-weight:400;margin-bottom:8px}
+  .nots p{margin:0;font-size:16px;line-height:1.65}
+
+  /* method */
+  .phase{margin-bottom:42px}
+  .phase .ph{display:flex;align-items:baseline;gap:16px;padding-bottom:14px;
+             border-bottom:1px solid rgba(241,242,243,.18);margin-bottom:22px}
+  .phase .ph b{font-family:'Newsreader',Georgia,serif;font-size:26px;font-weight:400;color:var(--on-slate)}
+  .stages{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .stage b{display:block;font-size:16px;font-weight:600;color:var(--on-slate);margin-bottom:6px}
+  .stage p{margin:0;font-size:15px;line-height:1.65;color:var(--on-slate-mute)}
+
+  /* changes */
+  .changes{list-style:none;padding:0;margin:0;columns:2;column-gap:56px}
+  .changes li{font-size:17px;line-height:1.6;padding:11px 0;break-inside:avoid;
+              border-bottom:1px solid var(--line)}
+
+  /* offer */
+  .offer{background:var(--stone-2);padding:44px;margin-top:10px}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:30px}
+  .cols b{display:block;font-size:15px;font-weight:600;color:var(--slate);margin-bottom:12px}
+  .cols ul{list-style:none;padding:0;margin:0}
+  .cols li{font-size:16px;line-height:1.6;padding:7px 0 7px 20px;position:relative}
+  .cols li:before{content:"";position:absolute;left:0;top:15px;width:8px;height:1px;background:var(--muted)}
+  .consult{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-size:16px;color:var(--muted)}
+
+  /* faq */
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{font-family:'Newsreader',Georgia,serif;font-size:21px;color:var(--slate);cursor:pointer;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary:after{content:"+";float:right;color:var(--muted);font-family:'Public Sans',sans-serif}
+  details[open] summary:after{content:"\2212"}
+  details p{margin:14px 0 4px;font-size:16px;max-width:72ch}
+
+  /* final */
+  .final{text-align:left;padding:90px 0}
+  footer{padding:34px var(--pad);display:flex;justify-content:space-between;
+         font-size:13px;color:var(--muted);border-top:1px solid var(--line);flex-wrap:wrap;gap:12px}
+
+  @media(max-width:900px){
+    :root{--pad:22px}
+    .hero{grid-template-columns:1fr}.hero-r{min-height:340px}
+    h1{font-size:38px}.h2{font-size:30px}
+    .two,.cols,.nots,.stages{grid-template-columns:1fr;gap:26px}
+    .nots{gap:1px}.changes{columns:1}
+  }
+</style>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
-  <header>
-    <div class="wrap nav">
-      <a class="logo" href="index.html"><b>Growth Strategy</b><span>CONSULTING</span></a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
-        <li><a href="services.html">SERVICES</a></li>
-        <li><a href="resources.html">RESOURCES</a></li>
-        <li><a href="#connect">CONTACT</a></li>
-      </ul>
-      <a class="btn btn--primary" href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a 15-Min Consultation</a>
-    </div>
-  </header>
+<div class="bar">
+  <div class="wm">ELENA CORRAO</div>
+  <nav>
+    <a href="#method">Method</a><a href="#work">The work</a><a href="#about">About</a><a href="#apply">Apply</a>
+  </nav>
+</div>
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="hero-text">
-      <div class="eyebrow">Business consulting for small businesses</div>
-      <h1>Your business hit a ceiling. Let's <em>break through it.</em></h1>
-      <p class="lead">I help small business owners who have stopped growing. I find what's quietly draining your time, profit, and energy. Then I rebuild it into systems that grow revenue and run without you.</p>
-      <div class="hero-cta">
-        <a class="btn btn--primary" href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a 15-Min Consultation</a>
-        <a class="btn btn--text" href="services.html">See how I help &rarr;</a>
-      </div>
-    </div>
-    <div class="hero-img" role="img" aria-label="A bright, welcoming small-business caf&eacute;" style="background-image:url('assets/coffee-shop.png')"></div>
-  </section>
+<section class="hero" style="padding:0">
+  <div class="hero-l">
+    <div class="eyebrow">Direction work, one to one</div>
+    <h1>You know this isn&rsquo;t it. You just don&rsquo;t know what is.</h1>
+    <p class="lede">Most people build a life out of other people&rsquo;s expectations and then wonder why it doesn&rsquo;t fit. I work with people who have hit the point of not being able to do another year of it, and who are ready to do something about it rather than read about it.</p>
+    <a class="cta" href="#apply">Apply for the eight weeks</a>
+    <a class="alt" href="#">Not ready yet? Read this first.</a>
+  </div>
+  <div class="hero-r">
+    <img src="assets/elena-hero.jpg" alt="Elena Corrao">
+    <div class="quote">I am not going to tell you what your life should look like. I will help you become someone who can answer that.
+      <small>Elena Corrao</small></div>
+  </div>
+</section>
 
-  <!-- ===== What I help you fix (numbered) ===== -->
-  <section class="section" id="what-we-do">
-    <div class="wrap">
-      <div class="services-intro" style="margin-bottom:36px">
-        <h2>What I help you fix</h2>
-        <p>When a business stops growing, it's usually leaking in more than one place. I work all four, so the whole machine runs better.</p>
-      </div>
-      <div class="fixgrid">
-        <div class="fix">
-          <div class="n">01</div>
-          <h3>Grow Revenue</h3>
-          <p>More clients, better pricing, and marketing that actually brings people in.</p>
-        </div>
-        <div class="fix">
-          <div class="n">02</div>
-          <h3>Cut Overhead</h3>
-          <p>Find and stop the quiet leaks draining your profit every month.</p>
-        </div>
-        <div class="fix">
-          <div class="n">03</div>
-          <h3>Build Systems</h3>
-          <p>Processes and operations that run smoothly without you in every detail.</p>
-        </div>
-        <div class="fix">
-          <div class="n">04</div>
-          <h3>Strengthen Your Team</h3>
-          <p>Hiring, culture, and leadership that hold the whole thing together.</p>
-        </div>
-      </div>
-      <div style="text-align:center;padding-top:40px">
-        <a class="btn btn--text" href="services.html">See how we work together →</a>
-      </div>
-    </div>
-  </section>
+<section><div class="wrap">
+  <div class="eyebrow">If you are here, some of this is probably true</div>
+  <ul class="recog" style="margin-top:26px">
+    <li>I do not know where I fit.</li>
+    <li>I keep second-guessing every decision.</li>
+    <li>I look fine from the outside, but this does not feel like my life.</li>
+    <li>I feel like everyone else got instructions and I missed them.</li>
+    <li>I am tired of following everyone else&rsquo;s advice.</li>
+    <li>I cannot spend another decade wondering who I could have become.</li>
+  </ul>
+</div></section>
 
-  <!-- ===== Find Your Next Level (dark) ===== -->
-  <section class="dark" id="approach">
-    <div class="dark-grid">
-      <div class="dark-text">
-        <div class="eyebrow">Grow with confidence</div>
-        <h2>Find your next level.<br />Grow with direction.</h2>
-        <p>Running a business is hard. You're pulled in a million directions, and it's tough to know what's actually worth your time. That's where I come in.</p>
-        <p>I bring an outside perspective, proven frameworks, and a relentless focus on results. You stop guessing and start growing.</p>
-        <a class="btn btn--ghost-light" href="about.html" style="margin-top:10px">Learn more about us</a>
-      </div>
-      <div class="dark-media">
-        <div class="focus-card">
-          <h3>What I focus on most:</h3>
-          <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Revenue Growth</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Profitability</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Operations</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Customer Experience</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12l5 5L20 7"/></svg> Sustainable Systems</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+<section><div class="wrap two">
+  <h2 class="h2">You are not indecisive. You are playing a game you never chose.</h2>
+  <div>
+    <p style="margin-top:0">Parents, culture, a partner, whatever success was supposed to look like. Most people inherit the rules and then wonder why winning feels like nothing.</p>
+    <p>This is not the idea that you deserve a better life simply because you want one. You are probably capable of far more than the life you are currently accepting, and you will have to become the person who can build it.</p>
+    <p>You may not be able to leave the job, the relationship, the city or the financial situation tomorrow. That does not mean you change nothing today. Small decisions build capacity. Capacity creates options. Options create agency.</p>
+  </div>
+</div></section>
 
-  <!-- ===== Meet Elena ===== -->
-  <section class="founder" id="meet-elena">
-    <div class="wrap founder-grid">
-      <div class="founder-photo">
-        <img src="assets/elena.png" alt="Elena Corrao, founder of Growth Strategy Consulting" />
-      </div>
-      <div class="founder-text">
-        <div class="eyebrow">Meet Elena</div>
-        <h2>The strategist in your corner.</h2>
-        <p>I help good businesses that have hit a wall find their next level. In 18 years I've advised 50+ businesses and personally led a dozen hands-on turnarounds. Caf&eacute;s, boutique hotels, plant shops, IT firms, even film sets. I walk in, find what's quietly draining time, profit, and energy, and build the systems to fix it.</p>
-        <p>No fluff. No get-rich-quick promises. Just clear strategy, honest conversations, and practical changes that help your business run better and make more money.</p>
-        <div class="statstrip">
-          <div class="s"><b>18+</b><span>Years in the field</span></div>
-          <div class="s"><b>50+</b><span>Businesses advised</span></div>
-          <div class="s"><b>12</b><span>Hands-on turnarounds</span></div>
-          <div class="s"><b>$1M+</b><span>Revenue grown</span></div>
-        </div>
-        <div class="signature">&mdash; Elena</div>
-      </div>
-    </div>
-  </section>
+<section id="work"><div class="wrap">
+  <h2 class="h2">What this is not</h2>
+  <div class="nots">
+    <div><b>Not therapy</b><p>I am not a therapist and I do not treat trauma or mental health conditions. We can look at patterns and where they came from. If what you need is clinical care, I will tell you.</p></div>
+    <div><b>Not motivation</b><p>You will not leave a call feeling inspired and then do nothing for a week. There is work between sessions and I will ask about it.</p></div>
+    <div><b>Not a blueprint</b><p>I will not tell you what your life should look like. Buying somebody else&rsquo;s answer is most likely part of how you got here.</p></div>
+    <div><b>Not fast</b><p>Eight weeks gets you direction, reasons and the first real moves. It does not get you a finished life, and anyone promising that is selling you the thing that already failed.</p></div>
+  </div>
+</div></section>
 
-  <!-- ===== Testimonial ===== -->
-  <section class="quote" id="results">
-    <div class="wrap quote-inner">
-      <blockquote>&ldquo;Elena has been right beside me every step of the way, helping me build my brand and grow Knotted Roots year after year. She doesn't just hand you a plan and leave. She stays in it with you until it actually works.&rdquo;</blockquote>
-      <div class="who">
-        <img src="assets/sadie.jpg" alt="Sadie LeBlanc" onerror="this.style.display='none'" />
-        <div>
-          <b>Sadie LeBlanc</b>
-          <span>Owner, Knotted Roots &middot; St. Pete, FL</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="dark" id="method"><div class="wrap">
+  <div class="eyebrow" style="color:var(--on-slate-mute)">The method</div>
+  <h2 class="h2" style="margin-top:22px;margin-bottom:48px">Half deep conversation, half structure.</h2>
 
-  <!-- ===== CTA band ===== -->
-  <section class="cta-band">
-    <div class="wrap cta-inner">
-      <div>
-        <h2>Ready to grow smarter?</h2>
-        <p>Let's uncover what's next for your business.</p>
-      </div>
-      <a class="btn btn--primary" href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a 15-Min Consultation</a>
+  <div class="phase">
+    <div class="ph"><b>One. Honest inventory</b></div>
+    <div class="stages">
+      <div class="stage"><b>What is actually wrong</b><p>Where you are settling, what drains you, what you are tolerating, and which parts of your life you never actually picked.</p></div>
+      <div class="stage"><b>Know yourself</b><p>When you were happiest, what you do without being paid, where you thrive, what you actually value. We keep asking why.</p></div>
+      <div class="stage"><b>Recognize patterns</b><p>Perfectionism, avoidance, people pleasing, staying too long, refusing to try in case it fails. The behaviours that keep repeating.</p></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===== Trust band ===== -->
-  <section class="trust-band">
-    <div class="wrap trust">
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="8" r="3"/><path d="M2 20c0-3.3 3-5 7-5s7 1.7 7 5M17 11a3 3 0 100-6M16 15c3 .3 5 2 5 5"/></svg>
-        <b>Small Business<br />Focused</b>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
-        <b>Strategy That<br />Drives Results</b>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v4h4M9 13h6M9 17h6"/></svg>
-        <b>Clear Plans.<br />Real Impact.</b>
-      </div>
-      <div class="item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18M6 20v-6M11 20V8M16 20v-9M21 20V5"/></svg>
-        <b>More Profit.<br />More Freedom.</b>
-      </div>
+  <div class="phase">
+    <div class="ph"><b>Two. Build the capacity</b></div>
+    <div class="stages">
+      <div class="stage"><b>Rebuild self-trust</b><p>Stop handing your worth to other people. The goal is not immunity to criticism. It is an internal filter: I hear you, I will consider it, I decide what it means.</p></div>
+      <div class="stage"><b>Become more capable</b><p>Health, money, skills, boundaries, environment, community. Repeated small actions that build evidence and options, not a morning routine that fixes your life.</p></div>
     </div>
-  </section>
+  </div>
 
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer" id="connect">
-    <div class="wrap footer-main">
-      <div class="footer-brand">
-        <a class="logo" href="index.html"><b>Growth Strategy</b><span>CONSULTING</span></a>
-        <p>We grow your strategy. Helping established small businesses find their next level, run better, and make more money.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="resources.html">Resources</a>
-      </div>
-      <div class="footer-col">
-        <h4>Connect</h4>
-        <a href="mailto:hello@growthstrategyconsulting.org">hello@growthstrategyconsulting.org</a>
-        <a href="https://instagram.com/growthstrategy.consulting" target="_blank" rel="noopener">Instagram @growthstrategy.consulting</a>
-        <a href="https://meetings-na2.hubspot.com/elena-corrao/shiftforward" target="_blank" rel="noopener">Book a 15-Min Consultation</a>
-      </div>
+  <div class="phase" style="margin-bottom:0">
+    <div class="ph"><b>Three. Test it and move</b></div>
+    <div class="stages">
+      <div class="stage"><b>Pressure-test the dream</b><p>Do you want the reality or the picture of it? What does an average Tuesday look like? I challenge the idea to make it stronger, not to talk you out of it.</p></div>
+      <div class="stage"><b>Build the path</b><p>Insight becomes a plan you can actually run. Savings, a skill, a job change, a test, a boundary, a move.</p></div>
+      <div class="stage"><b>Act, reflect, adjust</b><p>There is no perfect decision. Decide with what you know, live it, take the lesson, adjust, keep going. A path that does not work still tells you something thinking never would.</p></div>
     </div>
-    <div class="wrap footer-bottom">
-      <span>&copy; 2026 Growth Strategy Consulting. All rights reserved.</span>
-      <span><a href="privacy.html">Privacy Policy</a> &middot; St. Petersburg, FL</span>
-    </div>
-  </footer>
+  </div>
+</div></section>
 
-  <!-- HubSpot tracking code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/246490220.js"></script>
+<section><div class="wrap">
+  <h2 class="h2">What is different at the end</h2>
+  <ul class="changes">
+    <li>I understand what I want, and why I want it.</li>
+    <li>I know which parts of my life need to change.</li>
+    <li>I know the steps I am actually taking next.</li>
+    <li>I recognise the patterns that used to run me.</li>
+    <li>I trust myself more than I did.</li>
+    <li>I know how to pressure-test my own decisions.</li>
+    <li>I have something to use the next time I feel lost.</li>
+    <li>I think differently, choose differently, and my life is starting to reflect that.</li>
+  </ul>
+  <p style="margin-top:26px;color:var(--muted);max-width:62ch">You will not have your life solved in eight weeks. That is not a disclaimer, it is the point. The goal is that you can do this thinking without me.</p>
+</div></section>
+
+<section id="about"><div class="wrap two">
+  <h2 class="h2">Why me</h2>
+  <div>
+    <p style="margin-top:0">I always pictured a specific life. Nice things, travel, new people, real experiences. What I never had was the how. The picture was vivid and the bridge to it was missing, and that is the exact problem I work on now.</p>
+
+    <p>The first thing that changed was a question. I was managing a caf&eacute;, waking before the sun, running on a low hum of stress I had started calling normal. I was the best hand the place had and it was slowly becoming clear that none of it was appreciated. My boss asked me, <span class="serif" style="color:var(--slate)">&ldquo;Why do you need an assistant manager if I&rsquo;m paying you?&rdquo;</span></p>
+
+    <p>A year earlier that would have wrecked me. Instead I said: I don&rsquo;t know, actually. That&rsquo;s a really good question. You should find out. You have a month. I leave for Europe soon, and when I come back, I won&rsquo;t be your manager anymore.</p>
+
+    <p>I walked out with a weight off my shoulders I had not known I was carrying. What I understood that day was simple and it took me twenty-six years to get to. Everyone is the main character of their own life. So am I.</p>
+
+    <p>What came after was not a straight line. At twenty-one I wanted to model and decided I could not, so I quit right as it started working. For years I read that as irony. Now I read it as mercy. I was not ready, and the years I spent instead running businesses, moving, failing at things, are what made me someone who could hold it. The detour was never a detour. It was the becoming.</p>
+
+    <p>I started my first company in my thirty-fourth year and made my first ten thousand dollars in a month. Small against the life I am still building, and the first hard evidence that the path was real and I was on it rather than imagining it.</p>
+
+    <p>I am not here because it all worked. I have paid for programmes that were harder than advertised, started things I backed out of, and been burned on things I should have questioned. I am here because I kept going and paid attention, and because most people buying the next answer are trying to purchase clarity that only comes from understanding themselves.</p>
+
+    <p class="serif" style="font-size:21px;color:var(--slate);margin-top:26px">I am not going to tell you what your life should look like. I will help you become someone who can answer that.</p>
+  </div>
+</div></section>
+
+<section id="apply"><div class="wrap">
+  <div class="eyebrow">The flagship</div>
+  <h2 class="h2" style="margin-top:20px">First Principles</h2>
+  <div class="offer">
+    <p style="margin-top:0;font-size:18px;max-width:64ch">Eight weeks. Half of it is conversation, because the problem you walk in with is usually not the real one. Half of it is structure, because insight you don&rsquo;t act on is just a nice evening.</p>
+    <p style="max-width:64ch">You will leave knowing what you actually want, why you want it, which parts of your life need to change, and what the first real moves are.</p>
+    <div class="cols">
+      <div><b>This is for you if</b><ul>
+        <li>You have reached the point of not being able to do another year of this</li>
+        <li>You are ready to do the work rather than read about it</li>
+        <li>You want to be asked hard questions, not handed answers</li>
+        <li>You take responsibility for your own life</li>
+      </ul></div>
+      <div><b>This is not for you if</b><ul>
+        <li>You want somebody else to fix it</li>
+        <li>You want motivation without action</li>
+        <li>You are looking for a guarantee</li>
+        <li>You already know the excuse you will use in week three</li>
+      </ul></div>
+    </div>
+    <p class="consult">If what you want turns out to require building your own income, I have spent years doing that for other people and we can go there. If you need expertise I do not have, I will point you to someone who does, and I will tell you if I earn anything from the referral.</p>
+    <p style="margin-top:30px"><a class="cta" href="#">Apply for the eight weeks</a></p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2 class="h2" style="margin-bottom:30px">Questions</h2>
+
+  <details><summary>Is this therapy?</summary>
+    <p>No. I am not a therapist and I do not treat trauma, depression or any mental health condition. Coaching can look at your patterns and where they came from, but the work is forward-facing and practical. If what you need is clinical care, I will say so rather than take your money.</p></details>
+
+  <details><summary>What if I have no idea what I want?</summary>
+    <p>That is the starting point, not a disqualifier. Most people arrive able to describe what is wrong and unable to describe what they want instead. Figuring that out is the first half of the work.</p></details>
+
+  <details><summary>I cannot quit my job or leave my relationship right now. Is this pointless?</summary>
+    <p>No, and this is the part most people get wrong. You do not have to change everything today. You do have to stop using that as a reason to change nothing. Eight weeks of building capacity is how the option exists in six months.</p></details>
+
+  <details><summary>How is this different from the courses I have already bought?</summary>
+    <p>A course sells you somebody else&rsquo;s answer. If that worked, you would not be reading this. The work here is understanding yourself well enough to generate your own answer, then pressure-testing it before you spend a year on it.</p></details>
+
+  <details><summary>Do you tell me what to do?</summary>
+    <p>No. I ask, challenge, structure and hold you to what you said you wanted. You decide. If I handed you a direction, you would be outsourcing the exact thing we are trying to fix.</p></details>
+
+  <details><summary>What happens if I do not do the work between sessions?</summary>
+    <p>We look at why. Was the goal wrong, was it fear, was it avoidance, was the plan unrealistic, or did life genuinely get in the way. Then we adjust. I am not going to shame you, and I am also not going to pretend it did not happen.</p></details>
+
+  <details><summary>Is this only for women?</summary>
+    <p>No. Most of the people who find me are women, but the qualifier is readiness, not gender. If you are open, willing to be uncomfortable and actually want feedback, this works.</p></details>
+
+  <details><summary>What if what I need is a business, a therapist or a financial planner?</summary>
+    <p>Then that is what I will tell you. I have real business and leadership experience and I will use it where it applies. Where it does not, I would rather point you to the right person than pretend. If I ever earn anything from a referral, you will know.</p></details>
+
+  <details><summary>Will I have my life figured out in eight weeks?</summary>
+    <p>No, and be careful of anyone who says otherwise. You will have direction, reasons, a plan and the beginning of trusting your own judgement. The rest is you living it.</p></details>
+
+  <details><summary>What does it cost and how do I start?</summary>
+    <p>Start with the application. It takes a few minutes and it asks you to say, in your own words, why now. If it looks like a fit we will talk, and I will give you the full details and the price then.</p></details>
+</div></section>
+
+<section class="dark" style="border-bottom:0"><div class="wrap final">
+  <h2 class="h2" style="max-width:22ch">You have one life. Learn who you are, decide what matters, and start taking the wheel.</h2>
+  <p style="max-width:56ch;margin-bottom:34px">If you have read this far, you are probably not curious. You are probably done.</p>
+  <a class="cta" style="background:var(--stone);color:var(--slate)" href="#">Apply for the eight weeks</a>
+</div></section>
+
+<footer>
+  <div>Elena Corrao</div>
+  <div>Coaching, not therapy. No guaranteed outcomes.</div>
+</footer>
 
 </body>
 </html>
