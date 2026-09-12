@@ -5,79 +5,100 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Elena Corrao · Direction work</title>
 <meta name="description" content="Direction work for people who know their life is not working and do not know what they want instead.">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
   :root{
-    --stone:#F1F2F3; --stone-2:#E7E9EB; --slate:#1B2026; --slate-2:#252C34;
-    --body:#4A525B; --muted:#5E666F; --line:#DBDEE1;
-    --on-slate:#F1F2F3; --on-slate-mute:#B4BBC2;
+    --cream:#FDF8F1; --blush:#FBE6D4; --lilac:#F7DCC4; --peach:#FCEAD6;
+    --ink:#2E241C; --body:#5E5147; --muted:#6E6055; --line:#EDE0D1;
+    --deep:#33271F; --on-deep:#D9CEC5; --on-deep-mute:#C4B6AA;
     --pad:56px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;background:var(--stone);color:var(--body);
+  body{margin:0;background:var(--cream);color:var(--body);
        font-family:'Public Sans','Helvetica Neue',Arial,sans-serif;
        font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
-  h1,h2,h3{font-family:'Newsreader',Georgia,serif;font-weight:400;color:var(--slate);margin:0}
+  h1,h2,h3{font-family:'Source Serif 4',Georgia,serif;font-weight:400;color:var(--ink);margin:0}
   a{color:inherit}
-  .serif{font-family:'Newsreader',Georgia,serif}
+  .serif{font-family:'Source Serif 4',Georgia,serif}
   .eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
   .wrap{max-width:1180px;margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
 
   /* header */
   .bar{display:flex;justify-content:space-between;align-items:center;
-       padding:24px var(--pad);border-bottom:1px solid var(--line)}
-  .wm{font-family:'Newsreader',Georgia,serif;font-size:20px;letter-spacing:.14em;color:var(--slate)}
-  nav{display:flex;gap:30px;font-size:14px;color:var(--muted)}
-  nav a{text-decoration:none}
+       padding:22px var(--pad);position:relative;z-index:3}
+  .wm{font-family:'Source Serif 4',Georgia,serif;font-size:19px;letter-spacing:.14em;color:var(--ink)}
+  nav{display:flex;gap:28px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  nav a{text-decoration:none;transition:color .18s cubic-bezier(.22,1,.36,1)}
+  nav a:hover{color:var(--ink)}
 
   /* hero */
-  .hero{display:grid;grid-template-columns:1.15fr 1fr;min-height:600px;border-bottom:1px solid var(--line)}
-  .hero-l{padding:84px var(--pad) 78px;display:flex;flex-direction:column;justify-content:center}
-  h1{font-size:60px;line-height:1.08;letter-spacing:-.012em;margin:26px 0;max-width:16ch;text-wrap:balance}
-  .lede{font-size:19px;max-width:50ch;margin:0 0 36px}
-  .cta{display:inline-block;background:var(--slate);color:var(--on-slate);padding:17px 30px;
-       font-size:14px;font-weight:600;text-decoration:none;width:fit-content}
-  .cta.ghost{background:transparent;color:var(--slate);border:1px solid var(--slate)}
-  .alt{margin-top:18px;font-size:14px;color:var(--muted);text-decoration:none;
+  .hero{position:relative;background:
+        radial-gradient(1200px 560px at 6% 6%, #FBE3CB 0%, transparent 62%),
+        radial-gradient(1000px 560px at 96% 0%, #F9D9BC 0%, transparent 64%),
+        radial-gradient(900px 640px at 55% 108%, #FCE9D2 0%, transparent 62%),
+        var(--cream);
+        padding-bottom:104px}
+  .hgrid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding-top:44px}
+  h1{font-size:clamp(34px,4.4vw,58px);line-height:1.1;margin:20px 0 22px;max-width:16ch;text-wrap:balance}
+  .lede{font-size:18px;max-width:48ch;margin:0 0 32px;text-wrap:pretty}
+  .pill{display:inline-block;background:var(--ink);color:var(--cream);padding:16px 32px;
+        border-radius:999px;font-size:14px;font-weight:600;text-decoration:none;
+        transition:background-color .18s cubic-bezier(.22,1,.36,1),transform .18s cubic-bezier(.22,1,.36,1)}
+  .pill:hover{background:#171210;transform:translateY(-1px)}
+  .pill.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+  .pill.ghost:hover{background:var(--ink);color:var(--cream)}
+  .alt{display:block;margin-top:16px;font-size:14px;color:var(--muted);text-decoration:none;
        border-bottom:1px solid var(--line);padding-bottom:3px;width:fit-content}
-  .hero-r{position:relative;background:var(--slate);overflow:hidden;min-height:420px}
-  .hero-r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%;
-              filter:grayscale(.92) contrast(1.06);opacity:.82}
-  .hero-r:after{content:"";position:absolute;inset:0;
-                background:linear-gradient(180deg,rgba(27,32,38,.10) 0%,rgba(27,32,38,.10) 42%,rgba(27,32,38,.72) 74%,rgba(27,32,38,.94) 100%)}
-  .quote{position:absolute;left:38px;right:38px;bottom:36px;z-index:2;
-         font-family:'Newsreader',Georgia,serif;font-size:20px;line-height:1.5;color:var(--on-slate)}
-  .quote small{display:block;margin-top:12px;font-family:'Public Sans',sans-serif;
-               font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-slate-mute)}
+  .heroimg{position:relative}
+  .heroimg img{width:100%;height:470px;object-fit:cover;object-position:50% 22%;
+               border-radius:14px;display:block}
+  .qcard{position:absolute;left:-56px;bottom:-62px;width:330px;background:var(--cream);
+         border-radius:14px;padding:26px 26px 24px;box-shadow:0 10px 34px rgba(42,36,32,.13)}
+  .qcard h3{font-size:23px;line-height:1.25;margin-bottom:10px}
+  .qcard p{font-size:14px;line-height:1.6;margin:0 0 16px;color:var(--muted)}
+  .qcard .pill{padding:13px 26px;font-size:13px}
 
   /* generic section */
-  section{padding:78px 0;border-bottom:1px solid var(--line)}
-  section.dark{background:var(--slate);color:var(--on-slate-mute);border-bottom:0}
-  section.dark h2,section.dark h3{color:var(--on-slate)}
-  .h2{font-size:40px;line-height:1.14;max-width:19ch;margin-bottom:26px;text-wrap:balance}
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:64px}
+  section{padding:78px 0}
+  section.deep{background:var(--deep);color:var(--on-deep-mute)}
+  section.deep h2,section.deep h3{color:#FFF6EC}
+  .h2{font-size:clamp(27px,3.2vw,38px);line-height:1.16;max-width:19ch;margin-bottom:26px;text-wrap:balance}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+  .soft{background:var(--blush);border-radius:20px;padding:48px}
+  .rounded{width:100%;height:400px;object-fit:cover;border-radius:14px;display:block}
 
-  /* recognition */
-  .recog{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
-  .recog li{font-family:'Newsreader',Georgia,serif;font-size:24px;line-height:1.45;color:var(--slate);
-            padding:20px 0;border-bottom:1px solid var(--line)}
+  /* quiz */
+  .qform{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+  .qform input{flex:1 1 200px;padding:15px 18px;border:1px solid var(--line);border-radius:999px;
+               background:#fff;color:var(--ink);font:inherit;font-size:15px}
+  .qform input::placeholder{color:var(--muted)}
+  .qform button{border:0;cursor:pointer;font:inherit;font-weight:600;font-size:14px}
+
+  /* band */
+  .band{position:relative;height:520px;overflow:hidden}
+  .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 38%}
+  .band .veil{position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(38,29,22,.74) 0%,rgba(38,29,22,.30) 54%,rgba(38,29,22,0) 100%)}
+  .band .line{position:absolute;left:0;top:0;bottom:0;display:flex;align-items:center}
+  .band p{font-family:'Source Serif 4',Georgia,serif;font-size:clamp(25px,3.2vw,38px);
+          line-height:1.25;color:#FFF6EC;max-width:18ch;margin:0}
 
   /* not */
-  .nots{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);margin-top:8px}
-  .nots div{background:var(--stone);padding:26px 28px}
-  .nots b{display:block;font-family:'Newsreader',Georgia,serif;font-size:22px;color:var(--slate);
+  .nots{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:8px}
+  .nots div{background:#fff;border-radius:14px;padding:26px 28px}
+  .nots b{display:block;font-family:'Source Serif 4',Georgia,serif;font-size:21px;color:var(--ink);
           font-weight:400;margin-bottom:8px}
   .nots p{margin:0;font-size:16px;line-height:1.65}
 
   /* method */
   .phase{margin-bottom:42px}
   .phase .ph{display:flex;align-items:baseline;gap:16px;padding-bottom:14px;
-             border-bottom:1px solid rgba(241,242,243,.18);margin-bottom:22px}
-  .phase .ph b{font-family:'Newsreader',Georgia,serif;font-size:26px;font-weight:400;color:var(--on-slate)}
+             border-bottom:1px solid rgba(255,246,236,.18);margin-bottom:22px}
+  .phase .ph b{font-family:'Source Serif 4',Georgia,serif;font-size:26px;font-weight:400;color:#FFF6EC}
   .stages{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
-  .stage b{display:block;font-size:16px;font-weight:600;color:var(--on-slate);margin-bottom:6px}
-  .stage p{margin:0;font-size:15px;line-height:1.65;color:var(--on-slate-mute)}
+  .stage b{display:block;font-size:16px;font-weight:600;color:#FFF6EC;margin-bottom:6px}
+  .stage p{margin:0;font-size:15px;line-height:1.65;color:var(--on-deep-mute)}
 
   /* changes */
   .changes{list-style:none;padding:0;margin:0;columns:2;column-gap:56px}
@@ -85,73 +106,92 @@
               border-bottom:1px solid var(--line)}
 
   /* offer */
-  .offer{background:var(--stone-2);padding:44px;margin-top:10px}
+  .offer{background:var(--peach);border-radius:20px;padding:48px;margin-top:10px}
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:30px}
-  .cols b{display:block;font-size:15px;font-weight:600;color:var(--slate);margin-bottom:12px}
+  .cols b{display:block;font-size:15px;font-weight:600;color:var(--ink);margin-bottom:12px}
   .cols ul{list-style:none;padding:0;margin:0}
   .cols li{font-size:16px;line-height:1.6;padding:7px 0 7px 20px;position:relative}
   .cols li:before{content:"";position:absolute;left:0;top:15px;width:8px;height:1px;background:var(--muted)}
-  .consult{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);font-size:16px;color:var(--muted)}
+  .consult{margin-top:30px;padding-top:22px;border-top:1px solid rgba(110,96,85,.25);font-size:16px;color:var(--muted)}
 
   /* faq */
   details{border-bottom:1px solid var(--line);padding:18px 0}
-  summary{font-family:'Newsreader',Georgia,serif;font-size:21px;color:var(--slate);cursor:pointer;list-style:none}
+  summary{font-family:'Source Serif 4',Georgia,serif;font-size:21px;color:var(--ink);cursor:pointer;list-style:none}
   summary::-webkit-details-marker{display:none}
   summary:after{content:"+";float:right;color:var(--muted);font-family:'Public Sans',sans-serif}
   details[open] summary:after{content:"\2212"}
   details p{margin:14px 0 4px;font-size:16px;max-width:72ch}
 
   /* final */
-  .final{text-align:left;padding:90px 0}
-  footer{padding:34px var(--pad);display:flex;justify-content:space-between;
+  .final{background:linear-gradient(120deg,#33271F 0%,#4A362A 100%);color:var(--on-deep);
+         border-radius:20px;padding:60px;margin-bottom:60px}
+  .final h2{color:#FFF6EC}
+  .final .pill{background:var(--cream);color:var(--ink)}
+  .final .pill:hover{background:#fff}
+
+  footer{padding:32px var(--pad);display:flex;justify-content:space-between;
          font-size:13px;color:var(--muted);border-top:1px solid var(--line);flex-wrap:wrap;gap:12px}
+
+  a:focus-visible,.pill:focus-visible,summary:focus-visible,input:focus-visible,button:focus-visible{
+    outline:2px solid var(--ink);outline-offset:3px}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
 
   @media(max-width:900px){
     :root{--pad:22px}
-    .hero{grid-template-columns:1fr}.hero-r{min-height:340px}
-    h1{font-size:38px}.h2{font-size:30px}
-    .two,.cols,.nots,.stages{grid-template-columns:1fr;gap:26px}
-    .nots{gap:1px}.changes{columns:1}
+    .hgrid,.two,.cols,.nots,.stages{grid-template-columns:1fr;gap:30px}
+    .heroimg img{height:320px}
+    .qcard{position:static;width:auto;margin-top:18px;box-shadow:none;border:1px solid var(--line)}
+    .hero{padding-bottom:56px}
+    .changes{columns:1}
+    .soft,.offer{padding:28px}.final{padding:34px;border-radius:16px}
+    .band{height:420px}
   }
 </style>
 </head>
 <body>
 
-<div class="bar">
-  <div class="wm">ELENA CORRAO</div>
-  <nav>
-    <a href="#method">Method</a><a href="#work">The work</a><a href="#about">About</a><a href="#apply">Apply</a>
-  </nav>
+<div class="hero">
+  <div class="bar">
+    <div class="wm">ELENA CORRAO</div>
+    <nav>
+      <a href="#quiz">Quiz</a><a href="#method">Method</a><a href="#about">About</a><a href="#apply">The eight weeks</a>
+    </nav>
+  </div>
+
+  <div class="wrap hgrid">
+    <div>
+      <div class="eyebrow">Direction work, one to one</div>
+      <h1>You know this isn&rsquo;t it. You just don&rsquo;t know what is.</h1>
+      <p class="lede">Most people build a life out of other people&rsquo;s expectations and then wonder why it doesn&rsquo;t fit. I work with people who have hit the point of not being able to do another year of it, and who are ready to do something about it rather than read about it.</p>
+      <a class="pill" href="#quiz">What are you actually chasing?</a>
+      <a class="alt" href="#apply">Or read about the eight weeks first.</a>
+    </div>
+    <div class="heroimg">
+      <img src="assets/w-hero.jpg" alt="Elena Corrao">
+      <div class="qcard">
+        <h3>What are you actually chasing?</h3>
+        <p>Five minutes. The questions I would ask you in person, and what is really underneath the goal you named.</p>
+        <a class="pill" href="#quiz">Take the quiz</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<section class="hero" style="padding:0">
-  <div class="hero-l">
-    <div class="eyebrow">Direction work, one to one</div>
-    <h1>You know this isn&rsquo;t it. You just don&rsquo;t know what is.</h1>
-    <p class="lede">Most people build a life out of other people&rsquo;s expectations and then wonder why it doesn&rsquo;t fit. I work with people who have hit the point of not being able to do another year of it, and who are ready to do something about it rather than read about it.</p>
-    <a class="cta" href="#apply">Apply for the eight weeks</a>
-    <a class="alt" href="#">Not ready yet? Read this first.</a>
+<section id="quiz"><div class="wrap two" style="align-items:center">
+  <div class="soft">
+    <h2 class="h2" style="margin-bottom:16px">What are you actually chasing?</h2>
+    <p style="margin-top:0">You say you want the money, the business, the move. Underneath each of those is something you are actually after, and it is usually not the thing you named. The quiz takes five minutes and you get the answer either way.</p>
+    <form class="qform" action="#" method="post">
+      <label for="quiz-email" style="position:absolute;left:-9999px">Your email</label>
+      <input id="quiz-email" name="email" type="email" placeholder="your email" required autocomplete="email">
+      <button class="pill" type="submit">Start the quiz</button>
+    </form>
+    <p style="font-size:14px;margin-top:12px;color:var(--muted)">No spam. Unsubscribe whenever you want.</p>
   </div>
-  <div class="hero-r">
-    <img src="assets/elena-hero.jpg" alt="Elena Corrao">
-    <div class="quote">I am not going to tell you what your life should look like. I will help you become someone who can answer that.
-      <small>Elena Corrao</small></div>
-  </div>
-</section>
-
-<section><div class="wrap">
-  <div class="eyebrow">If you are here, some of this is probably true</div>
-  <ul class="recog" style="margin-top:26px">
-    <li>I do not know where I fit.</li>
-    <li>I keep second-guessing every decision.</li>
-    <li>I look fine from the outside, but this does not feel like my life.</li>
-    <li>I feel like everyone else got instructions and I missed them.</li>
-    <li>I am tired of following everyone else&rsquo;s advice.</li>
-    <li>I cannot spend another decade wondering who I could have become.</li>
-  </ul>
+  <img class="rounded" src="assets/w-light.jpg" alt="Elena Corrao outdoors in afternoon light">
 </div></section>
 
-<section><div class="wrap two">
+<section style="padding-top:0"><div class="wrap two">
   <h2 class="h2">You are not indecisive. You are playing a game you never chose.</h2>
   <div>
     <p style="margin-top:0">Parents, culture, a partner, whatever success was supposed to look like. Most people inherit the rules and then wonder why winning feels like nothing.</p>
@@ -160,8 +200,20 @@
   </div>
 </div></section>
 
+<div class="band">
+  <img src="assets/w-sunset.jpg" alt="Elena Corrao on the beach at sunset, one arm raised">
+  <div class="veil"></div>
+  <div class="line"><div class="wrap">
+    <p>You may not be able to change everything today. You can start becoming the person who has more choices tomorrow.</p>
+  </div></div>
+</div>
+
 <section id="work"><div class="wrap">
-  <h2 class="h2">What this is not</h2>
+  <div class="two" style="align-items:end;margin-bottom:26px">
+    <h2 class="h2" style="margin:0">What this is not</h2>
+    <img src="assets/w-palm.jpg" alt="Sunset through palm fronds"
+         style="width:100%;height:170px;object-fit:cover;border-radius:14px;display:block">
+  </div>
   <div class="nots">
     <div><b>Not therapy</b><p>I am not a therapist and I do not treat trauma or mental health conditions. We can look at patterns and where they came from. If what you need is clinical care, I will tell you.</p></div>
     <div><b>Not motivation</b><p>You will not leave a call feeling inspired and then do nothing for a week. There is work between sessions and I will ask about it.</p></div>
@@ -170,8 +222,8 @@
   </div>
 </div></section>
 
-<section class="dark" id="method"><div class="wrap">
-  <div class="eyebrow" style="color:var(--on-slate-mute)">The method</div>
+<section class="deep" id="method"><div class="wrap">
+  <div class="eyebrow" style="color:var(--on-deep-mute)">The method</div>
   <h2 class="h2" style="margin-top:22px;margin-bottom:48px">Half deep conversation, half structure.</h2>
 
   <div class="phase">
@@ -216,12 +268,19 @@
   <p style="margin-top:26px;color:var(--muted);max-width:62ch">You will not have your life solved in eight weeks. That is not a disclaimer, it is the point. The goal is that you can do this thinking without me.</p>
 </div></section>
 
-<section id="about"><div class="wrap two">
-  <h2 class="h2">Why me</h2>
+<section id="about" style="padding-top:0"><div class="wrap two">
+  <div>
+    <h2 class="h2">Why me</h2>
+    <div class="soft" style="background:var(--lilac);margin-top:30px">
+      <h3 style="font-size:22px;margin-bottom:12px">The eight weeks</h3>
+      <p style="margin:0 0 18px">Half conversation, half structure. You leave knowing what you want, why, and what the first real moves are.</p>
+      <a class="pill ghost" href="#apply">See First Principles</a>
+    </div>
+  </div>
   <div>
     <p style="margin-top:0">I always pictured a specific life. Nice things, travel, new people, real experiences. What I never had was the how. The picture was vivid and the bridge to it was missing, and that is the exact problem I work on now.</p>
 
-    <p>The first thing that changed was a question. I was managing a caf&eacute;, waking before the sun, running on a low hum of stress I had started calling normal. I was the best hand the place had and it was slowly becoming clear that none of it was appreciated. My boss asked me, <span class="serif" style="color:var(--slate)">&ldquo;Why do you need an assistant manager if I&rsquo;m paying you?&rdquo;</span></p>
+    <p>The first thing that changed was a question. I was managing a caf&eacute;, waking before the sun, running on a low hum of stress I had started calling normal. I was the best hand the place had and it was slowly becoming clear that none of it was appreciated. My boss asked me, <span class="serif" style="color:var(--ink)">&ldquo;Why do you need an assistant manager if I&rsquo;m paying you?&rdquo;</span></p>
 
     <p>A year earlier that would have wrecked me. Instead I said: I don&rsquo;t know, actually. That&rsquo;s a really good question. You should find out. You have a month. I leave for Europe soon, and when I come back, I won&rsquo;t be your manager anymore.</p>
 
@@ -233,11 +292,11 @@
 
     <p>I am not here because it all worked. I have paid for programmes that were harder than advertised, started things I backed out of, and been burned on things I should have questioned. I am here because I kept going and paid attention, and because most people buying the next answer are trying to purchase clarity that only comes from understanding themselves.</p>
 
-    <p class="serif" style="font-size:21px;color:var(--slate);margin-top:26px">I am not going to tell you what your life should look like. I will help you become someone who can answer that.</p>
+    <p class="serif" style="font-size:21px;color:var(--ink);margin-top:26px">I am not going to tell you what your life should look like. I will help you become someone who can answer that.</p>
   </div>
 </div></section>
 
-<section id="apply"><div class="wrap">
+<section id="apply" style="padding-top:0"><div class="wrap">
   <div class="eyebrow">The flagship</div>
   <h2 class="h2" style="margin-top:20px">First Principles</h2>
   <div class="offer">
@@ -258,7 +317,7 @@
       </ul></div>
     </div>
     <p class="consult">If what you want turns out to require building your own income, I have spent years doing that for other people and we can go there. If you need expertise I do not have, I will point you to someone who does, and I will tell you if I earn anything from the referral.</p>
-    <p style="margin-top:30px"><a class="cta" href="#">Apply for the eight weeks</a></p>
+    <p style="margin-top:30px"><a class="pill" href="#quiz">Start with the questions</a></p>
   </div>
 </div></section>
 
@@ -293,13 +352,15 @@
     <p>No, and be careful of anyone who says otherwise. You will have direction, reasons, a plan and the beginning of trusting your own judgement. The rest is you living it.</p></details>
 
   <details><summary>What does it cost and how do I start?</summary>
-    <p>Start with the application. It takes a few minutes and it asks you to say, in your own words, why now. If it looks like a fit we will talk, and I will give you the full details and the price then.</p></details>
+    <p>Start with the quiz, or send me a note. If it looks like a fit we will talk, and I will give you the full details and the price then.</p></details>
 </div></section>
 
-<section class="dark" style="border-bottom:0"><div class="wrap final">
-  <h2 class="h2" style="max-width:22ch">You have one life. Learn who you are, decide what matters, and start taking the wheel.</h2>
-  <p style="max-width:56ch;margin-bottom:34px">If you have read this far, you are probably not curious. You are probably done.</p>
-  <a class="cta" style="background:var(--stone);color:var(--slate)" href="#">Apply for the eight weeks</a>
+<section style="padding-top:0"><div class="wrap">
+  <div class="final">
+    <h2 class="h2" style="max-width:22ch">You have one life. Learn who you are, decide what matters, and start taking the wheel.</h2>
+    <p style="max-width:56ch;margin-bottom:34px">If you have read this far, you are probably not curious. You are probably done.</p>
+    <a class="pill" href="#quiz">Start with the questions</a>
+  </div>
 </div></section>
 
 <footer>
