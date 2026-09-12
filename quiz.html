@@ -428,6 +428,16 @@
   };
   var LETTERS = ["A","B","C","D","E"];
 
+  // what gets written to the MailerLite custom fields, so the list can be segmented
+  var RESULT_LABEL = {
+    unnamed:"Cannot name it", proxy:"Wants the feeling", audience:"Someone else's scoreboard",
+    knew:"Already knew", stall:"Stops in the same place", bridge:"No bridge"
+  };
+  var READY_LABEL = {
+    bored:"Woman A, bored", done:"Woman B, done",
+    ended:"Something just ended", curious:"Curious"
+  };
+
   function cap(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
   function el(id){ return document.getElementById(id); }
 
@@ -513,14 +523,20 @@
     go.disabled = true;
     go.textContent = "One second";
 
+    // work out the result before sending, so the list knows which one she got
+    var key = verdict();
+
     var fd = new FormData();
     fd.append("fields[email]", v);
+    fd.append("fields[quiz_result]", RESULT_LABEL[key] || key);
+    fd.append("fields[quiz_ready]", READY_LABEL[state.ready] || "");
+    fd.append("fields[quiz_vehicle]", vehicleText() || "did not name one");
     fd.append("ml-submit", "1");
     fd.append("anticsrf", "true");
 
     // the result is hers either way. a list outage is not her problem.
     var done = false;
-    function proceed(){ if (!done){ done = true; finish(v); } }
+    function proceed(){ if (!done){ done = true; finish(v, key); } }
     setTimeout(proceed, 4000);
 
     fetch(LIST, { method:"POST", body: fd })
@@ -661,8 +677,8 @@
     }
   };
 
-  function finish(email){
-    var key = verdict();
+  function finish(email, key){
+    key = key || verdict();
     var r = RESULTS[key]();
     el("rtitle").textContent = r.title;
     var body = el("rbody");
