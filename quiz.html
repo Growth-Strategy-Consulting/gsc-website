@@ -437,6 +437,16 @@
     bored:"Woman A, bored", done:"Woman B, done",
     ended:"Something just ended", curious:"Curious"
   };
+  // the follow-up email's opening paragraph travels with the subscriber, so one
+  // email serves all six results. deliberately different lengths and shapes.
+  var OPENING = {
+    unnamed:"You could not name what you want. Then a friend described your situation and you knew what to tell her in four seconds. You have the judgement. You have just never pointed it at yourself.",
+    proxy:"You named the vehicle, not the thing. Worth knowing before you spend two more years driving at it.",
+    audience:"Three different questions gave me the same answer. You want it noticeably less when nobody ever finds out. So the thing to work out is not what you want. It is who you have been playing for.",
+    knew:"You have known the answer for years. You are not confused, and almost everything sold to you is clarity.",
+    stall:"The want is fine. You stop in the same place every time, and the reason you gave has been repeated long enough that it stopped getting checked.",
+    bridge:"You know what you want. There is just no map between here and there, so it has stayed a picture. Pictures you carry long enough start to feel like personality."
+  };
 
   function cap(s){ return s ? s.charAt(0).toUpperCase() + s.slice(1) : s; }
   function el(id){ return document.getElementById(id); }
@@ -531,6 +541,7 @@
     fd.append("fields[quiz_result]", RESULT_LABEL[key] || key);
     fd.append("fields[quiz_ready]", READY_LABEL[state.ready] || "");
     fd.append("fields[quiz_vehicle]", vehicleText() || "did not name one");
+    fd.append("fields[quiz_opening]", OPENING[key] || OPENING.bridge);
     fd.append("ml-submit", "1");
     fd.append("anticsrf", "true");
 
