@@ -92,6 +92,13 @@
   .kicker{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
   .rtitle{font-size:clamp(26px,2.9vw,38px);line-height:1.14;margin-bottom:24px;max-width:23ch;text-wrap:balance}
   .rbody p{max-width:62ch;font-size:17px}
+  /* what the quiz actually heard, said back plainly before any interpretation */
+  .readout{margin:0 0 30px;max-width:52rem;border-top:1px solid var(--line);
+           display:grid;grid-template-columns:15rem 1fr}
+  .readout dt{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+              padding:13px 0;border-bottom:1px solid var(--line)}
+  .readout dd{margin:0;padding:13px 0;font-family:'Source Serif 4',Georgia,serif;
+              font-size:19px;line-height:1.35;color:var(--ink);border-bottom:1px solid var(--line)}
   .doit{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
         padding:26px 0;margin:34px 0 0;max-width:62ch}
   .doit b{display:block;font-family:'Source Serif 4',Georgia,serif;font-weight:400;font-size:12px;
@@ -135,6 +142,9 @@
     .nav{margin-top:22px}
     .sig{padding-bottom:18px;font-size:13.5px}
     .strip{height:200px}
+    .readout{grid-template-columns:1fr}
+    .readout dt{padding:12px 0 0;border-bottom:0}
+    .readout dd{padding:2px 0 12px;font-size:18px}
   }
 </style>
 </head>
@@ -192,17 +202,14 @@
     <section class="screen" id="s-result" hidden>
       <div class="kicker">Your answer</div>
       <h2 class="rtitle" id="rtitle"></h2>
+      <dl class="readout" id="readout"></dl>
       <div class="rbody" id="rbody"></div>
       <div class="doit">
         <b>This week</b>
         <p id="rdo"></p>
       </div>
-      <div class="strip">
-        <img src="assets/w-sunset.jpg" alt="">
-        <div class="veil"></div>
-        <div class="in"><div><h3 id="ctitle"></h3></div></div>
-      </div>
       <div class="after">
+        <h3 id="ctitle"></h3>
         <p id="cbody"></p>
         <a class="pill" id="cbtn" href="/#apply">Read about the eight weeks</a>
       </div>
@@ -257,7 +264,7 @@
     },
     {
       id:"driver",
-      q:"If you got it tomorrow, what is the first thing that changes?",
+      q:"{GOT}. What is the first thing that changes?",
       hint:"Not what changes on paper. What changes in you.",
       a:[
         {v:"safety",     t:"I stop being afraid about money"},
@@ -269,7 +276,7 @@
     },
     {
       id:"tuesday",
-      q:"Picture an average Tuesday after you have it. What are you doing at three in the afternoon?",
+      q:"Picture an average Tuesday after {HAVE}. What are you doing at three in the afternoon?",
       hint:"Month eight, not week one. Most people have never asked this about the thing they want most.",
       a:[
         {v:"clear",  t:"I can picture it clearly, and I want it"},
@@ -280,7 +287,7 @@
     },
     {
       id:"secret",
-      q:"Same thing, but nobody ever finds out. No post, no telling anyone. Do you still want it?",
+      q:"{SECRET}, but nobody ever finds out. No post, no telling anyone. Do you still want it?",
       hint:"Take a second on this one.",
       a:[
         {v:"same", t:"Yes, exactly as much"},
@@ -428,6 +435,40 @@
   };
   var LETTERS = ["A","B","C","D","E"];
 
+  // later questions name the thing she picked in question one, rather than saying "it"
+  var GOT = {
+    money:"The money lands tomorrow",
+    business:"The business exists tomorrow",
+    job:"You are out of that job tomorrow",
+    away:"You wake up somewhere else tomorrow",
+    unknown:"You get whatever it turns out to be, tomorrow"
+  };
+  var HAVE = {
+    money:"the money is there",
+    business:"the business is running",
+    job:"you have left that job",
+    away:"you have moved",
+    unknown:"you have it"
+  };
+  var SECRET = {
+    money:"You have the money",
+    business:"The business works",
+    job:"You are out",
+    away:"You have moved",
+    unknown:"You get it"
+  };
+  // free text cannot be verb-matched, so fall back to a pronoun. the screen before
+  // showed them their own words, so "that" still has a clear referent.
+  var OWN = { GOT:"You get that tomorrow", HAVE:"you have that", SECRET:"You get that" };
+
+  function fill(text){
+    return text.replace(/\{(GOT|HAVE|SECRET)\}/g, function(_, tok){
+      if (state.ownword) return OWN[tok];
+      var map = tok === "GOT" ? GOT : tok === "HAVE" ? HAVE : SECRET;
+      return map[state.vehicle] || map.unknown;
+    });
+  }
+
   // what gets written to the MailerLite custom fields, so the list can be segmented
   var RESULT_LABEL = {
     unnamed:"Cannot name it", proxy:"Wants the feeling", audience:"Someone else's scoreboard",
@@ -470,7 +511,7 @@
     el("idx").textContent = pad(i+1) + " / " + pad(Q.length);
     el("sig").textContent = SIGS[i] || SIGS[0];
     wash(i);
-    el("qtext").textContent = q.q;
+    el("qtext").textContent = fill(q.q);
     el("qhint").textContent = q.hint || "";
     el("qhint").hidden = !q.hint;
     el("back").hidden = (i === 0);
@@ -561,12 +602,13 @@
   }
 
   // every result opens on the friend answer, so the read is theirs, not a label
+  // the readout above already states the facts, so this interprets rather than recites
   function opener(){
     if (state.advice === "fudge"){
-      return "When a friend described your exact situation back to you, you said you would tell her the same thing you tell yourself, which is nothing useful. That is worth sitting with. You are the person everyone else asks, and you have taken yourself off the list.";
+      return "You are the person everyone else asks. You have taken yourself off the list.";
     }
-    return "A friend described your exact situation back to you and you told her " + ADVICE[state.advice] +
-           ". You did not have to think about it. Then you told me that has been your own answer for " + KNOWN[state.known] + ".";
+    return "You answered for her instantly. You have been sitting on the same answer for yourself for " +
+           KNOWN[state.known] + ".";
   }
 
   function verdict(){
@@ -582,8 +624,10 @@
     // the goal is shaped by an audience
     if ((state.offered === "think" || state.smaller === "want" || state.smaller === "silent") && s !== "same") return "audience";
 
-    // she has been sitting on her own answer
-    if ((state.known === "years" || state.known === "long") && state.advice !== "fudge") return "knew";
+    // she has been sitting on her own answer. not if she also said she does not know
+    // what she would change it to, which is the opposite claim.
+    if ((state.known === "years" || state.known === "long")
+        && state.advice !== "fudge" && state.but !== "unknown") return "knew";
 
     // a reason she has stopped checking
     if (state.but === "money" || state.but === "hurt" || state.but === "notbad" || state.but === "said") return "stall";
@@ -688,10 +732,34 @@
     }
   };
 
+  // say plainly what the quiz heard, before any interpretation of it
+  function readout(){
+    var veh = vehicleText();
+    var rows = [
+      ["What you said you want", veh ? cap(veh) : "You could not name it"],
+      ["What is under it",       cap(DRIVER_N[state.driver] || "")],
+      ["What you would tell a friend", state.advice === "fudge"
+          ? "Nothing useful, the same as you tell yourself"
+          : cap((ADVICE[state.advice] || "").replace(/^to /, ""))],
+      ["How long that has been your answer too", cap(KNOWN[state.known] || "")],
+      ["When it gets loud",      HITS[state.hits] || ""],
+      ["What stops you",         cap(BUT[state.but] || "")]
+    ];
+    var dl = el("readout");
+    dl.innerHTML = "";
+    rows.forEach(function(r){
+      if (!r[1]) return;
+      var dt = document.createElement("dt"); dt.textContent = r[0];
+      var dd = document.createElement("dd"); dd.textContent = r[1];
+      dl.appendChild(dt); dl.appendChild(dd);
+    });
+  }
+
   function finish(email, key){
     key = key || verdict();
     var r = RESULTS[key]();
     el("rtitle").textContent = r.title;
+    readout();
     var body = el("rbody");
     body.innerHTML = "";
     r.body.forEach(function(t){
