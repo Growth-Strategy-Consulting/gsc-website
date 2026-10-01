@@ -3,7 +3,7 @@
 Static site for growthstrategyconsulting.org. Plain HTML/CSS, no build step.
 
 ## Files
-- `index.html` — the homepage (v1)
+- `index.html` — the homepage (v2, Oct 2026: one-page landing, Growth Audit from $297, Calendly booking)
 - `assets/` — images, logos (swap the placeholder photos here)
 
 ## Local preview
@@ -18,9 +18,11 @@ python3 -m http.server 8000
 Hosted on **Netlify** (free tier). Connected to this GitHub repo —
 every push to `main` auto-deploys.
 
-## Brand — Warm Clarity
-- Tagline: We grow your strategy.
-- Fonts: Fraunces (headlines), Hanken Grotesk (body)
-- Colors: Ink #2A2521 · Paper #FBF8F1 · Sand #E9E0CE · Sage #6F8A74 · Terracotta #BF6E3F (CTA + stat numbers only)
-- Stands for: Outside · Direct · Real. The look itself shows the system — grids, numbered steps, data-forward. No decorative gradients.
-- Source of truth: `Clients/Growth Strategy Consulting/brand/brand-sheet/gsc-brand-sheet.png` (in the main Claude.Code repo)
+## Brand (v2, Oct 2026)
+- One-liner: Plug the leaks. Build the systems. Get your time back.
+- Fonts: Fraunces (headlines) · DM Sans (body) · DM Mono (labels, numbers)
+- Colors: Paper #F6F0E6 · Espresso #3A2A1F · Terracotta #B5552F · Olive #5E6B3A · Sand #D9CBB3
+- Mark: the 3×3 "found cell" grid with cell 6 lit
+- Booking: https://calendly.com/corraoconsulting/30min (set as BOOKING_URL at the bottom of index.html)
+- Source of truth: the "GSC Brand Guide" design canvas
+- Older pages (about, services, resources, quiz, scorecard, remote-shift) still use the v1 look and are not linked from the new homepage.
