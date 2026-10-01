@@ -25,4 +25,4 @@ every push to `main` auto-deploys.
 - Mark: the 3×3 "found cell" grid with cell 6 lit
 - Booking: https://calendly.com/corraoconsulting/30min (set as BOOKING_URL at the bottom of index.html)
 - Source of truth: the "GSC Brand Guide" design canvas
-- Older pages (about, services, resources, quiz, scorecard, remote-shift) still use the v1 look and are not linked from the new homepage.
+- Pages: index.html (homepage), profit-leak-scorecard.html (the 2-minute leak check), privacy.html. The old v1 pages were removed Oct 1, 2026.
