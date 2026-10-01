@@ -119,6 +119,7 @@ main section{padding-block:clamp(56px,9vw,112px)}
 .card{background:var(--paper);border:1px solid var(--sand);padding:26px;display:flex;flex-direction:column;gap:12px;min-width:0}
 .card p{color:var(--ink2);font-size:17px}
 .card .hand{font-size:40px}
+.card .cta{align-self:flex-start;margin-top:4px}
 .card .meta{margin-top:auto;font-family:var(--mono);font-size:14px;color:var(--muted)}
 @media (max-width:980px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:860px){.cards.three{grid-template-columns:1fr}}
@@ -164,8 +165,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <a class="logo" href="#top"><span class="mk s20" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span><span class="name">Growth Strategy Consulting</span></a>
     <nav class="nav" aria-label="Main">
       <a class="txt" href="#how">How it works</a>
-      <a class="txt" href="#audit">The audit</a>
-      <a class="cta sm" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free call</a>
+      <a class="txt" href="#work">Ways to work</a>
+      <a class="cta sm" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Free Strategy Session</a>
     </nav>
   </div>
 </header>
@@ -177,9 +178,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <h1>Plug the leaks.<br>Build the systems.<br>Get your <span class="ul">time back.<svg viewBox="0 0 400 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 26 C 90 8, 210 6, 396 18" fill="none" stroke="#B5552F" stroke-width="7" stroke-linecap="round"/></svg></span></h1>
       <p class="lede">I walk into your café or shop with fresh eyes and a clipboard, mark up what’s costing you, and then help you fix it. Systems, team, and AI that actually fits how you work.</p>
       <div class="acts">
-        <a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free 30-minute call</a>
+        <a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a>
         <a class="alt" href="profit-leak-scorecard.html">or take the 2-minute leak check</a>
       </div>
+      <p class="mono" style="font-size:14px;color:var(--muted)">30 minutes, on video. You leave with your top 3 leaks and one fix you can make this week.</p>
     </div>
     <div class="polaroid">
       <img src="assets/elena-gsc.jpg" width="900" height="1125" alt="Elena Corrao, growth strategist">
@@ -213,6 +215,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="eyebrow">The Growth Audit</div>
         <div class="amt">Starting at <span>$297</span></div>
         <p style="color:var(--ink2)">I come to you. We go through the floor, the counter, the back room and the numbers. You leave with every leak marked up, what to fix first, and a 30-day goal.</p>
+        <p style="color:var(--ink2)"><strong>Includes two follow-up check-ins</strong> in the 30 days after, so your goal doesn’t stall.</p>
         <p class="hand">every business is different, so the work after the audit is quoted to fit</p>
         <a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Get your checklist done</a>
       </div>
@@ -228,7 +231,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <div class="card"><span class="mk" aria-hidden="true"><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i></span><h3>Build the systems</h3><p>Schedules, checklists, ordering and a right hand you trust, so the day runs without you.</p></div>
       <div class="card"><span class="mk" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i></span><h3>AI that fits</h3><p>No hype. AI set up to take real tasks off your plate, and your team shown how to use it.</p></div>
     </div>
-    <div class="bar"><strong>Not sure which one you need? That’s what the call is for.</strong><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free 30-minute call</a></div>
+    <div class="bar"><strong>Not sure which one you need? That’s what the call is for.</strong><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a></div>
+  </section>
+
+  <section class="wrap sec" id="work" aria-labelledby="work-h">
+    <div class="eyebrow">Ways to work with me</div>
+    <h2 id="work-h">Start small. <span class="hand">Or</span> go all in.</h2>
+    <div class="cards three">
+      <div class="card"><span class="hand">free</span><h3>Strategy Session</h3><p>30 minutes on video. We talk through your business and you leave with your top 3 leaks and one fix you can make this week.</p><span class="meta">30 min · virtual · free</span><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a Strategy Session</a></div>
+      <div class="card"><span class="hand">$197</span><h3>Power Hour</h3><p>One hour with me to ask everything that’s been on your list. Straight answers, general guidance, and a look at how simple AI tools can quietly take work off your plate.</p><span class="meta">60 min · virtual · one time</span><a class="cta" href="https://calendly.com/corraoconsulting" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a Power Hour</a></div>
+      <div class="card" style="border:2px solid var(--ink)"><span class="hand">from $297</span><h3>Growth Audit</h3><p>I come to you. The full walk-through, the numbers, your marked-up checklist, a 30-day goal, and two follow-up check-ins.</p><span class="meta">on-site · St. Pete area</span><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Start with a free session</a></div>
+    </div>
+    <p class="mono" style="font-size:14px;color:var(--muted)">I take 4 new businesses a month, so every owner gets real time and attention.</p>
   </section>
 
   <section class="wrap sec" id="how" aria-labelledby="how-h">
@@ -278,11 +292,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="close">
       <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
         <h2 id="book-h">Let’s find what’s leaking.</h2>
-        <p>A free 30-minute call. If I can’t help, I’ll tell you in the first ten.</p>
+        <p>Book a free Strategy Session: 30 minutes on video. You leave with your top 3 leaks and one fix for this week. If I can’t help, I’ll tell you in the first ten.</p>
+        <p class="mono" style="font-size:14px;color:var(--cream)">I take 4 new businesses a month.</p>
         <span class="mail">elena@growthstrategyconsulting.org</span>
       </div>
       <div class="side">
-        <a class="cta terra" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free 30-minute call</a>
+        <a class="cta terra" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a>
         <a class="alt" href="profit-leak-scorecard.html">or take the 2-minute leak check</a>
       </div>
     </div>
@@ -296,6 +311,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   </div>
 </footer>
 
-<div class="dock"><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free 30-minute call</a></div>
+<div class="dock"><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a></div>
 </body>
 </html>
