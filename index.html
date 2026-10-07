@@ -125,6 +125,43 @@ main section{padding-block:clamp(56px,9vw,112px)}
 @media (max-width:860px){.cards.three{grid-template-columns:1fr}}
 @media (max-width:560px){.cards{grid-template-columns:1fr}}
 
+/* sheet extras */
+.sheet .intro{font-size:16px;color:var(--ink2);padding:14px 0 4px}
+.row .hand.ok{color:var(--olive)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 22px;padding:14px 0 4px;border-top:2px solid var(--ink);margin-top:4px;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend .box{width:16px;height:16px}
+.legend .box.on::after{left:3px;top:0;width:5px;height:9px}
+.legend .hand{font-size:22px}
+
+/* quiz */
+.quiz{padding:clamp(24px,4vw,44px);display:flex;flex-direction:column;gap:18px;transform:rotate(-.4deg)}
+.quiz h2{font-size:clamp(30px,4.2vw,50px)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.opt{display:grid;grid-template-columns:22px minmax(0,1fr);align-items:center;gap:14px;text-align:left;font:inherit;font-size:17px;color:var(--ink);background:var(--paper);border:1px solid var(--sand);border-radius:6px;padding:14px 16px;min-height:56px;cursor:pointer;transition:border-color .2s,background .2s}
+.opt:hover{border-color:var(--ink)}
+.opt:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+.opt[aria-pressed="true"]{border:2px solid var(--olive);background:#F7F8EE}
+.opt[aria-pressed="true"] .box{background:var(--olive);border-color:var(--olive);position:relative}
+.opt[aria-pressed="true"] .box::after{content:"";position:absolute;left:5px;top:1px;width:6px;height:11px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.qres{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,420px);gap:clamp(24px,4vw,48px);align-items:start;border-top:2px solid var(--ink);padding-top:24px}
+.qres[hidden]{display:none}
+.qres .tip{display:flex;flex-direction:column;gap:10px}
+.qres .tip .hand{font-size:clamp(28px,3vw,36px)}
+.qres .tip p{color:var(--ink2)}
+.gate{display:flex;flex-direction:column;gap:12px}
+.gate h3{font-size:clamp(22px,2.2vw,26px)}
+.gate p{font-size:16px;color:var(--ink2)}
+.gate input[type=text],.gate input[type=email]{font:inherit;font-size:17px;padding:13px 14px;border:1px solid var(--muted);border-radius:6px;background:#fff;color:var(--ink);min-height:50px;width:100%}
+.gate input:focus-visible{outline:3px solid var(--terra);outline-offset:1px}
+.gate .consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:14px;color:var(--muted);align-items:start}
+.gate .consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--olive)}
+.gate .cta{border:0;cursor:pointer;font-family:inherit;width:100%}
+.gate .cta[disabled]{opacity:.7;cursor:default}
+.gate .hint{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.gate .hint.err{color:var(--terra-t)}
+@media (max-width:860px){.qres{grid-template-columns:1fr}.quiz{transform:none}}
+
 /* goal */
 .goal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:clamp(40px,6vw,72px);align-items:center}
 .goal .copy{display:flex;flex-direction:column;gap:24px;min-width:0}
@@ -189,6 +226,36 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
+  <section class="wrap" id="quiz" aria-labelledby="quiz-h" style="padding-top:0">
+    <div class="paper quiz">
+      <div class="eyebrow">Quick question</div>
+      <h2 id="quiz-h">Where does most of your week go?</h2>
+      <p class="mono" style="font-size:14px;color:var(--muted)">Pick one. I’ll show you how AI can take it off your plate.</p>
+      <div class="opts" role="group" aria-label="Where does most of your week go?">
+        <button type="button" class="opt" data-a="messages" aria-pressed="false"><span class="box" aria-hidden="true"></span><span>Answering customer messages and emails</span></button>
+        <button type="button" class="opt" data-a="team" aria-pressed="false"><span class="box" aria-hidden="true"></span><span>Scheduling and managing the team</span></button>
+        <button type="button" class="opt" data-a="marketing" aria-pressed="false"><span class="box" aria-hidden="true"></span><span>Social media and marketing</span></button>
+        <button type="button" class="opt" data-a="admin" aria-pressed="false"><span class="box" aria-hidden="true"></span><span>Ordering, inventory and admin</span></button>
+        <button type="button" class="opt" data-a="numbers" aria-pressed="false"><span class="box" aria-hidden="true"></span><span>Numbers, invoices and bookkeeping</span></button>
+      </div>
+      <div class="qres" id="qres" hidden>
+        <div class="tip" aria-live="polite">
+          <span class="hand" id="qhand"></span>
+          <p id="qtip"></p>
+          <p>The free checklist has 20 tasks like this, sorted by where your time goes, so you can pick one and start this week.</p>
+        </div>
+        <form class="gate" id="qform" novalidate>
+          <h3>Get the free AI Time-Back Checklist</h3>
+          <input type="text" id="qname" placeholder="First name" autocomplete="given-name" aria-label="First name">
+          <input type="email" id="qemail" placeholder="you@yourbusiness.com" autocomplete="email" aria-label="Email" required>
+          <label class="consent"><input type="checkbox" id="qconsent"><span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and to hearing from Elena.</span></label>
+          <button class="cta" type="submit" id="qbtn"><i aria-hidden="true"></i>Send me my free checklist</button>
+          <p class="hint" id="qhint">No spam. Just the checklist and the occasional useful thing.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap sec" aria-labelledby="familiar">
     <div class="eyebrow">Sound familiar?</div>
     <h2 id="familiar">You’re the scheduler, the inbox, the marketer <span class="hand">and</span> the bookkeeper.</h2>
@@ -200,16 +267,21 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <div class="bar"><strong>If you do it by hand every week, there’s probably a faster way.</strong><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Find my time leaks</a></div>
   </section>
 
-  <section class="wrap" id="audit" aria-labelledby="audit-h">
+  <section class="wrap sec" id="audit" aria-labelledby="audit-h">
+    <div class="eyebrow">What a Growth Audit looks like</div>
+    <h2 id="audit-h">Can your business run <span class="hand">without</span> you?</h2>
     <div class="audit">
       <div class="paper sheet">
-        <div class="hd"><strong id="audit-h">The AI + growth checklist</strong><span class="mono" style="font-size:13px;color:var(--muted)">PAGE 1 OF YOUR GROWTH AUDIT</span></div>
-        <div class="row"><span class="box" aria-hidden="true"></span><span>Customer questions get answered without you</span><span class="hand">me, at 11pm</span></div>
-        <div class="row"><span class="box" aria-hidden="true"></span><span>The schedule takes minutes, not hours</span><span class="hand">3 hrs a week</span></div>
-        <div class="row"><span class="box" aria-hidden="true"></span><span>The owner can take a day off</span><span class="hand">when??</span></div>
-        <div class="row"><span class="box" aria-hidden="true"></span><span>A DM can turn into an order</span><span class="hand">fix this first</span></div>
-        <div class="row"><span class="box" aria-hidden="true"></span><span>Weekly numbers show up without you pulling them</span><span class="hand">never seen</span></div>
-        <div class="row"><span class="box" aria-hidden="true"></span><span>Reorders, posts and recaps aren’t done by hand</span><span class="hand">AI can do it</span></div>
+        <div class="hd"><strong>The AI + growth checklist</strong><span class="mono" style="font-size:13px;color:var(--muted)">SAMPLE · PAGE 1 OF YOUR AUDIT</span></div>
+        <p class="intro">I go down this list with you. What already works gets a check. Everything else gets a note: what I found, and what to fix first.</p>
+        <div class="row"><span class="box on" aria-hidden="true"></span><span>Prices and services are easy to find online</span><span class="hand ok">working!</span></div>
+        <div class="row"><span class="box" aria-hidden="true"></span><span>Customer questions get answered without you</span><span class="hand">owner still replying at 11pm</span></div>
+        <div class="row"><span class="box" aria-hidden="true"></span><span>The schedule takes minutes, not hours</span><span class="hand">3 hrs every Sunday</span></div>
+        <div class="row"><span class="box" aria-hidden="true"></span><span>A DM or email can turn into a sale</span><span class="hand">fix this first!</span></div>
+        <div class="row"><span class="box" aria-hidden="true"></span><span>Weekly numbers show up without you pulling them</span><span class="hand">never checked</span></div>
+        <div class="row"><span class="box" aria-hidden="true"></span><span>Reorders, posts and recaps aren’t done by hand</span><span class="hand">AI can do this</span></div>
+        <div class="row"><span class="box" aria-hidden="true"></span><span>The owner can take a day off</span><span class="hand">not since opening</span></div>
+        <div class="legend" aria-hidden="true"><span><span class="box on"></span>working</span><span><span class="box"></span>leak found</span><span><span class="hand">red</span>my notes</span></div>
       </div>
       <div class="price">
         <div class="eyebrow">The Growth Audit</div>
@@ -311,6 +383,58 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <span>growthstrategyconsulting.org · <a href="privacy.html">Privacy</a></span>
   </div>
 </footer>
+
+<script>
+(function(){
+  var TIPS={
+    messages:['easy first win','AI can draft replies to your most-asked questions in your voice. You read it, tweak a word, hit send. Same for emails, DMs and reviews.','Answering customer messages and emails'],
+    team:['this one’s a big one','AI can turn everyone’s availability into a first-draft schedule, write shift checklists, and help you word the hard team conversations.','Scheduling and managing the team'],
+    marketing:['say goodbye to blank-page panic','AI can turn one photo and a few notes into a week of captions in your voice, and plan posts around your slow days.','Social media and marketing'],
+    admin:['so much of this can go','AI can turn your sales report into a reorder list, draft vendor emails, and turn messy notes into a clean checklist.','Ordering, inventory and admin'],
+    numbers:['no more guessing','AI can turn your sales report into a plain-English weekly recap: what sold, what didn’t, and what to do next.','Numbers, invoices and bookkeeping']
+  };
+  var choice=null, opts=document.querySelectorAll('#quiz .opt'), res=document.getElementById('qres');
+  opts.forEach(function(b){
+    b.addEventListener('click',function(){
+      opts.forEach(function(o){o.setAttribute('aria-pressed','false')});
+      b.setAttribute('aria-pressed','true');
+      choice=b.getAttribute('data-a');
+      document.getElementById('qhand').textContent=TIPS[choice][0];
+      document.getElementById('qtip').textContent=TIPS[choice][1];
+      var first=res.hidden; res.hidden=false;
+      if(first) res.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+    });
+  });
+  // Same HubSpot form the leak check uses
+  var HS_PORTAL='246490220', HS_FORM_ID='5488f7cf-a31d-420a-8162-1c1cdf594982';
+  var CHECKLIST='ai-time-back-checklist.html';
+  function cookie(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():''}
+  document.getElementById('qform').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('qname').value.trim(), email=document.getElementById('qemail').value.trim();
+    var ok=document.getElementById('qconsent').checked, hint=document.getElementById('qhint'), btn=document.getElementById('qbtn');
+    hint.classList.remove('err');
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){hint.textContent='Enter your email so I can send the checklist.';hint.classList.add('err');return}
+    if(!ok){hint.textContent='Please tick the box so I’m allowed to email you.';hint.classList.add('err');return}
+    var fields=[{name:'firstname',value:name},{name:'email',value:email},
+      {name:'message',value:'AI QUIZ: most of the week goes to "'+(choice?TIPS[choice][2]:'not answered')+'". Requested the AI Time-Back Checklist.'}]
+      .filter(function(f){return f.value});
+    var ctx={pageUri:location.href,pageName:document.title}, h=cookie('hubspotutk'); if(h) ctx.hutk=h;
+    btn.disabled=true; btn.lastChild.textContent='Sending…';
+    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL+'/'+HS_FORM_ID,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({fields:fields,context:ctx})})
+      .then(function(r){if(!r.ok)throw new Error(r.status)})
+      .then(function(){
+        var f=document.getElementById('qform');
+        f.innerHTML='<h3>Here you go'+(name?', '+name.replace(/[<>&"]/g,''):'')+'.</h3><p>Your checklist is ready. Open it now, save it, and pick one box to try this week.</p><a class="cta" href="'+CHECKLIST+'" target="_blank" rel="noopener"><i aria-hidden="true"></i>Open my checklist</a><p class="hint">Want it set up for you? <a href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener">Book a free Strategy Session</a>.</p>';
+      })
+      .catch(function(){
+        btn.disabled=false; btn.lastChild.textContent='Send me my free checklist';
+        hint.innerHTML='That didn’t go through. <a href="'+CHECKLIST+'" target="_blank" rel="noopener">Open the checklist here</a>, or email elena@growthstrategyconsulting.org.';
+        hint.classList.add('err');
+      });
+  });
+})();
+</script>
 
 <div class="dock"><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a></div>
 </body>

@@ -25,4 +25,4 @@ every push to `main` auto-deploys.
 - Mark: the 3×3 "found cell" grid with cell 6 lit
 - Booking: https://calendly.com/corraoconsulting/30min (set as BOOKING_URL at the bottom of index.html)
 - Source of truth: the "GSC Brand Guide" design canvas
-- Pages: index.html (homepage), profit-leak-scorecard.html (the 2-minute leak check), privacy.html. The old v1 pages were removed Oct 1, 2026.
+- Pages: index.html (homepage, with the "Where does most of your week go?" quiz), ai-time-back-checklist.html (the free checklist the quiz gives away; quiz signups go to the same HubSpot form as the leak check), profit-leak-scorecard.html (the 2-minute leak check), privacy.html. The old v1 pages were removed Oct 1, 2026.
