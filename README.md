@@ -3,7 +3,7 @@
 Static site for growthstrategyconsulting.org. Plain HTML/CSS, no build step.
 
 ## Files
-- `index.html` — the homepage (v2, Oct 2026: one-page landing, Growth Audit from $297, Calendly booking)
+- `index.html` — the homepage (v2, Oct 2026: one-page landing, Growth Audit from $997, Calendly booking)
 - `assets/` — images, logos (swap the placeholder photos here)
 
 ## Local preview
@@ -19,7 +19,7 @@ Hosted on **Netlify** (free tier). Connected to this GitHub repo —
 every push to `main` auto-deploys.
 
 ## Brand (v2, Oct 2026)
-- One-liner: Plug the leaks. Build the systems. Get your time back.
+- Headline (Oct 7): Put AI to work. Build the systems. Get your time back.
 - Fonts: Fraunces (headlines) · DM Sans (body) · DM Mono (labels, numbers)
 - Colors: Paper #F6F0E6 · Espresso #3A2A1F · Terracotta #B5552F · Olive #5E6B3A · Sand #D9CBB3
 - Mark: the 3×3 "found cell" grid with cell 6 lit
