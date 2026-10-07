@@ -242,7 +242,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <div class="tip" aria-live="polite">
           <span class="hand" id="qhand"></span>
           <p id="qtip"></p>
-          <p>The free checklist has 20 tasks like this, sorted by where your time goes, so you can pick one and start this week.</p>
+          <p>Before you hand anything to AI, the basics need to be in place. The free checklist walks you through quick yes/no questions for each part of your week, shows you what to fix first, then what to hand off.</p>
         </div>
         <form class="gate" id="qform" novalidate>
           <h3>Get the free AI Time-Back Checklist</h3>
@@ -425,7 +425,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       .then(function(r){if(!r.ok)throw new Error(r.status)})
       .then(function(){
         var f=document.getElementById('qform');
-        f.innerHTML='<h3>Here you go'+(name?', '+name.replace(/[<>&"]/g,''):'')+'.</h3><p>Your checklist is ready. Open it now, save it, and pick one box to try this week.</p><a class="cta" href="'+CHECKLIST+'" target="_blank" rel="noopener"><i aria-hidden="true"></i>Open my checklist</a><p class="hint">Want it set up for you? <a href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener">Book a free Strategy Session</a>.</p>';
+        f.innerHTML='<h3>Here you go'+(name?', '+name.replace(/[<>&"]/g,''):'')+'.</h3><p>Your checklist is ready. It opens on your answer, so you can start where your week goes.</p><a class="cta" href="'+CHECKLIST+(choice?'?start='+choice:'')+'" target="_blank" rel="noopener"><i aria-hidden="true"></i>Open my checklist</a><p class="hint">Want it set up for you? <a href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener">Book a free Strategy Session</a>.</p>';
       })
       .catch(function(){
         btn.disabled=false; btn.lastChild.textContent='Send me my free checklist';

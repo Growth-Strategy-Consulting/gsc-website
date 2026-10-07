@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI Time-Back Checklist · Growth Strategy Consulting</title>
-<meta name="description" content="20 tasks small business owners can hand to AI this week, sorted by where your time goes. Free from Growth Strategy Consulting.">
+<meta name="description" content="A quick yes/no check for each part of your week: what to fix first, and what to hand to AI once you're ready. Free from Growth Strategy Consulting.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg fill='%23D9CBB3'%3E%3Crect x='0' y='0' width='9' height='9'/%3E%3Crect x='10.5' y='0' width='9' height='9'/%3E%3Crect x='21' y='0' width='9' height='9'/%3E%3Crect x='0' y='10.5' width='9' height='9'/%3E%3Crect x='10.5' y='10.5' width='9' height='9'/%3E%3Crect x='0' y='21' width='9' height='9'/%3E%3Crect x='10.5' y='21' width='9' height='9'/%3E%3Crect x='21' y='21' width='9' height='9'/%3E%3C/g%3E%3Crect x='21' y='10.5' width='9' height='9' fill='%23B5552F'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,17 +14,21 @@
 :root{
   --paper:#FFFDF8; --grid:#EFE6D6; --sand:#D9CBB3; --ink:#3A2A1F; --ink2:#4A3A2E; --muted:#6B5A4C;
   --terra:#B5552F; --terra-t:#8A3A1C; --peach:#F2B08F; --olive:#5E6B3A; --olive-d:#46512A; --cream:#E9DFCD;
+  --n1:#F6DCCB; --n2:#E3E8D2;
   --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
   --mono:'DM Mono',ui-monospace,Menlo,monospace;
   --hand:'Caveat','Bradley Hand','Segoe Print',cursive;
   color-scheme:light;
 }
 *{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0;font-family:var(--sans);color:var(--ink);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;
   background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
 a{color:inherit}
-.wrap{max-width:860px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(16px,5vw,40px) 64px}
-.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-t)}
+.wrap{max-width:880px;margin:0 auto;padding:clamp(28px,5vw,64px) clamp(16px,5vw,40px) 64px}
+.eyebrow,.lbl{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-t)}
+.lbl{color:var(--muted);margin:22px 0 4px}
 .hand{font-family:var(--hand);color:var(--terra);font-weight:700;line-height:1.1}
 h1,h2{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance}
 h1{font-size:clamp(40px,7vw,72px);line-height:.95}
@@ -33,15 +37,39 @@ p{margin:0}
 .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;text-decoration:none;margin-bottom:clamp(28px,5vw,48px)}
 .mk{display:inline-grid;grid-template-columns:repeat(3,1fr);gap:2px;width:20px;height:20px}
 .mk i{background:var(--sand)} .mk i.on{background:var(--terra)}
-.head{display:flex;flex-direction:column;gap:18px;margin-bottom:32px}
-.lede{font-size:clamp(18px,1.8vw,20px);color:var(--ink2);max-width:58ch}
-.how{display:flex;flex-wrap:wrap;gap:10px 28px;font-family:var(--mono);font-size:14px;color:var(--muted)}
-.sheet{background:var(--paper);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(20px,4vw,40px)}
-.group{padding-block:22px 6px}
-.group:first-child{padding-top:0}
-.group h2{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
-.group h2 .hand{font-size:28px;letter-spacing:0;font-weight:700}
-.item{display:grid;grid-template-columns:24px minmax(0,1fr);gap:14px;align-items:start;padding:14px 0;border-bottom:1px solid var(--sand);cursor:pointer}
+.head{display:flex;flex-direction:column;gap:18px;margin-bottom:28px}
+.lede{font-size:clamp(18px,1.8vw,20px);color:var(--ink2);max-width:60ch}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.steps div{background:var(--paper);border:1px solid var(--sand);padding:14px 16px;font-size:16px;color:var(--ink2)}
+.steps b{display:block;font-family:var(--mono);font-size:13px;color:var(--terra-t);font-weight:500;letter-spacing:.08em}
+@media (max-width:640px){.steps{grid-template-columns:1fr}}
+.jump{display:flex;flex-wrap:wrap;gap:8px}
+.jump a{font-family:var(--mono);font-size:14px;text-decoration:none;border:1px solid var(--sand);background:var(--paper);padding:8px 12px;border-radius:999px}
+.jump a:hover{border-color:var(--ink)}
+.jump a.you{border:2px solid var(--olive)}
+
+.area{background:var(--paper);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(20px,4vw,36px);margin-top:24px}
+.area.you{border:2px solid var(--olive)}
+.area .top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.area .top .hand{font-size:28px}
+.area .yours{font-family:var(--mono);font-size:13px;color:var(--olive);letter-spacing:.06em;text-transform:uppercase}
+.q{padding:14px 0;border-bottom:1px solid var(--sand)}
+.q .line{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 18px;align-items:center}
+.yn{display:inline-flex;border:1px solid var(--ink);border-radius:6px;overflow:hidden}
+.yn button{font:inherit;font-size:15px;font-weight:700;min-width:56px;min-height:44px;padding:0 14px;border:0;background:#fff;color:var(--ink);cursor:pointer}
+.yn button+button{border-left:1px solid var(--ink)}
+.yn button:focus-visible{outline:3px solid var(--terra);outline-offset:-3px}
+.yn button[aria-pressed="true"][data-v="y"]{background:var(--olive);color:var(--paper)}
+.yn button[aria-pressed="true"][data-v="n"]{background:var(--terra);color:var(--paper)}
+.fix{display:none;margin-top:10px;padding:12px 16px;background:var(--n1);font-size:16px;color:var(--ink)}
+.fix b{font-family:var(--hand);color:var(--terra-t);font-size:24px;font-weight:700;margin-right:6px}
+.q.no .fix{display:block}
+@media (max-width:560px){.q .line{grid-template-columns:1fr}.yn{justify-self:start}}
+
+.ai{margin-top:6px}
+.ai .status{font-size:16px;color:var(--ink2);margin-bottom:4px}
+.ai .status .hand{font-size:26px}
+.item{display:grid;grid-template-columns:24px minmax(0,1fr);gap:14px;align-items:start;padding:12px 0;border-bottom:1px solid var(--sand);cursor:pointer}
 .item:last-child{border-bottom:0}
 .item input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:3px 0 0;border:2px solid var(--ink);border-radius:3px;background:#fff;cursor:pointer;position:relative}
 .item input:checked{background:var(--olive);border-color:var(--olive)}
@@ -49,25 +77,37 @@ p{margin:0}
 .item input:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
 .item b{display:block;font-weight:800}
 .item small{display:block;font-size:16px;color:var(--ink2);margin-top:2px}
-.item small em{font-style:normal;font-family:var(--mono);font-size:14px;color:var(--muted)}
-.item input:checked ~ span b{text-decoration:line-through;text-decoration-color:var(--olive);text-decoration-thickness:2px}
-.note{margin-top:28px;padding:18px 22px;background:#F6DCCB;transform:rotate(-.6deg);font-size:16px;color:var(--ink)}
-.note strong{font-weight:800}
-.close{margin-top:40px;background:var(--ink);color:var(--paper);padding:clamp(28px,5vw,44px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.area.notyet .ai .item{opacity:.6}
+
+.sum{margin-top:32px;background:var(--n2);padding:clamp(22px,4vw,34px);transform:rotate(-.5deg);display:flex;flex-direction:column;gap:14px}
+.sum h2{font-size:clamp(26px,3.4vw,36px)}
+.bars{display:grid;gap:8px}
+.bar{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) 44px;gap:12px;align-items:center;font-size:15px}
+.bar .track{height:12px;background:var(--paper);border:1px solid var(--sand)}
+.bar .fill{height:100%;width:0;background:var(--olive);transition:width .3s}
+.bar .n{font-family:var(--mono);font-size:14px;text-align:right}
+@media (max-width:560px){.bar{grid-template-columns:minmax(0,1fr) 44px}.bar .track{grid-column:1/-1;grid-row:2}}
+@media (prefers-reduced-motion:reduce){.bar .fill{transition:none}}
+.sum .start{font-size:18px}
+.sum .start .hand{font-size:30px;display:block}
+
+.note{margin-top:28px;padding:16px 20px;background:var(--paper);border:1px dashed var(--muted);font-size:16px}
+.close{margin-top:32px;background:var(--ink);color:var(--paper);padding:clamp(28px,5vw,44px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
 .close h2{color:var(--paper);font-size:clamp(28px,4vw,40px)}
 .close p{color:var(--cream)}
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;background:var(--terra);color:var(--paper);text-decoration:none;font-weight:800;font-size:17px;padding:14px 26px;border-radius:6px;border:0;cursor:pointer;font-family:inherit}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;background:var(--terra);color:var(--paper);text-decoration:none;font-weight:800;font-size:17px;padding:14px 26px;border-radius:6px}
 .cta i{width:10px;height:10px;background:var(--paper);border-radius:1px}
 .cta:hover{background:var(--terra-t)}
-.cta:focus-visible,.print:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
-.print{font-family:var(--mono);font-size:15px;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;text-decoration-color:var(--terra);text-underline-offset:5px;cursor:pointer}
+.cta:focus-visible,.print:focus-visible,.jump a:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.print{font-family:var(--mono);font-size:15px;background:none;border:0;padding:0;color:var(--ink);text-decoration:underline;text-decoration-color:var(--terra);text-underline-offset:5px;cursor:pointer;align-self:flex-start}
 footer{margin-top:28px;font-size:14px;color:var(--muted)}
 @media print{
   body{background:#fff;font-size:13px}
-  .print,.close .cta{display:none}
-  .sheet{box-shadow:none;border:0;padding:0}
-  .note{transform:none}
-  .group{break-inside:avoid}
+  .print,.jump,.close .cta{display:none}
+  .area{box-shadow:none;break-inside:avoid}
+  .area.notyet .ai .item{opacity:1}
+  .fix{display:block}
+  .sum{transform:none}
   .close{background:#fff;color:var(--ink);border:2px solid var(--ink)}
   .close h2,.close p{color:var(--ink)}
 }
@@ -80,61 +120,141 @@ footer{margin-top:28px;font-size:14px;color:var(--muted)}
   <div class="head">
     <div class="eyebrow">Free checklist</div>
     <h1>The AI Time-Back Checklist</h1>
-    <p class="lede">20 tasks you can hand to AI this week, sorted by where your time goes. Use the AI assistant you already have. No new software, no tech skills.</p>
-    <div class="how"><span>1 · Find your section</span><span>2 · Pick ONE box</span><span>3 · Try it this week</span><button class="print" type="button" onclick="window.print()">Print or save as PDF</button></div>
+    <p class="lede">AI can’t fix a mess. It speeds up whatever is already there. So before you hand anything off, answer a few yes/no questions about each part of your week. Every “no” shows you what to fix first.</p>
+    <div class="steps">
+      <div><b>1 · ANSWER</b>Yes or no, about how things run today.</div>
+      <div><b>2 · FIX</b>Each “no” gets one simple first step.</div>
+      <div><b>3 · HAND OFF</b>Once the basics are in, give these tasks to AI.</div>
+    </div>
+    <nav class="jump" id="jump" aria-label="Jump to a section"></nav>
+    <button class="print" type="button" onclick="window.print()">Print or save as PDF</button>
   </div>
 
-  <div class="sheet">
-    <section class="group" aria-labelledby="g1">
-      <h2 id="g1">Customer messages and email <span class="hand">easy first win</span></h2>
-      <label class="item"><input type="checkbox"><span><b>Draft replies to your 10 most-asked questions</b><small>Paste in the questions and how you usually answer. Save the replies so you can copy, tweak and send. <em>Try: “Write friendly replies to these questions in my voice: …”</em></small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Turn a long email into a short, kind reply</b><small>Paste the email, say what you want to tell them, and let AI write the first draft.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Write your hours, policies and FAQ once, clearly</b><small>Put them on your website and Google profile so fewer people need to ask.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Respond to reviews the same day</b><small>Good and bad. AI drafts it, you make sure it sounds like you.</small></span></label>
-    </section>
+  <div id="areas"></div>
 
-    <section class="group" aria-labelledby="g2">
-      <h2 id="g2">Team and scheduling</h2>
-      <label class="item"><input type="checkbox"><span><b>Turn everyone’s availability into a first-draft schedule</b><small>List who can work when and how many people you need each shift. Edit from there instead of starting blank.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Write opening, closing and rush-hour checklists</b><small>Describe how you do it out loud and let AI turn it into steps your team can follow.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Get “how we do things” out of your head</b><small>Record a voice memo walking through a task. AI turns it into a one-page training doc.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Draft the hard team message</b><small>Feedback, a policy change, a schedule change. Clear and kind, without rewriting it five times.</small></span></label>
-    </section>
+  <section class="sum" aria-labelledby="sum-h" aria-live="polite">
+    <h2 id="sum-h">Where you stand</h2>
+    <div class="bars" id="bars"></div>
+    <p class="start" id="start">Answer the questions above and I’ll show you where to start.</p>
+  </section>
 
-    <section class="group" aria-labelledby="g3">
-      <h2 id="g3">Social media and marketing</h2>
-      <label class="item"><input type="checkbox"><span><b>Turn one photo and three notes into a week of captions</b><small>Describe the photo, what’s happening this week, and your vibe. Ask for 5 captions to choose from.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Plan a month of posts around your slow days</b><small>Tell AI when it’s quiet and what you want to push. Get a simple calendar back.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Write your newsletter from a voice memo</b><small>Talk for two minutes about what’s new. AI turns it into a short, readable email.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Rewrite your Google profile and website blurb</b><small>The first thing new customers read. Make it say what you do and who it’s for.</small></span></label>
-    </section>
-
-    <section class="group" aria-labelledby="g4">
-      <h2 id="g4">Ordering, inventory and admin</h2>
-      <label class="item"><input type="checkbox"><span><b>Turn your sales report into a reorder list</b><small>Paste last week’s sales and what you have on hand. Ask what’s running low.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Draft vendor emails, quotes and follow-ups</b><small>The ones that sit in your drafts for a week. Done in a minute.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Turn messy notes into a clean checklist</b><small>Sticky notes, texts to yourself, that one notebook. Paste it all in and get a list back.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Get the 5 things that matter from a long document</b><small>Contracts, vendor terms, lease updates. Still read the important parts yourself.</small></span></label>
-    </section>
-
-    <section class="group" aria-labelledby="g5">
-      <h2 id="g5">Numbers, invoices and bookkeeping</h2>
-      <label class="item"><input type="checkbox"><span><b>Get a plain-English weekly recap</b><small>Paste your sales report. Ask what sold, what didn’t, and one thing to try next week.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Find your best sellers, worst sellers and slow hours</b><small>The answers are already in your reports. AI helps you see them.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Send invoice reminders without the awkwardness</b><small>A friendly first nudge and a firmer second one, ready to reuse.</small></span></label>
-      <label class="item"><input type="checkbox"><span><b>Build a simple monthly budget</b><small>Start from last month’s numbers and set one goal for next month.</small></span></label>
-    </section>
-
-    <p class="note"><strong>One rule:</strong> never paste passwords, card numbers or private customer details into an AI tool. Check anything it writes before it goes out with your name on it.</p>
-  </div>
+  <p class="note"><strong>One rule:</strong> never paste passwords, card numbers or private customer details into an AI tool. Check anything it writes before it goes out with your name on it.</p>
 
   <section class="close" aria-labelledby="close-h">
-    <h2 id="close-h">Want these set up for you?</h2>
-    <p>In a free 30-minute Strategy Session, we find your top 3 time leaks and set up one AI fix you can use this week.</p>
+    <h2 id="close-h">Want help with your “no”s?</h2>
+    <p>In a free 30-minute Strategy Session, we go through your answers, find your top 3 time leaks, and set up one fix you can use this week.</p>
     <a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a>
   </section>
 
   <footer>Growth Strategy Consulting · Elena Corrao · growthstrategyconsulting.org</footer>
 </main>
+
+<script>
+var AREAS=[
+ {id:'messages',name:'Customer messages and email',short:'Messages and email',
+  qs:[
+   ['Is your inbox (and DMs) under control most days?','Pick two set times a day to check messages, and turn notifications off the rest of the time.'],
+   ['Do messages come in through one or two places, not five?','Choose where customers should reach you. Put that on your website, Google profile and bio, and point everything else there.'],
+   ['Do you know the 10 questions customers ask most?','For one week, jot down every question you get. That list is what AI will answer for you.'],
+   ['Do you have your hours, prices and policies written down in one place?','Write them once in a simple doc. It becomes your FAQ and what AI works from.']],
+  ai:[
+   ['Draft replies to your 10 most-asked questions','In your voice. Save them so you can copy, tweak and send.'],
+   ['Turn a long email into a short, kind reply','Paste it in, say what you want to tell them, and edit the draft.'],
+   ['Respond to reviews the same day','Good and bad. AI drafts it, you make sure it sounds like you.']]},
+ {id:'team',name:'Team and scheduling',short:'Team and scheduling',
+  qs:[
+   ['Do you know everyone’s availability without having to ask?','Collect availability in one place, like a shared form or sheet, and have the team update it once a month.'],
+   ['Do you have clear rules for time off and shift swaps?','Write three rules: how far ahead to ask, how swaps work, and who approves them.'],
+   ['Do you know how many people you need on each shift?','Look at your busiest and slowest hours and set a number for each.'],
+   ['Could someone open or close without calling you?','Walk through opening and closing once and write the steps down, even roughly.']],
+  ai:[
+   ['Turn availability into a first-draft schedule','Give AI the availability, your rules and your numbers. Edit from there instead of starting blank.'],
+   ['Turn your rough steps into opening and closing checklists','Clean, numbered steps your team can follow.'],
+   ['Draft the hard team message','Feedback, a policy change, a schedule change. Clear and kind on the first try.']]},
+ {id:'marketing',name:'Social media and marketing',short:'Social and marketing',
+  qs:[
+   ['Do you know who your best customers are and why they come back?','Write down your three best regulars and what they buy. That’s who your posts are for.'],
+   ['Do you know what you want to promote this month?','Pick one thing: a product, a slow day, an event. One focus is enough.'],
+   ['Do you have photos ready to use?','Spend 15 minutes taking 20 photos of your space, products and team. Save them in one album.'],
+   ['Do you post on a set schedule, even if it’s small?','Choose two days a week you’ll post. Consistent beats constant.']],
+  ai:[
+   ['Turn one photo and three notes into a week of captions','Ask for five options and pick the one that sounds like you.'],
+   ['Plan a month of posts around your slow days','Give AI your focus and your quiet days. Get a simple calendar back.'],
+   ['Write your newsletter or Google profile from a voice memo','Talk for two minutes. AI turns it into something people want to read.']]},
+ {id:'admin',name:'Ordering, inventory and admin',short:'Ordering and admin',
+  qs:[
+   ['Do you know what’s running low without counting everything?','Make a short list of the 10 items you can’t run out of, with the amount that means “reorder now.”'],
+   ['Do you have a set day for ordering?','Pick one day a week for orders, so it’s not happening at 9pm in a panic.'],
+   ['Are vendor contacts, minimums and lead times in one place?','Put them in one sheet: who, how to order, minimum, and how long it takes to arrive.'],
+   ['Are your how-to steps written down anywhere?','Start with the one task only you know how to do. Write it down, rough is fine.']],
+  ai:[
+   ['Turn your sales report into a reorder list','Paste last week’s sales and what’s on hand. Ask what’s running low.'],
+   ['Draft vendor emails and follow-ups','The ones that sit in your drafts for a week. Done in a minute.'],
+   ['Turn messy notes into a clean how-to','Sticky notes, texts to yourself, voice memos. Get a tidy step-by-step back.']]},
+ {id:'numbers',name:'Numbers, invoices and bookkeeping',short:'Numbers and invoices',
+  qs:[
+   ['Do you look at your sales at least once a week?','Put 15 minutes on your calendar every Monday to look at last week’s sales.'],
+   ['Do you know your best and worst sellers?','Pull last month’s sales report and circle your top 5 and bottom 5.'],
+   ['Do you know what you need to make each month to cover costs?','Add up rent, payroll and regular bills. That number is your floor.'],
+   ['Are receipts and invoices in one place?','Pick one folder or app and put everything there from now on.']],
+  ai:[
+   ['Get a plain-English weekly recap','Paste your sales report. Ask what sold, what didn’t, and one thing to try next week.'],
+   ['Send invoice reminders without the awkwardness','A friendly first nudge and a firmer second one, ready to reuse.'],
+   ['Build a simple monthly budget','Start from last month’s numbers and set one goal for next month.']]}
+];
+var params=new URLSearchParams(location.search), start=params.get('start');
+if(start&&!AREAS.some(function(a){return a.id===start}))start=null;
+if(start){AREAS.sort(function(a,b){return (b.id===start)-(a.id===start)})}
+
+var wrap=document.getElementById('areas'), jump=document.getElementById('jump'), bars=document.getElementById('bars');
+function esc(s){return s.replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+AREAS.forEach(function(a){
+  var you=a.id===start;
+  var h='<section class="area notyet'+(you?' you':'')+'" id="'+a.id+'" aria-labelledby="h-'+a.id+'">'+
+    '<div class="top"><h2 id="h-'+a.id+'">'+esc(a.name)+'</h2>'+(you?'<span class="yours">You said this is where your week goes</span>':'')+'</div>'+
+    '<p class="lbl">First, the basics</p>';
+  a.qs.forEach(function(q,i){
+    h+='<div class="q" data-i="'+i+'"><div class="line"><span id="q-'+a.id+i+'">'+esc(q[0])+'</span>'+
+      '<span class="yn" role="group" aria-labelledby="q-'+a.id+i+'"><button type="button" data-v="y" aria-pressed="false">Yes</button><button type="button" data-v="n" aria-pressed="false">No</button></span></div>'+
+      '<p class="fix"><b>do this first:</b>'+esc(q[1])+'</p></div>';
+  });
+  h+='<div class="ai"><p class="lbl">Then hand these to AI</p><p class="status"></p>';
+  a.ai.forEach(function(t){h+='<label class="item"><input type="checkbox"><span><b>'+esc(t[0])+'</b><small>'+esc(t[1])+'</small></span></label>'});
+  h+='</div></section>';
+  wrap.insertAdjacentHTML('beforeend',h);
+  jump.insertAdjacentHTML('beforeend','<a href="#'+a.id+'"'+(you?' class="you"':'')+'>'+esc(a.short)+'</a>');
+  bars.insertAdjacentHTML('beforeend','<div class="bar" data-a="'+a.id+'"><span>'+esc(a.short)+'</span><span class="track"><span class="fill" style="display:block"></span></span><span class="n">0/'+a.qs.length+'</span></div>');
+});
+
+function update(){
+  var best=null, answeredAll=0;
+  AREAS.forEach(function(a){
+    var sec=document.getElementById(a.id), qs=sec.querySelectorAll('.q');
+    var yes=0, no=0;
+    qs.forEach(function(q){ if(q.classList.contains('yes'))yes++; if(q.classList.contains('no'))no++; });
+    var total=qs.length, st=sec.querySelector('.status');
+    sec.classList.toggle('notyet', yes<total);
+    if(yes+no===0) st.innerHTML='Answer the questions above first.';
+    else if(yes===total) st.innerHTML='<span class="hand">you’re ready!</span> Your basics are in place. Start with the first one.';
+    else st.innerHTML='Fix your '+no+' “no”'+(no===1?'':'s')+' first'+(yes+no<total?' (and answer the rest)':'')+'. Then these will actually save you time.';
+    var bar=bars.querySelector('[data-a="'+a.id+'"]');
+    bar.querySelector('.fill').style.width=(yes/total*100)+'%';
+    bar.querySelector('.n').textContent=yes+'/'+total;
+    if(yes+no===total){answeredAll++; if(!best||yes<best.yes||(yes===best.yes&&a.id===start))best={a:a,yes:yes,total:total};}
+  });
+  var el=document.getElementById('start');
+  if(!best){el.textContent='Answer every question in a section and I’ll show you where to start.';return}
+  if(best.yes===best.total) el.innerHTML='<span class="hand">your basics look solid</span>Pick any AI task above and try it this week.';
+  else el.innerHTML='<span class="hand">start with '+esc(best.a.short.toLowerCase())+'</span>That’s where the most basics are missing'+(answeredAll<AREAS.length?' so far':'')+'. Fix those “no”s this week, then hand the tasks to AI. <a href="#'+best.a.id+'">Go back to it</a>.';
+}
+wrap.addEventListener('click',function(e){
+  var b=e.target.closest('.yn button'); if(!b)return;
+  var q=b.closest('.q'), v=b.getAttribute('data-v');
+  q.querySelectorAll('.yn button').forEach(function(x){x.setAttribute('aria-pressed', String(x===b))});
+  q.classList.toggle('yes',v==='y'); q.classList.toggle('no',v==='n');
+  update();
+});
+update();
+</script>
 </body>
 </html>
