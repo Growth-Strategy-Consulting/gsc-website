@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Put Claude to Work · Growth Strategy Consulting</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg fill='%23D9CBB3'%3E%3Crect x='0' y='0' width='9' height='9'/%3E%3Crect x='10.5' y='0' width='9' height='9'/%3E%3Crect x='21' y='0' width='9' height='9'/%3E%3Crect x='0' y='10.5' width='9' height='9'/%3E%3Crect x='10.5' y='10.5' width='9' height='9'/%3E%3Crect x='0' y='21' width='9' height='9'/%3E%3Crect x='10.5' y='21' width='9' height='9'/%3E%3Crect x='21' y='21' width='9' height='9'/%3E%3C/g%3E%3Crect x='21' y='10.5' width='9' height='9' fill='%23B5552F'/%3E%3C/svg%3E">
+<meta name="description" content="A free, plain-English guide for small business owners: set Claude up once, hand it real work, and get your time back. From Growth Strategy Consulting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..900&family=DM+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: the GSC "marked-up audit" — graph paper, printed sheets, terracotta handwritten notes. One narrow reading column. Light-only, matching growthstrategyconsulting.org. */
+:root{
+  --paper:#FFFDF8; --grid:#EFE6D6; --sand:#D9CBB3; --ink:#3A2A1F; --ink2:#4A3A2E; --muted:#6B5A4C;
+  --terra:#B5552F; --terra-t:#8A3A1C; --olive:#5E6B3A; --olive-d:#46512A; --cream:#E9DFCD;
+  --n1:#F6DCCB; --n2:#E3E8D2; --white:#FFFFFF;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,Menlo,monospace;
+  --hand:'Caveat','Bradley Hand','Segoe Print',cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);color:var(--ink);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+a{color:inherit;text-decoration-color:var(--terra);text-underline-offset:4px}
+p{margin:0}
+ul,ol{margin:0;padding-left:1.2em}
+.wrap{max-width:880px;margin:0 auto;padding-block:clamp(28px,5vw,64px) 64px;padding-inline:clamp(16px,5vw,40px)}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-t)}
+.hand{font-family:var(--hand);color:var(--terra);font-weight:700;line-height:1.1}
+h1,h2,h3{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(46px,9vw,92px);line-height:.92}
+h2{font-size:clamp(30px,4.4vw,44px);line-height:1}
+h3{font-size:clamp(21px,2.4vw,24px);letter-spacing:-.015em;line-height:1.15}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;text-decoration:none;margin-bottom:clamp(28px,5vw,48px)}
+.mk{display:inline-grid;grid-template-columns:repeat(3,1fr);gap:2px;width:20px;height:20px;flex:none}
+.mk i{background:var(--sand)} .mk i.on{background:var(--terra)}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:20px}
+.hero h1 span{display:block;color:var(--terra)}
+.lede{font-size:clamp(19px,2vw,22px);color:var(--ink2);max-width:58ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.meta b{color:var(--olive);font-weight:500}
+.scrawl{font-family:var(--hand);font-size:clamp(26px,3vw,32px);color:var(--terra);transform:rotate(-2deg);align-self:flex-start;margin-top:-6px}
+.toc{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:18px clamp(16px,3vw,24px);margin-top:8px}
+.toc .eyebrow{color:var(--muted)}
+.toc ol{list-style:none;padding:0;margin-top:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 24px}
+.toc li a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:7px 0;text-decoration:none;border-bottom:1px solid var(--grid);font-size:17px}
+.toc li a:hover b{color:var(--terra)}
+.toc li a span{font-family:var(--mono);font-size:14px;color:var(--terra-t);padding-top:2px}
+.toc b{font-weight:700}
+@media (max-width:620px){.toc ol{grid-template-columns:1fr}}
+
+/* sections */
+section.part{margin-top:clamp(56px,8vw,88px);display:flex;flex-direction:column;gap:18px}
+.part-head{display:flex;flex-direction:column;gap:10px;padding-bottom:14px;border-bottom:3px solid var(--ink)}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:64ch;color:var(--ink2)}
+.prose strong{color:var(--ink)}
+
+/* sheet = a printed page laid on the graph paper */
+.sheet{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(18px,3.5vw,32px)}
+.note{background:var(--n1);padding:14px 18px;font-size:17px;color:var(--ink);display:flex;flex-direction:column;gap:2px}
+.note .hand{font-size:26px;color:var(--terra-t)}
+.rule{background:var(--n2);padding:clamp(18px,3vw,26px);transform:rotate(-.5deg);display:flex;flex-direction:column;gap:6px}
+.rule .hand{font-size:clamp(28px,3.6vw,38px);color:var(--olive-d)}
+
+/* story */
+.story{display:grid;grid-template-columns:minmax(0,1fr);gap:14px}
+.story p{max-width:62ch}
+.sig{font-family:var(--hand);font-size:32px;color:var(--terra);margin-top:4px}
+
+/* compare table */
+.tbl-wrap{overflow-x:auto}
+table.compare{width:100%;border-collapse:collapse;min-width:520px;font-size:17px}
+.compare th{font-family:var(--mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;text-align:left;padding:10px 12px;border-bottom:2px solid var(--ink);font-weight:500}
+.compare th.bad{color:var(--terra-t)} .compare th.good{color:var(--olive)}
+.compare td{padding:12px;border-bottom:1px solid var(--sand);vertical-align:top}
+.compare td:first-child{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--terra);text-decoration-thickness:2px}
+.compare td:last-child{font-weight:600}
+
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.plan{background:var(--white);border:1px solid var(--sand);padding:20px;display:flex;flex-direction:column;gap:10px;position:relative}
+.plan.pick{border:2px solid var(--olive)}
+.plan .price{font-size:34px;font-weight:900;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.plan .price small{font-size:15px;font-weight:600;color:var(--muted);letter-spacing:0}
+.plan .who{font-size:16px;color:var(--ink2)}
+.plan ul{font-size:15.5px;color:var(--ink2);display:flex;flex-direction:column;gap:4px;padding-left:1.1em}
+.plan .tag{position:absolute;top:-16px;right:10px;max-width:calc(100% - 20px);white-space:nowrap;overflow:hidden;font-family:var(--hand);font-size:22px;color:var(--olive-d);background:var(--paper);padding:0 6px;transform:rotate(2deg)}
+@media (max-width:720px){.plans{grid-template-columns:1fr}}
+.fine{font-size:14px;color:var(--muted);font-family:var(--mono)}
+
+/* model mini table */
+.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--sand);background:var(--white)}
+.models div{padding:16px 18px;display:flex;flex-direction:column;gap:4px;font-size:16px;color:var(--ink2)}
+.models div+div{border-left:1px solid var(--sand)}
+.models b{font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--terra-t)}
+.models strong{color:var(--ink);font-size:18px}
+@media (max-width:640px){.models{grid-template-columns:1fr}.models div+div{border-left:0;border-top:1px solid var(--sand)}}
+
+/* steps */
+.steps{display:flex;flex-direction:column;gap:22px}
+.step{display:grid;grid-template-columns:64px minmax(0,1fr);gap:8px 18px}
+.step .num{font-family:var(--hand);font-size:64px;line-height:.8;color:var(--terra);text-align:center}
+.step .body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.step .body>p{color:var(--ink2);max-width:62ch}
+.step ul{color:var(--ink2);display:flex;flex-direction:column;gap:4px}
+@media (max-width:560px){.step{grid-template-columns:1fr}.step .num{text-align:left;font-size:52px}}
+
+/* copyable prompt card */
+.prompt{border:1.5px dashed var(--muted);background:var(--white);display:flex;flex-direction:column;min-width:0}
+.prompt .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 14px;border-bottom:1px dashed var(--sand)}
+.prompt .bar span{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.copy{font:inherit;font-family:var(--mono);font-size:14px;font-weight:500;min-height:36px;padding:0 14px;border:1px solid var(--ink);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer}
+.copy:hover{background:var(--cream)}
+.copy.done{background:var(--olive);border-color:var(--olive);color:var(--paper)}
+.copy:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+.prompt pre{margin:0;padding:14px 16px;font-family:var(--mono);font-size:15px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;color:var(--ink);overflow-x:auto}
+.prompt pre em{font-style:normal;background:var(--n1);color:var(--terra-t);padding:0 3px}
+
+/* week areas */
+.areas{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.area{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(18px,3.5vw,28px);display:flex;flex-direction:column;gap:14px}
+.area .top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.area .top .hand{font-size:24px}
+.area .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.area .pair{grid-template-columns:1fr}}
+
+/* plays */
+.play{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(18px,3.5vw,30px);display:flex;flex-direction:column;gap:14px}
+.play .who{color:var(--ink2);max-width:62ch}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.flow div{padding:14px 16px 4px 0;display:flex;flex-direction:column;gap:6px;font-size:16px;color:var(--ink2);min-width:0}
+.flow div+div{padding-left:16px;border-left:1px solid var(--sand)}
+.flow b{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-t)}
+@media (max-width:680px){.flow{grid-template-columns:1fr}.flow div+div{padding-left:0;border-left:0;border-top:1px solid var(--sand)}}
+.saved{font-family:var(--hand);font-size:26px;color:var(--olive-d)}
+
+/* mistakes */
+.mistakes{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.mistakes li{background:var(--white);border:1px solid var(--sand);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.mistakes .oops{font-weight:800;color:var(--ink);text-decoration:line-through;text-decoration-color:var(--terra);text-decoration-thickness:2px}
+.mistakes .fixit{font-size:16.5px;color:var(--ink2)}
+.mistakes .fixit b{font-family:var(--hand);font-size:24px;color:var(--olive-d);font-weight:700;margin-right:4px}
+@media (max-width:640px){.mistakes{grid-template-columns:1fr}}
+
+/* 30-day plan */
+.weeks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.week{background:var(--white);border:1px solid var(--sand);padding:18px 20px;display:flex;flex-direction:column;gap:4px}
+.week h3{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.week h3 small{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted);letter-spacing:.06em}
+.item{display:grid;grid-template-columns:24px minmax(0,1fr);gap:12px;align-items:start;padding:10px 0;border-bottom:1px solid var(--grid);cursor:pointer;font-size:16.5px;color:var(--ink2)}
+.item:last-child{border-bottom:0}
+.item input{appearance:none;-webkit-appearance:none;width:22px;height:22px;margin:2px 0 0;border:2px solid var(--ink);border-radius:3px;background:var(--white);cursor:pointer;position:relative}
+.item input:checked{background:var(--olive);border-color:var(--olive)}
+.item input:checked::after{content:"";position:absolute;left:5px;top:1px;width:6px;height:11px;border:solid var(--paper);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.item input:checked+span{text-decoration:line-through;text-decoration-color:var(--olive);color:var(--muted)}
+.item input:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+@media (max-width:680px){.weeks{grid-template-columns:1fr}}
+.progress{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.progress .track{flex:1;height:12px;background:var(--white);border:1px solid var(--sand)}
+.progress .fill{height:100%;width:0;background:var(--olive);transition:width .3s}
+@media (prefers-reduced-motion:reduce){.progress .fill{transition:none}}
+
+/* email gate */
+.unlock{margin-top:clamp(56px,8vw,88px);background:var(--white);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--sand);padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:clamp(24px,4vw,48px);align-items:start}
+.unlock[hidden]{display:none}
+.unlock-copy{display:flex;flex-direction:column;gap:12px;min-width:0}
+.unlock-copy .hand{font-size:clamp(26px,3vw,32px);transform:rotate(-1.5deg);align-self:flex-start}
+.unlock-copy p{color:var(--ink2)}
+.inside{list-style:none;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--sand)}
+.inside li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px solid var(--grid);font-size:16.5px;font-weight:600}
+.inside li span{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--terra-t);padding-top:2px}
+.gate{display:flex;flex-direction:column;gap:8px;background:var(--n2);padding:clamp(18px,3vw,26px)}
+.gate label[for=gname],.gate label[for=gemail]{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.gate input[type=text],.gate input[type=email]{font:inherit;font-size:17px;padding:13px 14px;border:1px solid var(--muted);border-radius:6px;background:var(--white);color:var(--ink);min-height:50px;width:100%}
+.gate input:focus-visible{outline:3px solid var(--terra);outline-offset:1px}
+.gate .consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:14px;color:var(--muted);align-items:start;margin-top:6px}
+.gate .consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--olive)}
+.gate .cta{border:0;cursor:pointer;font-family:inherit;width:100%;margin-top:6px}
+.gate .cta[disabled]{opacity:.7;cursor:default}
+.gate .hint{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.gate .hint.err{color:var(--terra-t)}
+.toc li.locked a b::after{content:" · unlock";font-family:var(--mono);font-weight:500;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.welcome{margin-top:clamp(40px,6vw,64px);background:var(--n2);padding:16px 20px;font-size:17px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.welcome .hand{font-size:28px;color:var(--olive-d)}
+@media (max-width:760px){.unlock{grid-template-columns:1fr}}
+
+/* close */
+.close{margin-top:clamp(56px,8vw,88px);background:var(--ink);color:var(--paper);padding:clamp(26px,5vw,48px);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.close h2{color:var(--paper)}
+.close p{color:var(--cream);max-width:58ch}
+.close .hand{color:var(--n1);font-size:30px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;background:var(--terra);color:var(--paper);text-decoration:none;font-weight:800;font-size:17px;padding:14px 26px;border-radius:6px}
+.cta i{width:10px;height:10px;background:var(--paper);border-radius:1px}
+.cta:hover{background:var(--terra-t)}
+.cta.alt{background:transparent;border:2px solid var(--paper)}
+.cta.alt:hover{background:var(--ink2)}
+.offers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;width:100%}
+.offers div{border:1px solid var(--muted);padding:16px 18px;display:flex;flex-direction:column;gap:4px;color:var(--cream);font-size:16px}
+.offers b{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--n1)}
+.offers strong{color:var(--paper);font-size:20px}
+@media (max-width:620px){.offers{grid-template-columns:1fr}}
+.cal{width:100%;background:var(--paper);border-radius:4px;overflow:hidden}
+.cal[hidden]{display:none}
+.cal .calendly-inline-widget{width:100%;min-width:0;height:700px}
+.nudge{display:flex;flex-direction:column;align-items:flex-start;gap:6px;border-top:2px dashed var(--terra);padding-top:16px;margin-top:6px;font-size:17px;color:var(--ink2)}
+.nudge .hand{font-size:28px}
+.nudge span:not(.hand){max-width:64ch}
+.nudge a{font-weight:800;color:var(--terra-t)}
+.sheet.mini{padding:16px 20px;display:flex;flex-direction:column;gap:8px}
+.sheet.mini ol{display:flex;flex-direction:column;gap:6px;color:var(--ink2)}
+.soft{font-family:var(--mono);font-size:15px;color:var(--paper);text-decoration:underline;text-decoration-color:var(--terra);text-underline-offset:5px}
+.cta:focus-visible,.soft:focus-visible,.toc a:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+footer{margin-top:28px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+</style>
+
+</head>
+<body>
+<main class="wrap">
+  <a class="logo" href="https://growthstrategyconsulting.org/"><span class="mk" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span>Growth Strategy Consulting</a>
+
+  <header class="hero">
+    <div class="eyebrow">Free guide for small business owners</div>
+    <h1>Put Claude <span>to work.</span></h1>
+    <p class="lede">A plain-English setup guide for using Claude like a teammate who knows your business, not a search bar you type questions into. Set it up once, hand it real work, and get hours of your week back.</p>
+    <div class="meta"><span><b>●</b> Free with your email</span><span><b>●</b> About 25 minutes to read</span><span><b>●</b> Works on Claude's free plan</span><span><b>●</b> Updated October 2026</span></div>
+    <p class="scrawl">the setup I wish someone had shown me</p>
+
+    <nav class="toc" aria-label="What's in this guide">
+      <div class="eyebrow">What's inside</div>
+      <ol>
+        <li><a href="#why"><span>01</span><b>Why I made this</b></a></li>
+        <li><a href="#shift"><span>02</span><b>Chatbot vs. teammate</b></a></li>
+        <li><a href="#plan"><span>03</span><b>Pick your Claude plan and model</b></a></li>
+        <li><a href="#setup"><span>04</span><b>The setup, in five steps</b></a></li>
+        <li><a href="#week"><span>05</span><b>Where it fits in your week</b></a></li>
+        <li><a href="#plays"><span>06</span><b>Three plays, start to finish</b></a></li>
+        <li><a href="#mistakes"><span>07</span><b>Mistakes I made (so you don't)</b></a></li>
+        <li><a href="#thirty"><span>08</span><b>Your first 30 days</b></a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <!-- 01 -->
+  <section class="part" id="why" aria-labelledby="why-h">
+    <div class="part-head"><div class="eyebrow">Part 01</div><h2 id="why-h">Why I made this</h2></div>
+    <div class="sheet story">
+      <p>I spent 10+ years running cafés and shops: managing teams, building schedules, doing the ordering, posting on social at 11pm. Then I took a job where I had to learn AI fast, with no real training and nobody to ask.</p>
+      <p>I learned the basics online and was starting to get the hang of it. But my setup was a mess. Every chat started from zero and my files lived everywhere. I didn't know what GitHub was, and I wasn't touching code.</p>
+      <p>Then my boss learned about GitHub. Instead of showing it to me, he said, "Open up your Claude. Let me see if you're doing it wrong." It was just the two of us, but that's not how anyone wants to be shown something new.</p>
+      <p>Around the same time, a friend of mine had a really organized workflow. Seeing it, I started cleaning up my own setup to match: one place for everything about the work, instructions Claude follows every time, and asking for the finished thing instead of advice. Now it's organized, and it works the way it should.</p>
+      <p><strong>This guide is that setup, written for business owners.</strong> You don't need to be techy, and you don't need GitHub or code for any of it. You need about an hour and the stuff you already know about your business.</p>
+      <p>Now I help small business owners set this up in their own businesses. If you'd rather do it together, <a href="#book">book a free Strategy Session</a> any time.</p>
+      <p class="sig">— Elena</p>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section class="part" id="shift" aria-labelledby="shift-h">
+    <div class="part-head"><div class="eyebrow">Part 02</div><h2 id="shift-h">Chatbot vs. teammate</h2></div>
+    <p class="prose">Most people use Claude the first way. All the time savings live in the second.</p>
+    <div class="sheet tbl-wrap">
+      <table class="compare">
+        <thead><tr><th class="bad" scope="col">Using it like a chatbot</th><th class="good" scope="col">Using it like a teammate</th></tr></thead>
+        <tbody>
+          <tr><td>Re-explain your business in every chat</td><td>It already knows your prices, hours, policies and voice</td></tr>
+          <tr><td>Ask for tips, then do the work yourself</td><td>Ask for the finished thing: the schedule, the post, the checklist</td></tr>
+          <tr><td>Copy and paste the answer into another app</td><td>It makes the doc, spreadsheet or file for you</td></tr>
+          <tr><td>Sounds like a robot wrote it</td><td>Sounds like you on a good day</td></tr>
+          <tr><td>One question at a time</td><td>Hand off a whole task and check the result</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rule">
+      <span class="hand">AI can't fix a mess. It speeds up whatever's already there.</span>
+      <p>If your prices live in three places and your closing steps live in your head, start there. The setup below makes you write those things down once, and that alone saves time.</p>
+    </div>
+  </section>
+
+  <!-- email gate -->
+  <section class="unlock" id="unlock" aria-labelledby="unlock-h">
+    <div class="unlock-copy">
+      <span class="hand">that's the free preview</span>
+      <h2 id="unlock-h">Unlock the full guide</h2>
+      <p>Enter your email to open the rest. It's free. Already signed up? Enter the same email to get back in.</p>
+      <ul class="inside">
+        <li><span>03</span>Which Claude plan to pick (and what it costs)</li>
+        <li><span>04</span>The setup, in five steps</li>
+        <li><span>05</span>10 copy-paste prompts for your week</li>
+        <li><span>06</span>Three plays, start to finish</li>
+        <li><span>07</span>Mistakes I made (so you don't)</li>
+        <li><span>08</span>Your 30-day checklist</li>
+      </ul>
+    </div>
+    <form class="gate" id="gform" novalidate>
+      <label for="gname">First name</label>
+      <input type="text" id="gname" placeholder="First name" autocomplete="given-name">
+      <label for="gemail">Email</label>
+      <input type="email" id="gemail" placeholder="you@yourbusiness.com" autocomplete="email" required>
+      <label class="consent" for="gconsent"><input type="checkbox" id="gconsent"><span>I agree to the <a href="https://growthstrategyconsulting.org/privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and to hearing from Elena.</span></label>
+      <button class="cta" type="submit" id="gbtn"><i aria-hidden="true"></i><span>Unlock the guide</span></button>
+      <p class="hint" id="ghint">No spam. Just the guide and the occasional useful thing.</p>
+    </form>
+  </section>
+
+  <div id="locked" hidden>
+  <!-- 03 -->
+  <section class="part" id="plan" aria-labelledby="plan-h">
+    <div class="part-head"><div class="eyebrow">Part 03</div><h2 id="plan-h">Pick your Claude plan and model</h2></div>
+    <div class="prose">
+      <p>Claude has three plans for individuals, and you pay Anthropic (the company that makes Claude) directly. Here's what each one gets you and who it's really for.</p>
+      <p>You can follow the setup in this guide on the free plan. Pro is where it starts to feel like a real teammate.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Claude Free</h3>
+        <div class="price">$0</div>
+        <p class="who"><strong>Good for getting your feet wet.</strong> You can do a lot of the basics here: set up your profile, build a small Business Brain, try skills and connect an app. You'll hit usage limits sooner, and there's no coding.</p>
+        <ul><li>Up to 5 projects</li><li>Memory, skills and app connections</li><li>Web search and file creation</li><li>The everyday models (Sonnet and Haiku)</li><li>No Claude Code, Research or Opus</li></ul>
+      </div>
+      <div class="plan pick">
+        <span class="tag">best bang for your buck</span>
+        <h3>Claude Pro</h3>
+        <div class="price">$20<small> /month</small></div>
+        <p class="who"><strong>Worth it even if you're not on it every day.</strong> You get a lot more room to work, plus Claude Code, which lets you build your own small tools, like a pricing calculator or a booking page, without knowing how to code. About $17/month if you pay yearly.</p>
+        <ul><li>Everything in Free, with much more usage</li><li>As many projects as you need</li><li>Claude Code, for building your own tools</li><li>Opus, the strongest model, for big decisions</li><li>Research, plus Claude in Chrome for website chores</li></ul>
+      </div>
+      <div class="plan">
+        <h3>Claude Max</h3>
+        <div class="price">$100<small>+ /month</small></div>
+        <p class="who"><strong>Only if you're maxing out Pro all the time.</strong> If you keep hitting your Pro limits week after week, Max gives you a lot more room. There's no need to start here.</p>
+        <ul><li>Everything in Pro</li><li>5x the usage of Pro ($100/month) or 20x ($200/month)</li><li>Upgrade later if you need it</li></ul>
+      </div>
+    </div>
+    <p class="fine">Claude's prices and plans as of October 2026, from claude.com/pricing. Check there for the latest. Business teams can also look at Claude's Team plan.</p>
+
+    <h3 style="margin-top:14px">Which model?</h3>
+    <p class="prose">There's a model picker in every chat. Leave it on the default and switch only when the job calls for it.</p>
+    <div class="models">
+      <div><b>Quick stuff</b><strong>Haiku</strong>Fast answers, short rewrites, quick lists.</div>
+      <div><b>Everyday</b><strong>Sonnet</strong>Most of your work. Emails, posts, schedules, checklists.</div>
+      <div><b>Big thinking</b><strong>Opus</strong>Pricing decisions, a hard conversation, planning your quarter.</div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section class="part" id="setup" aria-labelledby="setup-h">
+    <div class="part-head"><div class="eyebrow">Part 04</div><h2 id="setup-h">The setup, in five steps</h2></div>
+    <div class="prose"><p>Do these in order. Steps 1 and 2 take under an hour and do most of the work. Anything that looks like a <em style="font-style:normal;background:var(--n1);color:var(--terra-t);padding:0 3px">[highlighted blank]</em> is where your own details go.</p></div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="num" aria-hidden="true">1</div>
+        <div class="body">
+          <h3>Tell Claude who you are</h3>
+          <!-- HOWTO LINK: "How to set up your Claude profile" goes here once the post is written -->
+          <p>In Claude's settings, turn on memory and web search. Then find the spot that asks what Claude should know about you, and paste this in with your details. Now every chat starts knowing who it's talking to.</p>
+          <div class="prompt"><div class="bar"><span>Paste into your profile</span><button class="copy" type="button">Copy</button></div>
+<pre>I own <em>[business name]</em>, a <em>[type of business]</em> in <em>[city]</em>. I've run it for <em>[X]</em> years. Most of my customers are <em>[who they are]</em>.
+I'm busy. Give me short, practical answers I can use today, no fluff.
+When you write as me, sound <em>[3 words, like: warm, direct, a little funny]</em>.
+If you need more info, ask me a question instead of guessing.</pre></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num" aria-hidden="true">2</div>
+        <div class="body">
+          <h3>Build your Business Brain</h3>
+          <!-- HOWTO LINK: "How to make a Project and add files / How to write project instructions" goes here once the post is written -->
+          <p>A <strong>Project</strong> is a folder Claude reads before it answers. Make one called "Business Brain" and add these files. Rough notes are fine. A typed list in a doc is fine.</p>
+          <ul>
+            <li><strong>About us:</strong> what you sell, who buys it, what makes you different</li>
+            <li><strong>Prices and hours:</strong> the real, current ones</li>
+            <li><strong>Policies:</strong> returns, bookings, cancellations, time off</li>
+            <li><strong>Our voice:</strong> 3 to 5 posts or emails you wrote that sound like you</li>
+            <li><strong>Top questions:</strong> the 10 things customers ask you most</li>
+          </ul>
+          <p>Then paste this into the project's instructions:</p>
+          <div class="prompt"><div class="bar"><span>Project instructions</span><button class="copy" type="button">Copy</button></div>
+<pre>You're the operations assistant for <em>[business name]</em>.
+Before you answer, check the files in this project: About Us, Prices and Hours, Policies, Our Voice, Top Questions.
+Always use our real prices and policies, write in our voice, and keep it short.
+If something isn't in the files, ask me. Don't make it up.
+When I ask for something I'll use (a schedule, a post, a checklist), make the finished thing, not advice about it.</pre></div>
+          <div class="note"><span class="hand">good to know</span>Chats inside a project share the project's files, not each other's conversations. If you want Claude to remember something every time, add it to a project file, not just a chat.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num" aria-hidden="true">3</div>
+        <div class="body">
+          <h3>Make your first skill</h3>
+          <!-- HOWTO LINK: "How to make your first skill" goes here once the post is written -->
+          <p>A <strong>skill</strong> is a recipe card Claude follows every time a certain job comes up, so you stop typing the same instructions. Start with something you do every week. Review replies are a good first one.</p>
+          <p>The easy way: do the job once in a chat, get it how you like it, then say <strong>"turn what we just did into a skill."</strong> Or write one yourself. It's just a short text file you upload in Claude's settings under Skills.</p>
+          <div class="prompt"><div class="bar"><span>Example skill: review replies</span><button class="copy" type="button">Copy</button></div>
+<pre>---
+name: review-replies
+description: Use when I paste a customer review from Google, Yelp or Facebook and need a reply.
+---
+# Review replies for <em>[business name]</em>
+1. Thank them by first name if it's given.
+2. Mention one specific thing they said.
+3. If they had a problem, own it in one sentence, no excuses, and invite them to email <em>[your email]</em>.
+4. Keep it under 70 words.
+5. Sign off as "<em>[your name]</em>, owner".
+Give me two versions: one short, one warmer.</pre></div>
+          <div class="note"><span class="hand">tip</span>The "description" line is how Claude knows when to use the skill. Write it as "Use when…" and name the moment it should kick in.</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num" aria-hidden="true">4</div>
+        <div class="body">
+          <h3>Connect one app</h3>
+          <p>A <strong>connector</strong> lets Claude look inside an app you already use, like Gmail, Google Calendar, Google Drive, Notion or Canva. Once it's connected, you can say "find the email from my linen vendor" or "what does my week look like?" and Claude goes and checks, so you stop copying and pasting things in.</p>
+          <!-- HOWTO LINK: "How to connect Gmail or Google Calendar to Claude" goes here once the post is written -->
+          <div class="sheet mini">
+            <div class="eyebrow">How to add one</div>
+            <ol>
+              <li>In Claude, open <strong>Customize</strong> in the sidebar, then <strong>Connectors</strong>.</li>
+              <li>Click <strong>Discover</strong> to browse, or search for the app by name.</li>
+              <li>Open it and click <strong>Connect to Claude</strong>, then sign in to that app and approve access. It now shows as "Connected."</li>
+              <li>In any chat, click the <strong>+</strong> in the message box, then <strong>Connectors</strong>, to turn it on or off for that chat.</li>
+            </ol>
+          </div>
+          <p>The first time Claude uses a connector, it asks permission. Choose <strong>Allow once</strong> while you're getting comfortable, and <strong>Always allow</strong> once you trust how it's using it.</p>
+          <div class="note"><span class="hand">what's an MCP?</span>You'll see "MCP" around connectors. It's the behind-the-scenes standard apps use to plug into Claude. You don't need to know how it works. If an app you use isn't in the directory, search the app's name plus "MCP" or "Claude connector" to see if it offers one.</div>
+          <ul>
+            <li>Start with one app, the one you live in most.</li>
+            <li>Start with reading tasks: finding, summarizing, drafting.</li>
+            <li>Check anything before it gets sent or booked in your name.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="num" aria-hidden="true">5</div>
+        <div class="body">
+          <h3>Hand off a real task</h3>
+          <!-- HOWTO LINK: "How to get Claude to make a spreadsheet or doc" goes here once the post is written -->
+          <p>This is where it clicks. Instead of asking a question, hand over a job the way you'd hand it to a good employee: what the job is, what done looks like, and what to use. Claude can come back with an actual doc, spreadsheet, checklist or slide deck you can open and edit.</p>
+          <div class="prompt"><div class="bar"><span>The hand-off formula</span><button class="copy" type="button">Copy</button></div>
+<pre>The job: <em>[what you need done]</em>
+Done looks like: <em>[the finished thing: a spreadsheet, a one-page doc, 5 captions…]</em>
+Use: <em>[my Business Brain files, this attachment, my calendar]</em>
+Before you start, ask me anything you need to know.</pre></div>
+        </div>
+      </div>
+    </div>
+    <p class="nudge"><span class="hand">stuck on a step?</span><span>Setting this up is exactly what we do in a Strategy Session. Bring your laptop and we'll build your Business Brain together.</span><a href="#book">Book a free Strategy Session</a></p>
+  </section>
+
+  <!-- 05 -->
+  <section class="part" id="week" aria-labelledby="week-h">
+    <div class="part-head"><div class="eyebrow">Part 05</div><h2 id="week-h">Where it fits in your week</h2></div>
+    <p class="prose">Pick the part of your week that eats the most time and start there. Run these inside your Business Brain project so the answers use your real details.</p>
+    <div class="areas" id="areas"></div>
+  </section>
+
+  <!-- 06 -->
+  <section class="part" id="plays" aria-labelledby="plays-h">
+    <div class="part-head"><div class="eyebrow">Part 06</div><h2 id="plays-h">Three plays, start to finish</h2></div>
+    <p class="prose">Here's what a full hand-off looks like. Each one takes about 20 minutes the first time and less after that.</p>
+
+    <article class="play">
+      <h3>Fill your slowest day</h3>
+      <p class="who">For: a café, shop or studio with one day that always drags.</p>
+      <div class="flow">
+        <div><b>You give it</b>Last month's sales by day and hour (an export from your register or POS), plus your Business Brain.</div>
+        <div><b>You ask</b>"Find my slowest window. Suggest 3 promos that fit our prices and brand. Pick the best one and make everything I need to run it."</div>
+        <div><b>You get back</b>The promo, three captions, a sign for the counter, and a short email to your list.</div>
+      </div>
+      <p class="saved">one afternoon of work, done before lunch</p>
+    </article>
+
+    <article class="play">
+      <h3>Get yourself out of the schedule</h3>
+      <p class="who">For: anyone with a team who's still building the schedule at midnight.</p>
+      <div class="flow">
+        <div><b>You give it</b>Everyone's availability, how many people each shift needs, and your rules for swaps and time off.</div>
+        <div><b>You ask</b>"Make a first-draft schedule as a spreadsheet. Flag any shift I can't cover. Then write the message I'll send the team."</div>
+        <div><b>You get back</b>A schedule you edit instead of build, a list of gaps, and a clear team message.</div>
+      </div>
+      <p class="saved">you go from builder to editor</p>
+    </article>
+
+    <article class="play">
+      <h3>Find where money is leaking</h3>
+      <p class="who">For: the owner who knows it's busy but isn't sure it's profitable.</p>
+      <div class="flow">
+        <div><b>You give it</b>A sales export for the last 1 to 3 months and a list of your monthly costs.</div>
+        <div><b>You ask</b>"Show my top and bottom sellers, what I need to sell each month to cover costs, and three things you'd look into. Show your math."</div>
+        <div><b>You get back</b>A one-page summary you can check, plus a short list of what to cut, push or reprice.</div>
+      </div>
+      <p class="saved">check the math. always check the math.</p>
+    </article>
+    <p class="nudge"><span class="hand">want to run one with me?</span><span>We'll do it on your real numbers and your real week, and you'll leave with the finished thing.</span><a href="#book">Book a free Strategy Session</a></p>
+  </section>
+
+  <!-- 07 -->
+  <section class="part" id="mistakes" aria-labelledby="mistakes-h">
+    <div class="part-head"><div class="eyebrow">Part 07</div><h2 id="mistakes-h">Mistakes I made (so you don't)</h2></div>
+    <ul class="mistakes">
+      <li><span class="oops">A new chat for everything</span><span class="fixit"><b>fix:</b>Work inside your Business Brain project so it never starts from zero.</span></li>
+      <li><span class="oops">Taking the first answer</span><span class="fixit"><b>fix:</b>Tell it exactly what's off, the way you'd mark up an employee's draft: "Cut this to 3 sentences. No exclamation points. Say 'regulars,' not 'customers.' Mention we're closed Mondays." Vague notes get vague rewrites.</span></li>
+      <li><span class="oops">Asking for advice when I wanted the thing</span><span class="fixit"><b>fix:</b>Ask for the finished file. "Make the checklist," not "how should I make a checklist?"</span></li>
+      <li><span class="oops">Pasting in private stuff</span><span class="fixit"><b>fix:</b>Never share passwords, card numbers or private customer details. Leave them out or use first names only.</span></li>
+      <li><span class="oops">Hitting send without reading</span><span class="fixit"><b>fix:</b>You're the editor. Your name is on it, so read everything before it goes out.</span></li>
+      <li><span class="oops">Files everywhere</span><span class="fixit"><b>fix:</b>One home for your business docs. When something changes, update the project file once.</span></li>
+    </ul>
+  </section>
+
+  <!-- 08 -->
+  <section class="part" id="thirty" aria-labelledby="thirty-h">
+    <div class="part-head"><div class="eyebrow">Part 08</div><h2 id="thirty-h">Your first 30 days</h2></div>
+    <p class="prose">One small thing a day, about 15 minutes. Tick them off as you go. Your progress stays saved in this browser.</p>
+    <div class="progress" aria-live="polite"><span id="count">0 of 16 done</span><div class="track"><div class="fill" id="fill"></div></div></div>
+    <div class="weeks" id="weeks"></div>
+    <p class="nudge"><span class="hand">made it to day 30?</span><span>Let's look at what's working and pick your next fix. Or skip the 30 days and we'll set it up together.</span><a href="#book">Book a free Strategy Session</a></p>
+  </section>
+  </div>
+
+  <section class="close" id="book" aria-labelledby="close-h">
+    <span class="hand">rather have it set up for you?</span>
+    <h2 id="close-h">Let's put AI to work in your business.</h2>
+    <div class="offers">
+      <div><b>Free · 30 min · virtual</b><strong>Strategy Session</strong>We find your top 3 time leaks and pick one AI fix you can start using this week.</div>
+      <div><b>$197 · 60 min · virtual</b><strong>Power Hour</strong>One focused hour to ask me anything and get your Claude setup started, together.</div>
+    </div>
+    <p>Pick a time that works for you. Start with the free Strategy Session if you're not sure which one you need.</p>
+    <div class="cal" id="cal"><div class="calendly-inline-widget" data-url="https://calendly.com/corraoconsulting/30min?hide_gdpr_banner=1&amp;background_color=fffdf8&amp;text_color=3a2a1f&amp;primary_color=b5552f"></div></div>
+    <div class="ctas">
+      <a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a>
+      <a class="cta alt" href="https://calendly.com/corraoconsulting" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a Power Hour</a>
+    </div>
+    <a class="soft" href="https://growthstrategyconsulting.org/ai-time-back-checklist.html" target="_blank" rel="noopener">or take the free AI Time-Back Checklist</a>
+  </section>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async onerror="var c=document.getElementById('cal');if(c)c.hidden=true"></script>
+
+  <footer>
+    <span>Growth Strategy Consulting · Elena Corrao · growthstrategyconsulting.org</span>
+    <span>Claude is made by Anthropic. Growth Strategy Consulting is independent and not affiliated with Anthropic. Plans, prices and features change, so check claude.com for the latest.</span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+  function fmt(s){return esc(s).replace(/\[([^\]]+)\]/g,'<em>[$1]</em>')}
+
+  var AREAS=[
+    {name:'Customer messages and reviews',note:'the 10 questions',p:[
+      ['Answer your top questions','Here are the 10 questions customers ask me most: [paste them]. Using my Business Brain files, write a short, friendly answer to each in my voice, under 60 words each. Put them in a doc I can copy from.'],
+      ['Reply to a review','Here\'s a review we got: [paste it]. Draft a reply that thanks them, owns anything we got wrong, and invites them back. Give me two versions: one short, one warmer.']]},
+    {name:'Team and scheduling',note:'build less, edit more',p:[
+      ['Draft the schedule','Here\'s everyone\'s availability for next week: [paste or attach]. I need [number] people on [shifts]. Make a first-draft schedule as a spreadsheet and flag any shift I can\'t cover.'],
+      ['Write the closing checklist','Here are my rough closing notes: [paste them]. Turn them into a numbered closing checklist a new hire could follow without calling me.']]},
+    {name:'Social media and marketing',note:'one focus a month',p:[
+      ['Plan the month','This month I want to promote [product, event or offer]. My slow days are [days]. Plan 8 posts: date, photo idea and caption, in a table.'],
+      ['Voice memo to email','Here\'s a transcript of a voice memo about [news]: [paste]. Turn it into a short email to my customers and an Instagram caption. Keep my wording where you can.']]},
+    {name:'Ordering, inventory and admin',note:'no more 9pm orders',p:[
+      ['Build the reorder list','Here\'s last week\'s sales [attach export] and what\'s on hand [paste]. What\'s running low and what should I reorder before [day]? Group it by vendor.'],
+      ['Chase a vendor','Draft a polite follow-up to [vendor] about [late order or invoice]. Mention the order date, [date], and ask for a new delivery date.']]},
+    {name:'Numbers and money',note:'show your math',p:[
+      ['Read your sales report','Here\'s last month\'s sales export [attach]. Show my top 5 and bottom 5 sellers, my busiest and slowest hours, and three things you\'d look into. Keep it to one page.'],
+      ['Find your monthly floor','Here are my monthly costs: [paste rent, payroll, bills]. What do I need to sell each month to cover them? Show the math so I can check it.']]}
+  ];
+  var a=document.getElementById('areas');
+  a.innerHTML=AREAS.map(function(ar){
+    return '<div class="area"><div class="top"><h3>'+esc(ar.name)+'</h3><span class="hand">'+esc(ar.note)+'</span></div><div class="pair">'+
+      ar.p.map(function(p){return '<div class="prompt"><div class="bar"><span>'+esc(p[0])+'</span><button class="copy" type="button">Copy</button></div><pre>'+fmt(p[1])+'</pre></div>'}).join('')+
+      '</div></div>';
+  }).join('');
+
+  var WEEKS=[
+    {t:'Week 1',s:'Set it up',i:['Make a free Claude account','Paste in your profile (Step 1)','Make your Business Brain project and add your files','Ask it 5 things you\'d normally Google or text a friend']},
+    {t:'Week 2',s:'Find your leak',i:['Pick the part of your week that eats the most time','Run both prompts for that area','Push back on one answer until it sounds like you','Save your best result to a project file']},
+    {t:'Week 3',s:'Make it repeatable',i:['Turn one weekly job into a skill','Connect the one app you use most','Use your skill three times','Update any project file that\'s out of date']},
+    {t:'Week 4',s:'Hand it off',i:['Run one of the three plays start to finish','Use the hand-off formula on a task you dread','Add up the hours you got back','Decide: stay on Free or move to Pro']}
+  ];
+  var KEY='gsc-claude-guide-v1', saved={};
+  try{saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){saved={}}
+  var w=document.getElementById('weeks'),n=0;
+  w.innerHTML=WEEKS.map(function(wk,wi){
+    return '<div class="week"><h3>'+wk.t+' <small>'+esc(wk.s.toUpperCase())+'</small></h3>'+
+      wk.i.map(function(it,ii){var id='d'+wi+'-'+ii;n++;return '<label class="item" for="'+id+'"><input type="checkbox" id="'+id+'"'+(saved[id]?' checked':'')+'><span>'+esc(it)+'</span></label>'}).join('')+'</div>';
+  }).join('');
+  var total=n;
+  function update(){
+    var boxes=w.querySelectorAll('input'),c=0,st={};
+    boxes.forEach(function(b){if(b.checked){c++;st[b.id]=1}});
+    document.getElementById('count').textContent=c+' of '+total+' done';
+    document.getElementById('fill').style.width=(c/total*100)+'%';
+    try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}
+  }
+  w.addEventListener('change',update);update();
+
+  /* ---- email gate ----
+     Signups go to MailerLite through its embedded-form subscribe endpoint (public by design, no API key in the page).
+     Account 2518337. ML_FORM = the ID of the "Put Claude to Work" embedded form, which adds people to its group.
+     Unlocked visitors are remembered in this browser; on a new device they enter their email again. */
+  var ML_ACCOUNT='2518337';
+  var ML_FORM='200792049752999189';   // "Put Claude to Work" embedded form
+  var UKEY='gsc-claude-guide-unlocked';
+  var gate=document.getElementById('unlock'), locked=document.getElementById('locked');
+  var lockedIds=['plan','setup','week','plays','mistakes','thirty'];
+  function markToc(isLocked){
+    document.querySelectorAll('.toc a').forEach(function(l){
+      var id=l.getAttribute('href').slice(1);
+      if(lockedIds.indexOf(id)>-1) l.parentNode.classList.toggle('locked',isLocked);
+    });
+  }
+  function unlock(name,scroll){
+    locked.hidden=false; gate.hidden=true; markToc(false);
+    var w=document.createElement('p'); w.className='welcome';
+    w.innerHTML='<span class="hand">you\'re in'+(name?', '+esc(name):'')+'.</span><span>The full guide is below. This browser will remember you next time.</span>';
+    locked.insertBefore(w,locked.firstChild);
+    if(scroll) w.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+  }
+  var known=null; try{known=JSON.parse(localStorage.getItem(UKEY)||'null')}catch(e){known=null}
+  if(known&&known.email){unlock(known.name||'',false)}else{markToc(true)}
+
+  document.querySelector('.toc').addEventListener('click',function(e){
+    var l=e.target.closest('a'); if(!l||!locked.hidden) return;
+    if(lockedIds.indexOf(l.getAttribute('href').slice(1))>-1){e.preventDefault();gate.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('gemail').focus({preventScroll:true})}
+  });
+
+  document.getElementById('gform').addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=document.getElementById('gname').value.trim(), email=document.getElementById('gemail').value.trim();
+    var ok=document.getElementById('gconsent').checked, hint=document.getElementById('ghint'), btn=document.getElementById('gbtn'), lbl=btn.querySelector('span');
+    hint.classList.remove('err');
+    if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){hint.textContent='Enter your email to unlock the guide.';hint.classList.add('err');return}
+    if(!ok){hint.textContent='Please tick the box so I\'m allowed to email you.';hint.classList.add('err');return}
+    btn.disabled=true; lbl.textContent='Unlocking…';
+    var finished=false;
+    function done(){if(finished)return;finished=true;try{localStorage.setItem(UKEY,JSON.stringify({name:name,email:email}))}catch(err){} unlock(name,true)}
+    if(!ML_FORM){console.warn('MailerLite form ID not set: signup not sent');done();return}
+    var fd=new FormData();
+    fd.append('fields[email]',email);
+    if(name) fd.append('fields[name]',name);
+    fd.append('ml-submit','1');
+    fd.append('anticsrf','true');
+    // If MailerLite is slow or unreachable, still open the guide so nobody gets stuck.
+    setTimeout(done,4000);
+    fetch('https://assets.mailerlite.com/jsonp/'+ML_ACCOUNT+'/forms/'+ML_FORM+'/subscribe',{method:'POST',body:fd})
+      .then(done,done);
+  });
+
+  // Calendly calendar: if it hasn't appeared after a few seconds (blocked or offline), hide the empty box; the buttons still work.
+  setTimeout(function(){var c=document.getElementById('cal');if(c&&!c.querySelector('iframe'))c.hidden=true},6000);
+
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy');if(!b)return;
+    var pre=b.closest('.prompt').querySelector('pre');var text=pre.innerText;
+    function ok(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1600)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(pre);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl/Cmd+C'}
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}}catch(err){fallback()}
+  });
+})();
+</script>
+
+</body>
+</html>
