@@ -18,6 +18,11 @@ python3 -m http.server 8000
 Hosted on **Netlify** (free tier). Connected to this GitHub repo —
 every push to `main` auto-deploys.
 
+## Tracking & SEO (added Oct 22, 2026)
+- Google Analytics 4: Measurement ID `G-XZYD2TFHSL` (account "Growth Strategy Consulting" on corraoconsulting@gmail.com). The Google tag sits right after `<head>` on every page. Any new page needs the same snippet.
+- Google Search Console: property for https://growthstrategyconsulting.org/ (same Google login).
+- `sitemap.xml` lists the public pages (the checklist is noindex, so it's left out). Add new pages there. `robots.txt` points to it.
+
 ## Brand (v2, Oct 2026)
 - Headline (Oct 7): Put AI to work. Build the systems. Get your time back.
 - Fonts: Fraunces (headlines) · DM Sans (body) · DM Mono (labels, numbers)
