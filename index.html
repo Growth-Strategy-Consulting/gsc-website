@@ -435,6 +435,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     var fd=new FormData();
     fd.append('fields[email]',email);
     if(name) fd.append('fields[name]',name);
+    // Custom fields in MailerLite: Leak source, Biggest leak
+    fd.append('fields[leak_source]','Homepage quiz');
+    fd.append('fields[biggest_leak]',choice?TIPS[choice][2]:'Not answered');
     fd.append('ml-submit','1');
     fd.append('anticsrf','true');
     // MailerLite's reply can't be read from another site, so open the checklist either way, and never leave anyone stuck.

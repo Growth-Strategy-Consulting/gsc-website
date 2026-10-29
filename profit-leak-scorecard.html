@@ -441,6 +441,11 @@
     var fd=new FormData();
     fd.append('fields[email]', email);
     if(fname) fd.append('fields[name]', fname);
+    // Custom fields in MailerLite: Leak source, Biggest leak, Leak score, Leak details
+    fd.append('fields[leak_source]', 'Profit Leak Scorecard');
+    fd.append('fields[biggest_leak]', lastResult.biggest);
+    fd.append('fields[leak_score]', lastResult.score+'/'+lastResult.total+' ('+lastResult.verdict+')');
+    fd.append('fields[leak_details]', lastResult.pillars+(prof?(' | '+prof):''));
     fd.append('ml-submit','1');
     fd.append('anticsrf','true');
     // MailerLite's reply can't be read from another site, so show the thank-you either way.
