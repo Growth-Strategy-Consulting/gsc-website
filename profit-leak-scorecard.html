@@ -317,9 +317,9 @@
   <div class="brandline"><b>We grow your strategy.</b> &nbsp; Outside &middot; Direct &middot; Real</div>
 
 <script>
-  // ===== HubSpot (mirrors the Services qualifier form) =====
-  var HS_PORTAL = '246490220';
-  var HS_FORM_ID = '5488f7cf-a31d-420a-8162-1c1cdf594982'; // Profit Leak Scorecard form
+  // ===== MailerLite "Leak check" form (same form the homepage quiz uses). Account 2518337. =====
+  var ML_ACCOUNT = '2518337';
+  var ML_FORM = '202684726815753381';
   var lastResult = null;
 
   var form = document.getElementById('scorecard');
@@ -428,32 +428,25 @@
                 ' ('+lastResult.verdict+'). Biggest leak: '+lastResult.biggest+
                 '. Pillars: '+lastResult.pillars+'. '+(prof?('Profile — '+prof):'');
 
-    var fields=[
-      {name:'firstname', value:fname},
-      {name:'email', value:email},
-      {name:'message', value:message}
-    ].filter(function(f){ return f.value; });
-
-    var ctx={ pageUri:location.href, pageName:document.title };
-    var hutk=cookie('hubspotutk'); if(hutk) ctx.hutk=hutk;
-
     btn.disabled=true; btn.textContent='Sending…'; hint.textContent=''; hint.style.color='';
 
-    fetch('https://api.hsforms.com/submissions/v3/integration/submit/'+HS_PORTAL+'/'+HS_FORM_ID, {
-      method:'POST', headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({ fields:fields, context:ctx })
-    }).then(function(r){ if(!r.ok) throw new Error('bad status'); return r.json(); })
-      .then(function(){
-        document.getElementById('gateWrap').innerHTML=
-          '<div class="gate-thanks"><h2>Got it'+(fname?(', '+fname):'')+'. Check your inbox.</h2>'+
-          '<p>Your full breakdown is on its way. Leaking in three or four areas? Don’t wait on the email.</p>'+
-          '<a class="btn" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener">Book a free Strategy Session</a></div>';
-      })
-      .catch(function(){
-        btn.disabled=false; btn.textContent='Send my breakdown';
-        hint.innerHTML='Hmm, that didn’t send. Email me directly at <a href="mailto:hello@growthstrategyconsulting.org">hello@growthstrategyconsulting.org</a> and I’ll send it over.';
-        hint.style.color='#C0573B';
-      });
+    var finished=false;
+    function done(){
+      if(finished) return; finished=true;
+      document.getElementById('gateWrap').innerHTML=
+        '<div class="gate-thanks"><h2>Got it'+(fname?(', '+fname.replace(/[<>&"]/g,'')):'')+'. Check your inbox.</h2>'+
+        '<p>Your full breakdown is on its way. Leaking in three or four areas? Don’t wait on the email.</p>'+
+        '<a class="btn" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener">Book a free Strategy Session</a></div>';
+    }
+    var fd=new FormData();
+    fd.append('fields[email]', email);
+    if(fname) fd.append('fields[name]', fname);
+    fd.append('ml-submit','1');
+    fd.append('anticsrf','true');
+    // MailerLite's reply can't be read from another site, so show the thank-you either way.
+    setTimeout(done,4000);
+    fetch('https://assets.mailerlite.com/jsonp/'+ML_ACCOUNT+'/forms/'+ML_FORM+'/subscribe', { method:'POST', body:fd })
+      .then(done, done);
   });
 </script>
 </body>
