@@ -202,7 +202,161 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 .dock{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(255,253,248,.97);border-top:1px solid var(--sand);display:none}
 .dock .cta{width:100%}
 @media (max-width:760px){.dock{display:block}footer{padding-bottom:120px}}
+/* faq */
+.faq{display:flex;flex-direction:column;border-top:2px solid var(--ink);max-width:880px}
+.faq details{border-bottom:1px solid var(--sand)}
+.faq summary{cursor:pointer;font-weight:800;font-size:clamp(19px,1.9vw,22px);padding:18px 0;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-weight:500;color:var(--terra);font-size:22px}
+.faq details[open] summary::after{content:"–"}
+.faq summary:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.faq details p{padding:0 0 18px;color:var(--ink2);max-width:66ch}
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "ProfessionalService",
+   "@id": "https://growthstrategyconsulting.org/#business",
+   "name": "Growth Strategy Consulting",
+   "url": "https://growthstrategyconsulting.org/",
+   "image": "https://growthstrategyconsulting.org/assets/elena-gsc.jpg",
+   "description": "AI and growth strategy for small business owners. Elena Corrao sets up AI tools and simple systems that cut the busywork, so owners get their time back.",
+   "email": "elena@growthstrategyconsulting.org",
+   "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "St. Petersburg",
+    "addressRegion": "FL",
+    "addressCountry": "US"
+   },
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "St. Petersburg, FL"
+    },
+    {
+     "@type": "Country",
+     "name": "United States"
+    }
+   ],
+   "founder": {
+    "@type": "Person",
+    "name": "Elena Corrao",
+    "jobTitle": "Growth Strategist"
+   },
+   "knowsAbout": [
+    "AI for small business",
+    "Claude",
+    "small business systems",
+    "answer engine optimization",
+    "customer experience"
+   ],
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "name": "Free Strategy Session",
+     "price": "0",
+     "priceCurrency": "USD",
+     "url": "https://calendly.com/corraoconsulting/30min"
+    },
+    {
+     "@type": "Offer",
+     "name": "Power Hour",
+     "price": "197",
+     "priceCurrency": "USD"
+    },
+    {
+     "@type": "Offer",
+     "name": "Growth Audit",
+     "priceSpecification": {
+      "@type": "PriceSpecification",
+      "minPrice": "997",
+      "priceCurrency": "USD"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What does Growth Strategy Consulting do?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "I’m Elena Corrao, and I help small business owners set up simple systems, many of them powered by AI, that cut the busywork. That covers email, follow-ups, scheduling, tip splits and timesheets, and content, so you get your time back and can focus on the work that makes money."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Who do you work with?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Small businesses in St. Petersburg, FL and beyond, especially service and appointment-based businesses like salons, nail artists, trainers and shops."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to be good with tech?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Not at all. I set it up, walk you through it in plain English and make sure you’re comfortable running it."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will AI replace my employees?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. AI takes over the repetitive tasks so your people can spend their time on customers and the work only they can do."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What kinds of things can AI handle in my business?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Sorting and answering email, sending booking links, following up with leads, organizing your calendar, splitting tips and checking timesheets, planning social posts, and more."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much does it cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The Strategy Session is free. A Power Hour is $197 for 60 minutes of one-on-one help with whatever you’re stuck on. The Growth Audit starts at $997 and includes two half-days working through your business together, plus two follow-up check-ins."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Is my business information safe?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. I only connect the tools you approve, I set things up inside your own accounts, and you can disconnect anything at any time."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How do I get started?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Book a Free Strategy Session. It’s 30 minutes on video, and you’ll leave with your top 3 time leaks and one AI fix you can start this week."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Where are you based?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "St. Petersburg, Florida. I work with clients locally and online."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
 </head>
 <body>
 
@@ -212,6 +366,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <nav class="nav" aria-label="Main">
       <a class="txt" href="#how">How it works</a>
       <a class="txt" href="#work">Ways to work</a>
+      <a class="txt" href="resources.html">Resources</a>
       <a class="cta sm" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Free Strategy Session</a>
     </nav>
   </div>
@@ -359,6 +514,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     </div>
   </section>
 
+  <section class="wrap sec" id="faq" aria-labelledby="faq-h">
+    <div class="eyebrow">Questions owners ask me</div>
+    <h2 id="faq-h">Good <span class="hand">questions.</span></h2>
+    <div class="faq">
+      <details><summary>What does Growth Strategy Consulting do?</summary><p>I’m Elena Corrao, and I help small business owners set up simple systems, many of them powered by AI, that cut the busywork. That covers email, follow-ups, scheduling, tip splits and timesheets, and content, so you get your time back and can focus on the work that makes money.</p></details>
+      <details><summary>Who do you work with?</summary><p>Small businesses in St. Petersburg, FL and beyond, especially service and appointment-based businesses like salons, nail artists, trainers and shops.</p></details>
+      <details><summary>Do I need to be good with tech?</summary><p>Not at all. I set it up, walk you through it in plain English and make sure you’re comfortable running it.</p></details>
+      <details><summary>Will AI replace my employees?</summary><p>No. AI takes over the repetitive tasks so your people can spend their time on customers and the work only they can do.</p></details>
+      <details><summary>What kinds of things can AI handle in my business?</summary><p>Sorting and answering email, sending booking links, following up with leads, organizing your calendar, splitting tips and checking timesheets, planning social posts, and more.</p></details>
+      <details><summary>How much does it cost?</summary><p>The Strategy Session is free. A Power Hour is $197 for 60 minutes of one-on-one help with whatever you’re stuck on. The Growth Audit starts at $997 and includes two half-days working through your business together, plus two follow-up check-ins.</p></details>
+      <details><summary>Is my business information safe?</summary><p>Yes. I only connect the tools you approve, I set things up inside your own accounts, and you can disconnect anything at any time.</p></details>
+      <details><summary>How do I get started?</summary><p>Book a Free Strategy Session. It’s 30 minutes on video, and you’ll leave with your top 3 time leaks and one AI fix you can start this week.</p></details>
+      <details><summary>Where are you based?</summary><p>St. Petersburg, Florida. I work with clients locally and online.</p></details>
+    </div>
+    <div class="bar"><strong>Still wondering if this fits your business? Ask me on a call.</strong><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a></div>
+  </section>
+
   <section class="wrap" aria-labelledby="about-h">
     <div class="about">
       <img src="assets/elena-gsc.jpg" width="900" height="1125" alt="Elena Corrao" loading="lazy">
@@ -389,7 +561,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <footer>
   <div class="wrap">
     <span>Growth Strategy Consulting · St. Petersburg, FL · © 2026</span>
-    <span><a href="put-claude-to-work.html">Free Claude guide</a> · growthstrategyconsulting.org · <a href="privacy.html">Privacy</a></span>
+    <span><a href="resources.html">Resources</a> · <a href="put-claude-to-work.html">Free Claude guide</a> · growthstrategyconsulting.org · <a href="privacy.html">Privacy</a></span>
   </div>
 </footer>
 
