@@ -31,3 +31,9 @@ every push to `main` auto-deploys.
 - Booking: https://calendly.com/corraoconsulting/30min (set as BOOKING_URL at the bottom of index.html)
 - Source of truth: the "GSC Brand Guide" design canvas
 - Pages: index.html (homepage, with the "Where does most of your week go?" quiz), ai-time-back-checklist.html (the free checklist the quiz gives away; quiz and leak-check signups both go to MailerLite form 202684726815753381, "Leak check", since Oct 29, 2026), profit-leak-scorecard.html (the 2-minute leak check), put-claude-to-work.html (free Claude guide for owners; email-gated, signups go to MailerLite form 200792049752999189; Calendly embedded at the bottom), privacy.html. The old v1 pages were removed Oct 1, 2026.
+
+## Resources (added Nov 4, 2026)
+- `resources.html`: the Resources page. One email unlocks every free resource (remembered in the browser; shares the unlock with the Claude guide). Free signups go to MailerLite form 203226760597211121 ("GSC Resources", group "GSC - Resources") with the custom field `resource` set to what they asked for. The Business Brain Kit waitlist goes to form 203226761716040952 (group "GSC - Business Brain Kit waitlist").
+- `prompt-must-haves.html`: 40 copy-paste prompts in 8 parts. Part 01 is the free preview; the rest unlocks with an email.
+- `blog/what-are-claude-skills.html`: first blog post. Gated download of the free skill at `assets/downloads/weekly-promo-posts.zip` (a folder with SKILL.md, ready to upload to Claude).
+- Homepage has an FAQ section (with FAQ and business details for search engines in a JSON-LD script in the head) and a Resources link in the nav and footer.

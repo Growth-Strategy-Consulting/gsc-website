@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZYD2TFHSL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XZYD2TFHSL');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prompt Must-Haves: 40 Claude prompts for small business owners · Growth Strategy Consulting</title>
+<meta name="description" content="40 copy-paste Claude prompts for small business owners: customer messages, social posts, scheduling, hiring, ordering and your numbers. Free from Growth Strategy Consulting.">
+<link rel="canonical" href="https://growthstrategyconsulting.org/prompt-must-haves.html">
+<meta property="og:title" content="Prompt Must-Haves: 40 Claude prompts for small business owners · Growth Strategy Consulting">
+<meta property="og:description" content="40 copy-paste Claude prompts for small business owners: customer messages, social posts, scheduling, hiring, ordering and your numbers. Free from Growth Strategy Consulting.">
+<meta property="og:image" content="https://growthstrategyconsulting.org/assets/elena-gsc.jpg">
+<meta property="og:url" content="https://growthstrategyconsulting.org/prompt-must-haves.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg fill='%23D9CBB3'%3E%3Crect x='0' y='0' width='9' height='9'/%3E%3Crect x='10.5' y='0' width='9' height='9'/%3E%3Crect x='21' y='0' width='9' height='9'/%3E%3Crect x='0' y='10.5' width='9' height='9'/%3E%3Crect x='10.5' y='10.5' width='9' height='9'/%3E%3Crect x='0' y='21' width='9' height='9'/%3E%3Crect x='10.5' y='21' width='9' height='9'/%3E%3Crect x='21' y='21' width='9' height='9'/%3E%3C/g%3E%3Crect x='21' y='10.5' width='9' height='9' fill='%23B5552F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..900&family=DM+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* GSC "marked-up audit" look: graph paper, printed sheets, terracotta handwritten notes. */
+
+:root{
+  --paper:#FFFDF8; --grid:#EFE6D6; --sand:#D9CBB3; --ink:#3A2A1F; --ink2:#4A3A2E; --muted:#6B5A4C;
+  --terra:#B5552F; --terra-t:#8A3A1C; --peach:#F2B08F; --olive:#5E6B3A; --olive-d:#46512A; --cream:#E9DFCD;
+  --n1:#F6DCCB; --n2:#E3E8D2; --n3:#D6E4E6; --white:#FFFFFF;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,Menlo,monospace;
+  --hand:'Caveat','Bradley Hand','Segoe Print',cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);color:var(--ink);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+a{color:inherit;text-decoration-color:var(--terra);text-underline-offset:4px}
+p{margin:0} ul,ol{margin:0;padding-left:1.2em}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,5vw,40px)}
+.wrap.narrow{max-width:820px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-t)}
+.hand{font-family:var(--hand);color:var(--terra);font-weight:700;line-height:1.1}
+.mono{font-family:var(--mono)}
+h1,h2,h3{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(44px,8vw,86px);line-height:.94}
+h1 span.t{color:var(--terra)}
+h2{font-size:clamp(30px,4.4vw,48px);line-height:1}
+h2 .hand{font-size:1.1em;letter-spacing:0}
+h3{font-size:clamp(21px,2.2vw,25px);letter-spacing:-.015em;line-height:1.15}
+.lede{font-size:clamp(18px,1.9vw,21px);color:var(--ink2);max-width:60ch}
+.fine{font-family:var(--mono);font-size:14px;color:var(--muted)}
+.mk{display:inline-grid;grid-template-columns:repeat(3,1fr);gap:2px;width:26px;height:26px;flex:none}
+.mk i{background:var(--sand)} .mk i.on{background:var(--terra)}
+.mk.s20{width:20px;height:20px}
+
+/* header */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--sand)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px;max-width:1180px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;text-decoration:none}
+.nav{display:flex;align-items:center;gap:24px;font-size:16px}
+.nav a.txt{text-decoration:none}
+.nav a.txt:hover,.nav a.txt[aria-current]{text-decoration:underline;text-decoration-color:var(--terra);text-underline-offset:5px}
+@media (max-width:820px){.nav a.txt{display:none}}
+@media (max-width:420px){.logo span.name{font-size:15px}}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;background:var(--olive);color:var(--paper);text-decoration:none;font-weight:800;font-size:17px;padding:14px 24px;border-radius:6px;border:0;font-family:inherit;cursor:pointer;transition:background .2s}
+.cta i{width:10px;height:10px;background:var(--peach);border-radius:1px;transition:transform .3s;flex:none}
+.cta:hover{background:var(--olive-d)} .cta:hover i{transform:rotate(90deg)}
+.cta.terra{background:var(--terra)} .cta.terra i{background:var(--paper)} .cta.terra:hover{background:var(--terra-t)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)} .cta.ghost i{background:var(--terra)} .cta.ghost:hover{background:var(--cream)}
+.cta.sm{white-space:nowrap;min-height:44px;font-size:15px;padding:10px 16px}
+.cta[disabled]{opacity:.7;cursor:default}
+.alt{font-family:var(--mono);font-size:15px;text-underline-offset:5px;text-decoration-color:var(--terra)}
+a:focus-visible,.cta:focus-visible,button:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+@media (prefers-reduced-motion:reduce){.cta i{transition:none}}
+
+main section{padding-block:clamp(44px,7vw,88px)}
+.hero{display:flex;flex-direction:column;gap:20px;padding-top:clamp(36px,6vw,72px)!important}
+.scrawl{font-family:var(--hand);font-size:clamp(26px,3vw,32px);color:var(--terra);transform:rotate(-2deg);align-self:flex-start}
+.sec{display:flex;flex-direction:column;gap:26px}
+.sec-head{display:flex;flex-direction:column;gap:10px;padding-bottom:14px;border-bottom:3px solid var(--ink)}
+.sec-head p{color:var(--ink2);max-width:62ch}
+
+/* sheet */
+.sheet{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(18px,3.5vw,32px)}
+.note{background:var(--n1);padding:14px 18px;font-size:17px;color:var(--ink);display:flex;flex-direction:column;gap:2px}
+.note .hand{font-size:26px;color:var(--terra-t)}
+
+/* email gate */
+.gatebox{background:var(--white);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--sand);padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:clamp(22px,4vw,44px);align-items:start}
+.gatebox[hidden]{display:none}
+.gatebox .gcopy{display:flex;flex-direction:column;gap:12px;min-width:0}
+.gatebox .gcopy>.hand{font-size:clamp(26px,3vw,32px);transform:rotate(-1.5deg);align-self:flex-start}
+.gatebox .gcopy p{color:var(--ink2)}
+.inside{list-style:none;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--sand)}
+.inside li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px solid var(--grid);font-size:16.5px;font-weight:600}
+.inside li span{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--terra-t);padding-top:2px}
+.gate{display:flex;flex-direction:column;gap:8px;background:var(--n2);padding:clamp(18px,3vw,26px);min-width:0}
+.gate[hidden],[hidden]{display:none!important}
+.gate label.lbl{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.gate input[type=text],.gate input[type=email]{font:inherit;font-size:17px;padding:13px 14px;border:1px solid var(--muted);border-radius:6px;background:var(--white);color:var(--ink);min-height:50px;width:100%}
+.gate input:focus-visible{outline:3px solid var(--terra);outline-offset:1px}
+.gate .consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:14px;color:var(--muted);align-items:start;margin-top:6px}
+.gate .consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--olive)}
+.gate .cta{width:100%;margin-top:6px}
+.gate .hint{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.gate .hint.err{color:var(--terra-t)}
+.welcome{background:var(--n2);padding:16px 20px;font-size:17px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.welcome[hidden]{display:none}
+.welcome .hand{font-size:28px;color:var(--olive-d)}
+@media (max-width:760px){.gatebox{grid-template-columns:1fr}}
+
+/* copyable prompt */
+.prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.prompts{grid-template-columns:1fr}}
+.prompt{border:1.5px dashed var(--muted);background:var(--white);display:flex;flex-direction:column;min-width:0}
+.prompt .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 14px;border-bottom:1px dashed var(--sand)}
+.prompt .bar span{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.copy{font:inherit;font-family:var(--mono);font-size:14px;font-weight:500;min-height:36px;padding:0 14px;border:1px solid var(--ink);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer;flex:none}
+.copy:hover{background:var(--cream)}
+.copy.done{background:var(--olive);border-color:var(--olive);color:var(--paper)}
+.prompt pre{margin:0;padding:14px 16px;font-family:var(--mono);font-size:15px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;color:var(--ink)}
+.prompt pre em,em.blank{font-style:normal;background:var(--n1);color:var(--terra-t);padding:0 3px}
+
+/* close band */
+.close{background:var(--ink);color:var(--paper);padding:clamp(30px,6vw,60px) clamp(22px,6vw,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 44px;align-items:center}
+.close h2{color:var(--paper)}
+.close p{color:var(--cream);font-size:19px;max-width:56ch}
+.close .side{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.close .alt{color:var(--paper)}
+@media (max-width:860px){.close{grid-template-columns:1fr}}
+
+footer{padding-block:32px 48px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;max-width:1180px}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(255,253,248,.97);border-top:1px solid var(--sand);display:none}
+.dock .cta{width:100%}
+@media (max-width:760px){.dock{display:block}footer{padding-bottom:120px}}
+
+.toc{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:18px clamp(16px,3vw,24px)}
+.toc .eyebrow{color:var(--muted)}
+.toc ol{list-style:none;padding:0;margin-top:10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 24px}
+.toc li a{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;padding:7px 0;text-decoration:none;border-bottom:1px solid var(--grid);font-size:17px}
+.toc li a:hover b{color:var(--terra)}
+.toc li a span{font-family:var(--mono);font-size:14px;color:var(--terra-t);padding-top:2px}
+.toc li.locked a b::after{content:" · unlock";font-family:var(--mono);font-weight:500;font-size:12px;color:var(--muted);letter-spacing:.06em}
+@media (max-width:620px){.toc ol{grid-template-columns:1fr}}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.how div{background:var(--white);border:1px solid var(--sand);padding:18px 20px;display:flex;flex-direction:column;gap:6px;font-size:16.5px;color:var(--ink2)}
+.how b{font-family:var(--hand);font-size:28px;color:var(--terra);font-weight:700;line-height:1}
+@media (max-width:760px){.how{grid-template-columns:1fr}}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.meta b{color:var(--olive);font-weight:500}
+
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="./"><span class="mk s20" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span><span class="name">Growth Strategy Consulting</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="txt" href="./#how">How it works</a>
+      <a class="txt" href="./#work">Ways to work</a>
+      <a class="txt" href="./resources.html">Resources</a>
+      <a class="cta sm" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Free Strategy Session</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap narrow">
+  <section class="hero">
+    <div class="eyebrow">Free resource · prompt library</div>
+    <h1>Prompt <span class="t">Must-Haves.</span></h1>
+    <p class="lede">40 copy-paste prompts for the jobs that eat a small business owner's week: customer messages, posts, schedules, hiring, ordering and your numbers. Fill in the blanks, paste it into Claude, and get the finished thing back.</p>
+    <div class="meta"><span><b>●</b> Free with your email</span><span><b>●</b> 40 prompts in 8 parts</span><span><b>●</b> Works on Claude's free plan</span><span><b>●</b> Updated November 2026</span></div>
+    <p class="scrawl">the prompts I actually use</p>
+    <nav class="toc" aria-label="What's inside">
+      <div class="eyebrow">What's inside</div>
+      <ol>
+<li><a href="#messages"><span>01</span><b>Customer messages and reviews</b></a></li>
+<li class="locked"><a href="#social"><span>02</span><b>Social media and promos</b></a></li>
+<li class="locked"><a href="#email"><span>03</span><b>Email and follow-ups</b></a></li>
+<li class="locked"><a href="#team"><span>04</span><b>Scheduling and your team</b></a></li>
+<li class="locked"><a href="#hiring"><span>05</span><b>Hiring and training</b></a></li>
+<li class="locked"><a href="#admin"><span>06</span><b>Ordering, inventory and admin</b></a></li>
+<li class="locked"><a href="#numbers"><span>07</span><b>Numbers and pricing</b></a></li>
+<li class="locked"><a href="#growth"><span>08</span><b>Customer experience and growth</b></a></li>
+      </ol>
+    </nav>
+  </section>
+
+  <section class="sec" aria-labelledby="use-h" style="padding-top:0">
+    <div class="sec-head"><div class="eyebrow">Before you start</div><h2 id="use-h">How to use these</h2></div>
+    <div class="how">
+      <div><b>fill the blanks</b><p>Anything that looks like <em class="blank">[this]</em> is where your own details go. The more real detail, the better the answer.</p></div>
+      <div><b>use your Business Brain</b><p>Run these inside a Claude Project with your prices, policies and voice in it, so you don't retype them every time. <a href="put-claude-to-work.html">The free guide</a> shows you how.</p></div>
+      <div><b>push back</b><p>The first answer is a draft. Tell it what's off: "shorter," "sounds too salesy," "use our real price." Then save the good version.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="messages" aria-labelledby="messages-h">
+    <div class="sec-head"><div class="eyebrow">Part 01 · 5 prompts</div><h2 id="messages-h">Customer messages and reviews</h2><span class="hand" style="font-size:28px">the inbox that never stops</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>Answer your top questions</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are the questions customers ask me most:
+<em>[paste your list]</em>
+Write a short, friendly answer for each one in my voice. Use our real prices, hours and policies. If you had to guess on any answer, flag it so I can fix it.</pre></div>
+<div class="prompt"><div class="bar"><span>Reply to an upset customer</span><button class="copy" type="button">Copy</button></div>
+<pre>A customer sent me this:
+<em>[paste their message]</em>
+Write a reply that owns what went wrong in one sentence, offers <em>[what you can do to fix it]</em>, and leaves the door open for them to come back. Under 100 words. Give me a calmer version and a warmer version.</pre></div>
+<div class="prompt"><div class="bar"><span>Turn a DM into a booking</span><button class="copy" type="button">Copy</button></div>
+<pre>Someone messaged us: "<em>[their message]</em>"
+Write a reply that answers their question in two sentences and ends with our booking link: <em>[link]</em>. Make it sound like a real person, not a bot.</pre></div>
+<div class="prompt"><div class="bar"><span>Reply to a review</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's a <em>[star rating]</em>-star review we got on <em>[Google / Yelp / Facebook]</em>:
+<em>[paste review]</em>
+Write a reply that thanks them by name, mentions one specific thing they said, and stays under 70 words. If it's negative, own it and invite them to email <em>[your email]</em>. No excuses.</pre></div>
+<div class="prompt"><div class="bar"><span>Thank-you text after a visit</span><button class="copy" type="button">Copy</button></div>
+<pre>Write a short thank-you text I can send the day after someone's <em>[appointment / visit / order]</em>. Mention <em>[what they came in for]</em>, ask how it's going, and include our review link: <em>[link]</em>. Under 40 words. Give me three versions so it doesn't feel copy-pasted.</pre></div>
+    </div>
+  </section>
+
+  <section class="gatebox" id="unlock" aria-labelledby="unlock-h">
+    <div class="gcopy">
+      <span class="hand">that's the free preview</span>
+      <h2 id="unlock-h">Unlock all 40 prompts</h2>
+      <p>Enter your email to open the rest. It's free. Already signed up for one of my free resources? Enter the same email to get back in.</p>
+      <ul class="inside">
+<li><span>02</span>Social media and promos</li>
+<li><span>03</span>Email and follow-ups</li>
+<li><span>04</span>Scheduling and your team</li>
+<li><span>05</span>Hiring and training</li>
+<li><span>06</span>Ordering, inventory and admin</li>
+<li><span>07</span>Numbers and pricing</li>
+<li><span>08</span>Customer experience and growth</li>
+      </ul>
+    </div>
+    <form class="gate" id="gform" novalidate>
+      <label class="lbl" for="gname">First name</label>
+      <input type="text" id="gname" placeholder="First name" autocomplete="given-name">
+      <label class="lbl" for="gemail">Email</label>
+      <input type="email" id="gemail" placeholder="you@yourbusiness.com" autocomplete="email" required>
+      <label class="consent" for="gconsent"><input type="checkbox" id="gconsent"><span>I agree to the <a href="./privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and to hearing from Elena.</span></label>
+      <button class="cta" type="submit" id="gbtn"><i aria-hidden="true"></i><span>Unlock the prompts</span></button>
+      <p class="hint" id="ghint">No spam. Just the good stuff and the occasional useful thing.</p>
+    </form>
+  </section>
+
+  <div id="locked" hidden>
+  <p class="welcome" id="welcome"></p>
+  <section class="sec" id="social" aria-labelledby="social-h">
+    <div class="sec-head"><div class="eyebrow">Part 02 · 5 prompts</div><h2 id="social-h">Social media and promos</h2><span class="hand" style="font-size:28px">say goodbye to blank-page panic</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>A week of posts from a few notes</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's what's happening this week: <em>[new items, open spots, events, slow days]</em>.
+Write 5 posts for <em>[Instagram / Facebook]</em>, Monday to Friday. For each one: a hook under 10 words, a caption in my voice, one clear call to action, and a photo idea. No more than two posts should be "buy this."</pre></div>
+<div class="prompt"><div class="bar"><span>Fill a slow day</span><button class="copy" type="button">Copy</button></div>
+<pre><em>[Day]</em> is always our slowest day. Give me 5 ideas to bring people in on <em>[day]</em> that don't cost much, then write the post for the best one.</pre></div>
+<div class="prompt"><div class="bar"><span>Turn a review into a post</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's a review from a happy customer:
+<em>[paste review]</em>
+Turn it into a post that tells the story behind it in a few sentences and ends with how to book. Keep their words in quotes and don't change them.</pre></div>
+<div class="prompt"><div class="bar"><span>Plan the next 30 days</span><button class="copy" type="button">Copy</button></div>
+<pre>Plan 30 days of posts for <em>[business type]</em> around these dates and events: <em>[holidays, local events, launches, slow weeks]</em>. Put it in a table: date, post idea, goal (sell / book / show personality / teach), and which photo to use.</pre></div>
+<div class="prompt"><div class="bar"><span>Fix a caption that sounds like an ad</span><button class="copy" type="button">Copy</button></div>
+<pre>Rewrite this caption so it sounds like the owner talking, not an ad. Shorter sentences, one idea, one call to action:
+<em>[paste caption]</em></pre></div>
+    </div>
+  </section>
+  <section class="sec" id="email" aria-labelledby="email-h">
+    <div class="sec-head"><div class="eyebrow">Part 03 · 5 prompts</div><h2 id="email-h">Email and follow-ups</h2><span class="hand" style="font-size:28px">so nobody falls through the cracks</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>Sort today&#x27;s inbox</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are the emails I got today:
+<em>[paste them]</em>
+Sort them into four piles: answer today, can wait, hand to someone else, ignore. Then draft replies for the "answer today" pile.</pre></div>
+<div class="prompt"><div class="bar"><span>Follow up with a lead</span><button class="copy" type="button">Copy</button></div>
+<pre>Someone asked about <em>[service]</em> on <em>[date]</em> and never booked. Write three short follow-up emails: one for tomorrow, one for next week, and a last friendly check-in two weeks out. No pressure, and make each one useful on its own.</pre></div>
+<div class="prompt"><div class="bar"><span>Win back regulars</span><button class="copy" type="button">Copy</button></div>
+<pre>Write an email to customers who haven't been in for <em>[number]</em> weeks. Make it feel personal, remind them what they loved about <em>[business name]</em>, and give them a reason to come back: <em>[offer or news]</em>. Under 120 words, with two subject line options.</pre></div>
+<div class="prompt"><div class="bar"><span>Announce a price increase</span><button class="copy" type="button">Copy</button></div>
+<pre>Our prices on <em>[services or products]</em> are going up from <em>[old price]</em> to <em>[new price]</em> on <em>[date]</em>. Write a short, honest email that explains why in one or two sentences, thanks customers for sticking with us, and doesn't sound like an apology.</pre></div>
+<div class="prompt"><div class="bar"><span>Write the newsletter from rough notes</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are my rough notes for this month:
+<em>[paste notes]</em>
+Turn them into a short newsletter: a friendly opener, three quick sections, and one call to action at the end. Give me three subject lines.</pre></div>
+    </div>
+  </section>
+  <section class="sec" id="team" aria-labelledby="team-h">
+    <div class="sec-head"><div class="eyebrow">Part 04 · 5 prompts</div><h2 id="team-h">Scheduling and your team</h2><span class="hand" style="font-size:28px">this one&#x27;s a big one</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>First-draft schedule</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's everyone's availability for next week:
+<em>[paste availability]</em>
+We need <em>[number]</em> people on <em>[shifts]</em>. Make a first-draft schedule in a table. Flag any shift that isn't covered and anyone over <em>[number]</em> hours.</pre></div>
+<div class="prompt"><div class="bar"><span>Split the tips</span><button class="copy" type="button">Copy</button></div>
+<pre>This week's tips: $<em>[total]</em>. Hours worked:
+<em>[name: hours, one per line]</em>
+Split the tips by hours worked. Show the math in a table and check that the total adds up to $<em>[total]</em> exactly. Round to the cent and tell me where any leftover penny went.</pre></div>
+<div class="prompt"><div class="bar"><span>Check the timesheets</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are this week's timesheets and the schedule:
+<em>[paste both]</em>
+Compare them and list anything that doesn't match: missed punches, long breaks, overtime, or shifts that ran past close.</pre></div>
+<div class="prompt"><div class="bar"><span>Opening and closing checklists</span><button class="copy" type="button">Copy</button></div>
+<pre>Write an opening checklist and a closing checklist for a <em>[business type]</em>. Here's what we do now, in no particular order:
+<em>[paste your notes]</em>
+Put it in order, group it by area, and keep each line short enough to check off.</pre></div>
+<div class="prompt"><div class="bar"><span>Plan a hard conversation</span><button class="copy" type="button">Copy</button></div>
+<pre>I need to talk to <em>[role]</em> about <em>[the issue]</em>. It's happened <em>[how often]</em>. Help me plan a 10-minute conversation: how to open, the one thing I need to say clearly, two questions to ask them, and how to end with a clear next step.</pre></div>
+    </div>
+  </section>
+  <section class="sec" id="hiring" aria-labelledby="hiring-h">
+    <div class="sec-head"><div class="eyebrow">Part 05 · 5 prompts</div><h2 id="hiring-h">Hiring and training</h2><span class="hand" style="font-size:28px">so you stop being the only one who knows</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>Write the job post</span><button class="copy" type="button">Copy</button></div>
+<pre>Write a job post for a <em>[role]</em> at <em>[business name]</em> in <em>[city]</em>. Pay: <em>[pay]</em>. Hours: <em>[hours]</em>. What the job is really like: <em>[notes]</em>. Make it honest and specific, not corporate, and end with how to apply.</pre></div>
+<div class="prompt"><div class="bar"><span>Interview questions</span><button class="copy" type="button">Copy</button></div>
+<pre>Give me 8 interview questions for a <em>[role]</em> that show how someone handles a busy day, an upset customer and a slow shift. For each question, tell me what a good answer sounds like.</pre></div>
+<div class="prompt"><div class="bar"><span>New hire&#x27;s first week</span><button class="copy" type="button">Copy</button></div>
+<pre>Make a first-week plan for a new <em>[role]</em>. Day by day: what they learn, who shows them, and what they should be able to do on their own by Friday.</pre></div>
+<div class="prompt"><div class="bar"><span>Turn your brain dump into a training doc</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's how I do <em>[task]</em>, typed out the messy way:
+<em>[paste notes]</em>
+Turn it into a step-by-step training doc a new person could follow without asking me. Add a short list of common mistakes at the end.</pre></div>
+<div class="prompt"><div class="bar"><span>Answer the team&#x27;s questions for you</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are our policies and the questions my team asks me most:
+<em>[paste]</em>
+Write a one-page cheat sheet with short answers they can check before they come find me.</pre></div>
+    </div>
+  </section>
+  <section class="sec" id="admin" aria-labelledby="admin-h">
+    <div class="sec-head"><div class="eyebrow">Part 06 · 5 prompts</div><h2 id="admin-h">Ordering, inventory and admin</h2><span class="hand" style="font-size:28px">so much of this can go</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>Reorder list from your sales</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's last week's sales report and what we have on hand:
+<em>[paste both]</em>
+Make a reorder list in a table: item, how many we sold, how many we have, how many to order. Flag anything that's selling faster than usual.</pre></div>
+<div class="prompt"><div class="bar"><span>Email a vendor</span><button class="copy" type="button">Copy</button></div>
+<pre>Write an email to <em>[vendor]</em> about <em>[late order / wrong item / price change / new order]</em>. Be friendly and clear, include <em>[order number or details]</em>, and ask for <em>[what you need]</em> by <em>[date]</em>.</pre></div>
+<div class="prompt"><div class="bar"><span>Write a policy</span><button class="copy" type="button">Copy</button></div>
+<pre>Write our <em>[cancellation / refund / late arrival / deposit]</em> policy for a <em>[business type]</em>. Here's how we handle it now: <em>[notes]</em>. Keep it short, fair and clear enough that nobody can argue with it. Then give me a one-line version for the website.</pre></div>
+<div class="prompt"><div class="bar"><span>Turn meeting notes into a to-do list</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are my notes from <em>[meeting]</em>:
+<em>[paste notes]</em>
+Pull out every decision and every to-do. List each to-do with who's doing it and by when. If I didn't say who or when, mark it so I can fill it in.</pre></div>
+<div class="prompt"><div class="bar"><span>Write a how-we-do-it doc</span><button class="copy" type="button">Copy</button></div>
+<pre>Write a simple step-by-step for how we <em>[process, like taking a custom order or handling a return]</em>. Here's what happens now: <em>[notes]</em>. Number the steps and note who's responsible for each one.</pre></div>
+    </div>
+  </section>
+  <section class="sec" id="numbers" aria-labelledby="numbers-h">
+    <div class="sec-head"><div class="eyebrow">Part 07 · 5 prompts</div><h2 id="numbers-h">Numbers and pricing</h2><span class="hand" style="font-size:28px">no more guessing</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>Weekly recap in plain English</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's this week's sales report:
+<em>[paste or upload it]</em>
+Give me a plain-English recap: what sold, what didn't, how this week compares to last week, and one thing to do next week because of it. Five bullet points max.</pre></div>
+<div class="prompt"><div class="bar"><span>What you really make per hour</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's my service menu with prices, how long each one takes, and what supplies cost:
+<em>[paste]</em>
+Work out what I make per hour on each service after supplies. Show it in a table from highest to lowest and tell me which ones to raise or rethink.</pre></div>
+<div class="prompt"><div class="bar"><span>Find the money leaks</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are my expenses for the last 3 months:
+<em>[paste or upload]</em>
+Group them, flag anything that went up, anything I'm paying for twice, and subscriptions I might not use. Give me the top 3 to look at first.</pre></div>
+<div class="prompt"><div class="bar"><span>Busy hours vs. slow hours</span><button class="copy" type="button">Copy</button></div>
+<pre>Here are my sales by day and hour:
+<em>[paste]</em>
+Show me my busiest and slowest times in a simple table. Then tell me if my staffing matches it and where I'm paying for hours that don't make money.</pre></div>
+<div class="prompt"><div class="bar"><span>Friendly invoice reminder</span><button class="copy" type="button">Copy</button></div>
+<pre>Write a friendly reminder for an invoice that's <em>[number]</em> days late. Invoice <em>[number]</em> for $<em>[amount]</em>, due <em>[date]</em>. Polite, short, and clear about how to pay: <em>[payment link]</em>. Then write a firmer second reminder for a week later.</pre></div>
+    </div>
+  </section>
+  <section class="sec" id="growth" aria-labelledby="growth-h">
+    <div class="sec-head"><div class="eyebrow">Part 08 · 5 prompts</div><h2 id="growth-h">Customer experience and growth</h2><span class="hand" style="font-size:28px">grow what you already have</span></div>
+    <div class="prompts">
+<div class="prompt"><div class="bar"><span>See your business like a first-timer</span><button class="copy" type="button">Copy</button></div>
+<pre>Pretend you're a first-time customer finding us online. Here's our website text and Google listing:
+<em>[paste]</em>
+What's confusing, what's missing, and what would make you not book? Then list the 3 fixes that would matter most.</pre></div>
+<div class="prompt"><div class="bar"><span>Sell more to the customers you have</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's what we sell and what customers usually buy together:
+<em>[paste]</em>
+Give me 5 easy ways to raise the average ticket without being pushy: add-ons, bundles, or what to mention at checkout. Write the one line my team can say for each.</pre></div>
+<div class="prompt"><div class="bar"><span>Start a simple loyalty program</span><button class="copy" type="button">Copy</button></div>
+<pre>Design a simple loyalty program for a <em>[business type]</em> that's easy to run without a fancy app. Our average customer comes in <em>[how often]</em> and spends about $<em>[amount]</em>. Give me two options and what each one would cost me.</pre></div>
+<div class="prompt"><div class="bar"><span>Ask for referrals</span><button class="copy" type="button">Copy</button></div>
+<pre>Write a short, natural way to ask happy customers for a referral: one line to say in person, one text, and one email. Our referral reward is <em>[reward]</em>, or suggest one if I don't have one yet.</pre></div>
+<div class="prompt"><div class="bar"><span>Pick what to fix first</span><button class="copy" type="button">Copy</button></div>
+<pre>Here's everything on my plate right now:
+<em>[paste your list]</em>
+Sort it into: makes money, saves time, or can wait. Then tell me the one thing to do this week that will free up the most time.</pre></div>
+    </div>
+  </section>
+
+  </div>
+
+  <section aria-labelledby="book-h">
+    <div class="close">
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <h2 id="book-h">Rather have it set up for you?</h2>
+        <p>Prompts are the start. In a free 30-minute Strategy Session, we find your top 3 time leaks and one AI fix you can start this week.</p>
+      </div>
+      <div class="side">
+        <a class="cta terra" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a>
+        <a class="alt" href="resources.html">or see all free resources</a>
+      </div>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Growth Strategy Consulting · St. Petersburg, FL · © 2026</span>
+    <span><a href="./resources.html">Resources</a> · <a href="./put-claude-to-work.html">Free Claude guide</a> · <a href="./privacy.html">Privacy</a></span>
+  </div>
+  <div class="wrap" style="margin-top:6px"><span>Growth Strategy Consulting is independent and not affiliated with Anthropic. Claude is a product of Anthropic.</span></div>
+</footer>
+
+<div class="dock"><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a></div>
+
+<script>
+
+var GSC=(function(){
+  var ACCOUNT='2518337';
+  var KEYS=['gsc-unlocked','gsc-claude-guide-unlocked'];
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function known(){for(var i=0;i<KEYS.length;i++){try{var v=JSON.parse(localStorage.getItem(KEYS[i])||'null');if(v&&v.email)return v}catch(e){}}return null}
+  function remember(o){KEYS.forEach(function(k){try{localStorage.setItem(k,JSON.stringify(o))}catch(e){}})}
+  function send(form,fields,done){
+    var finished=false; function fin(){if(finished)return;finished=true;done()}
+    var fd=new FormData(); Object.keys(fields).forEach(function(k){if(fields[k])fd.append('fields['+k+']',fields[k])});
+    fd.append('ml-submit','1'); fd.append('anticsrf','true');
+    // MailerLite's reply can't be read from another site, so carry on either way and never leave anyone stuck.
+    setTimeout(fin,4000);
+    try{fetch('https://assets.mailerlite.com/jsonp/'+ACCOUNT+'/forms/'+form+'/subscribe',{method:'POST',body:fd}).then(fin,fin)}catch(e){fin()}
+  }
+  // Wire up a name/email/consent form. getResource() says what they asked for; onDone(name,email) runs after.
+  function wire(prefix,mlForm,getResource,busyText,onDone,opts){
+    opts=opts||{};
+    var f=document.getElementById(prefix+'form'); if(!f) return;
+    var k=known(); if(k){var e=document.getElementById(prefix+'email'),n=document.getElementById(prefix+'name');if(e&&!e.value)e.value=k.email;if(n&&!n.value&&k.name)n.value=k.name}
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var name=document.getElementById(prefix+'name').value.trim(), email=document.getElementById(prefix+'email').value.trim();
+      var ok=document.getElementById(prefix+'consent').checked, hint=document.getElementById(prefix+'hint'), btn=document.getElementById(prefix+'btn'), lbl=btn.querySelector('span');
+      hint.classList.remove('err');
+      if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){hint.textContent='Enter your email to get it.';hint.classList.add('err');return}
+      if(!ok){hint.textContent='Please tick the box so I’m allowed to email you.';hint.classList.add('err');return}
+      btn.disabled=true; lbl.textContent=busyText||'One sec…';
+      send(mlForm,{email:email,name:name,resource:getResource()},function(){
+        if(!opts.noRemember) remember({name:name,email:email});
+        onDone(name,email);
+      });
+    });
+  }
+  function copyButtons(){
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('.copy');if(!b)return;
+      var pre=b.closest('.prompt').querySelector('pre');var text=pre.innerText;
+      function ok(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1600)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(pre);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl/Cmd+C'}
+      try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}}catch(err){fallback()}
+    });
+  }
+  function smooth(){return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}
+  return {esc:esc,known:known,remember:remember,wire:wire,copyButtons:copyButtons,smooth:smooth};
+})();
+
+(function(){
+  var gate=document.getElementById('unlock'), locked=document.getElementById('locked'), w=document.getElementById('welcome');
+  function markToc(on){document.querySelectorAll('.toc li').forEach(function(li,i){if(i>=1)li.classList.toggle('locked',on)})}
+  function open(name,scroll){
+    locked.hidden=false; gate.hidden=true; markToc(false);
+    w.innerHTML='<span class="hand">you\'re in'+(name?', '+GSC.esc(name):'')+'.</span><span>All 40 prompts are below. This browser will remember you next time.</span>';
+    if(scroll) w.scrollIntoView({behavior:GSC.smooth(),block:'start'});
+  }
+  var k=GSC.known(); if(k) open(k.name||'',false); else markToc(true);
+  document.querySelector('.toc').addEventListener('click',function(e){
+    var a=e.target.closest('a'); if(!a||!locked.hidden) return;
+    if(a.parentNode.classList.contains('locked')){e.preventDefault();gate.scrollIntoView({behavior:GSC.smooth(),block:'start'});document.getElementById('gemail').focus({preventScroll:true})}
+  });
+  GSC.wire('g','203226760597211121',function(){return 'Prompt Must-Haves'},'Unlocking…',function(name){open(name,true)});
+  GSC.copyButtons();
+})();
+</script>
+</body>
+</html>

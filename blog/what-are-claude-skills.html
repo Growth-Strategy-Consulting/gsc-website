@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZYD2TFHSL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XZYD2TFHSL');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What are Claude skills (and why your business needs one)? · Growth Strategy Consulting</title>
+<meta name="description" content="A plain-English answer for small business owners: what a Claude skill is, how it's different from a prompt or a project, 5 skills every small business should have, and a free one to download.">
+<link rel="canonical" href="https://growthstrategyconsulting.org/blog/what-are-claude-skills.html">
+<meta property="og:title" content="What are Claude skills (and why your business needs one)? · Growth Strategy Consulting">
+<meta property="og:description" content="A plain-English answer for small business owners: what a Claude skill is, how it's different from a prompt or a project, 5 skills every small business should have, and a free one to download.">
+<meta property="og:image" content="https://growthstrategyconsulting.org/assets/elena-gsc.jpg">
+<meta property="og:url" content="https://growthstrategyconsulting.org/blog/what-are-claude-skills.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg fill='%23D9CBB3'%3E%3Crect x='0' y='0' width='9' height='9'/%3E%3Crect x='10.5' y='0' width='9' height='9'/%3E%3Crect x='21' y='0' width='9' height='9'/%3E%3Crect x='0' y='10.5' width='9' height='9'/%3E%3Crect x='10.5' y='10.5' width='9' height='9'/%3E%3Crect x='0' y='21' width='9' height='9'/%3E%3Crect x='10.5' y='21' width='9' height='9'/%3E%3Crect x='21' y='21' width='9' height='9'/%3E%3C/g%3E%3Crect x='21' y='10.5' width='9' height='9' fill='%23B5552F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..900&family=DM+Mono:wght@400;500&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+/* GSC "marked-up audit" look: graph paper, printed sheets, terracotta handwritten notes. */
+
+:root{
+  --paper:#FFFDF8; --grid:#EFE6D6; --sand:#D9CBB3; --ink:#3A2A1F; --ink2:#4A3A2E; --muted:#6B5A4C;
+  --terra:#B5552F; --terra-t:#8A3A1C; --peach:#F2B08F; --olive:#5E6B3A; --olive-d:#46512A; --cream:#E9DFCD;
+  --n1:#F6DCCB; --n2:#E3E8D2; --n3:#D6E4E6; --white:#FFFFFF;
+  --sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'DM Mono',ui-monospace,Menlo,monospace;
+  --hand:'Caveat','Bradley Hand','Segoe Print',cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;font-family:var(--sans);color:var(--ink);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-color:var(--paper);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
+a{color:inherit;text-decoration-color:var(--terra);text-underline-offset:4px}
+p{margin:0} ul,ol{margin:0;padding-left:1.2em}
+img{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:clamp(16px,5vw,40px)}
+.wrap.narrow{max-width:820px}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra-t)}
+.hand{font-family:var(--hand);color:var(--terra);font-weight:700;line-height:1.1}
+.mono{font-family:var(--mono)}
+h1,h2,h3{margin:0;font-weight:900;letter-spacing:-.03em;text-wrap:balance;color:var(--ink)}
+h1{font-size:clamp(44px,8vw,86px);line-height:.94}
+h1 span.t{color:var(--terra)}
+h2{font-size:clamp(30px,4.4vw,48px);line-height:1}
+h2 .hand{font-size:1.1em;letter-spacing:0}
+h3{font-size:clamp(21px,2.2vw,25px);letter-spacing:-.015em;line-height:1.15}
+.lede{font-size:clamp(18px,1.9vw,21px);color:var(--ink2);max-width:60ch}
+.fine{font-family:var(--mono);font-size:14px;color:var(--muted)}
+.mk{display:inline-grid;grid-template-columns:repeat(3,1fr);gap:2px;width:26px;height:26px;flex:none}
+.mk i{background:var(--sand)} .mk i.on{background:var(--terra)}
+.mk.s20{width:20px;height:20px}
+
+/* header */
+.top{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.95);backdrop-filter:blur(6px);border-bottom:1px solid var(--sand)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px;max-width:1180px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;text-decoration:none}
+.nav{display:flex;align-items:center;gap:24px;font-size:16px}
+.nav a.txt{text-decoration:none}
+.nav a.txt:hover,.nav a.txt[aria-current]{text-decoration:underline;text-decoration-color:var(--terra);text-underline-offset:5px}
+@media (max-width:820px){.nav a.txt{display:none}}
+@media (max-width:420px){.logo span.name{font-size:15px}}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;background:var(--olive);color:var(--paper);text-decoration:none;font-weight:800;font-size:17px;padding:14px 24px;border-radius:6px;border:0;font-family:inherit;cursor:pointer;transition:background .2s}
+.cta i{width:10px;height:10px;background:var(--peach);border-radius:1px;transition:transform .3s;flex:none}
+.cta:hover{background:var(--olive-d)} .cta:hover i{transform:rotate(90deg)}
+.cta.terra{background:var(--terra)} .cta.terra i{background:var(--paper)} .cta.terra:hover{background:var(--terra-t)}
+.cta.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)} .cta.ghost i{background:var(--terra)} .cta.ghost:hover{background:var(--cream)}
+.cta.sm{white-space:nowrap;min-height:44px;font-size:15px;padding:10px 16px}
+.cta[disabled]{opacity:.7;cursor:default}
+.alt{font-family:var(--mono);font-size:15px;text-underline-offset:5px;text-decoration-color:var(--terra)}
+a:focus-visible,.cta:focus-visible,button:focus-visible{outline:3px solid var(--terra);outline-offset:3px}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+@media (prefers-reduced-motion:reduce){.cta i{transition:none}}
+
+main section{padding-block:clamp(44px,7vw,88px)}
+.hero{display:flex;flex-direction:column;gap:20px;padding-top:clamp(36px,6vw,72px)!important}
+.scrawl{font-family:var(--hand);font-size:clamp(26px,3vw,32px);color:var(--terra);transform:rotate(-2deg);align-self:flex-start}
+.sec{display:flex;flex-direction:column;gap:26px}
+.sec-head{display:flex;flex-direction:column;gap:10px;padding-bottom:14px;border-bottom:3px solid var(--ink)}
+.sec-head p{color:var(--ink2);max-width:62ch}
+
+/* sheet */
+.sheet{background:var(--white);border:1px solid var(--sand);box-shadow:0 2px 0 var(--sand);padding:clamp(18px,3.5vw,32px)}
+.note{background:var(--n1);padding:14px 18px;font-size:17px;color:var(--ink);display:flex;flex-direction:column;gap:2px}
+.note .hand{font-size:26px;color:var(--terra-t)}
+
+/* email gate */
+.gatebox{background:var(--white);border:2px solid var(--ink);box-shadow:6px 6px 0 var(--sand);padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:clamp(22px,4vw,44px);align-items:start}
+.gatebox[hidden]{display:none}
+.gatebox .gcopy{display:flex;flex-direction:column;gap:12px;min-width:0}
+.gatebox .gcopy>.hand{font-size:clamp(26px,3vw,32px);transform:rotate(-1.5deg);align-self:flex-start}
+.gatebox .gcopy p{color:var(--ink2)}
+.inside{list-style:none;padding:0;display:flex;flex-direction:column;border-top:1px solid var(--sand)}
+.inside li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:8px;padding:8px 0;border-bottom:1px solid var(--grid);font-size:16.5px;font-weight:600}
+.inside li span{font-family:var(--mono);font-weight:500;font-size:14px;color:var(--terra-t);padding-top:2px}
+.gate{display:flex;flex-direction:column;gap:8px;background:var(--n2);padding:clamp(18px,3vw,26px);min-width:0}
+.gate[hidden],[hidden]{display:none!important}
+.gate label.lbl{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.gate input[type=text],.gate input[type=email]{font:inherit;font-size:17px;padding:13px 14px;border:1px solid var(--muted);border-radius:6px;background:var(--white);color:var(--ink);min-height:50px;width:100%}
+.gate input:focus-visible{outline:3px solid var(--terra);outline-offset:1px}
+.gate .consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;font-size:14px;color:var(--muted);align-items:start;margin-top:6px}
+.gate .consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--olive)}
+.gate .cta{width:100%;margin-top:6px}
+.gate .hint{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.gate .hint.err{color:var(--terra-t)}
+.welcome{background:var(--n2);padding:16px 20px;font-size:17px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
+.welcome[hidden]{display:none}
+.welcome .hand{font-size:28px;color:var(--olive-d)}
+@media (max-width:760px){.gatebox{grid-template-columns:1fr}}
+
+/* copyable prompt */
+.prompts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:760px){.prompts{grid-template-columns:1fr}}
+.prompt{border:1.5px dashed var(--muted);background:var(--white);display:flex;flex-direction:column;min-width:0}
+.prompt .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 14px;border-bottom:1px dashed var(--sand)}
+.prompt .bar span{font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.copy{font:inherit;font-family:var(--mono);font-size:14px;font-weight:500;min-height:36px;padding:0 14px;border:1px solid var(--ink);border-radius:6px;background:var(--paper);color:var(--ink);cursor:pointer;flex:none}
+.copy:hover{background:var(--cream)}
+.copy.done{background:var(--olive);border-color:var(--olive);color:var(--paper)}
+.prompt pre{margin:0;padding:14px 16px;font-family:var(--mono);font-size:15px;line-height:1.6;white-space:pre-wrap;word-wrap:break-word;color:var(--ink)}
+.prompt pre em,em.blank{font-style:normal;background:var(--n1);color:var(--terra-t);padding:0 3px}
+
+/* close band */
+.close{background:var(--ink);color:var(--paper);padding:clamp(30px,6vw,60px) clamp(22px,6vw,64px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 44px;align-items:center}
+.close h2{color:var(--paper)}
+.close p{color:var(--cream);font-size:19px;max-width:56ch}
+.close .side{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.close .alt{color:var(--paper)}
+@media (max-width:860px){.close{grid-template-columns:1fr}}
+
+footer{padding-block:32px 48px;font-size:14px;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;max-width:1180px}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(255,253,248,.97);border-top:1px solid var(--sand);display:none}
+.dock .cta{width:100%}
+@media (max-width:760px){.dock{display:block}footer{padding-bottom:120px}}
+
+article{display:flex;flex-direction:column;gap:clamp(36px,5vw,56px);padding-block:clamp(36px,6vw,72px) 24px}
+.byline{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:14px;color:var(--muted)}
+.answer{background:var(--n2);padding:clamp(18px,3vw,26px);transform:rotate(-.4deg);display:flex;flex-direction:column;gap:8px;font-size:clamp(18px,1.9vw,20px)}
+.answer .hand{font-size:30px;color:var(--olive-d)}
+.body{display:flex;flex-direction:column;gap:16px;color:var(--ink2);max-width:66ch}
+.body strong{color:var(--ink)}
+.body h2{margin-top:clamp(16px,3vw,28px)}
+.body ol,.body ul{display:flex;flex-direction:column;gap:8px}
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--sand);background:var(--white)}
+.trio div{padding:18px 20px;display:flex;flex-direction:column;gap:6px;font-size:16.5px;color:var(--ink2)}
+.trio div+div{border-left:1px solid var(--sand)}
+.trio b{font-family:var(--mono);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra-t)}
+.trio strong{color:var(--ink);font-size:19px}
+@media (max-width:680px){.trio{grid-template-columns:1fr}.trio div+div{border-left:0;border-top:1px solid var(--sand)}}
+.five{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:none}
+.five li{background:var(--white);border:1px solid var(--sand);padding:18px 20px;display:flex;flex-direction:column;gap:6px}
+.five li b{font-weight:800;color:var(--ink)}
+.five li span{font-size:16.5px}
+.five li .hand{font-size:24px}
+@media (max-width:680px){.five{grid-template-columns:1fr}}
+.steps{counter-reset:s;list-style:none;padding:0;display:flex;flex-direction:column;gap:12px}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start}
+.steps li::before{counter-increment:s;content:counter(s);font-family:var(--hand);font-size:44px;line-height:.8;color:var(--terra);text-align:center}
+.dl{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.dl[hidden]{display:none}
+article .gatebox{grid-template-columns:repeat(2,minmax(0,1fr))}
+article .gatebox h2{font-size:clamp(28px,3.4vw,38px)}
+@media (max-width:760px){article .gatebox{grid-template-columns:1fr}}
+.faq{display:flex;flex-direction:column;border-top:2px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--sand);padding:4px 0}
+.faq summary{cursor:pointer;font-weight:800;font-size:19px;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--terra)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 0 14px;color:var(--ink2);max-width:64ch}
+
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "BlogPosting",
+   "headline": "What are Claude skills (and why your business needs one)?",
+   "description": "A plain-English answer for small business owners: what a Claude skill is, how it's different from a prompt or a project, 5 skills every small business should have, and a free one to download.",
+   "datePublished": "2026-11-04",
+   "dateModified": "2026-11-04",
+   "author": {
+    "@type": "Person",
+    "name": "Elena Corrao",
+    "url": "https://growthstrategyconsulting.org/"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "name": "Growth Strategy Consulting",
+    "url": "https://growthstrategyconsulting.org/"
+   },
+   "mainEntityOfPage": "https://growthstrategyconsulting.org/blog/what-are-claude-skills.html",
+   "image": "https://growthstrategyconsulting.org/assets/elena-gsc.jpg"
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is a Claude skill?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A Claude skill is a saved set of instructions Claude follows every time a certain job comes up, like replying to reviews or writing your weekly posts. You set it up once, and Claude uses it automatically when that job shows up."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I need to know how to code to use skills?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. A skill is a short text file written in plain English. You can also do a job once in a chat and ask Claude to turn it into a skill for you."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do skills work on Claude's free plan?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. As of November 2026, skills are available on Claude's free plan as well as the paid plans. Paid plans give you more room to use them."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "What's the difference between a skill and a project?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "A project holds what Claude knows about your business: your prices, policies and voice. A skill holds how to do one specific job, step by step. They work best together."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="../"><span class="mk s20" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i></span><span class="name">Growth Strategy Consulting</span></a>
+    <nav class="nav" aria-label="Main">
+      <a class="txt" href="../#how">How it works</a>
+      <a class="txt" href="../#work">Ways to work</a>
+      <a class="txt" href="../resources.html">Resources</a>
+      <a class="cta sm" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Free Strategy Session</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap narrow">
+  <article>
+    <header style="display:flex;flex-direction:column;gap:18px">
+      <div class="eyebrow">From the blog · AI basics for owners</div>
+      <h1 style="font-size:clamp(40px,6.6vw,72px)">What are Claude skills <span class="t">(and why your business needs one)?</span></h1>
+      <div class="byline"><span>By Elena Corrao</span><span>November 4, 2026</span><span>5-minute read</span></div>
+    </header>
+
+    <div class="answer">
+      <span class="hand">the short answer</span>
+      <p><strong>A Claude skill is a saved set of instructions Claude follows every time a certain job comes up.</strong> You set it up once, and the next time you paste in a review or ask for this week's posts, Claude already knows how you like it done. No retyping the same instructions. No "wait, I told you this last time."</p>
+    </div>
+
+    <div class="body">
+      <h2>Why this matters when you run a business</h2>
+      <p>Most of what eats your week isn't new work. It's the same jobs on repeat: replying to reviews, writing the weekly posts, confirming bookings, pulling the sales numbers. If you use Claude for those, you've probably typed the same instructions a dozen times.</p>
+      <p>A skill fixes that. It's like the recipe card you'd leave for a new hire: here's the job, here's how we do it, here's what good looks like. Claude reads the card every time that job comes up, so you get the same quality on a busy Saturday as you did on the day you set it up.</p>
+
+      <h2>Prompt, project or skill?</h2>
+      <p>These three get mixed up a lot. Here's the simple version:</p>
+    </div>
+    <div class="trio">
+      <div><b>Prompt</b><strong>What you type once</strong>A one-time ask. Great for a quick job. Gone when the chat ends.</div>
+      <div><b>Project</b><strong>What Claude knows</strong>Your business info: prices, policies, your voice. Claude reads it before it answers.</div>
+      <div><b>Skill</b><strong>How to do one job</strong>The steps for a specific task, used every time that task comes up.</div>
+    </div>
+    <div class="body">
+      <p>They work best together. The project tells Claude <em>about</em> your business. The skill tells Claude <em>how</em> to do a job for it.</p>
+
+      <h2>What a skill actually looks like</h2>
+      <p>It's a short text file. No code. At the top, a name and a one-line description that starts with "Use when…", which is how Claude knows when to pull it out. Below that, the steps, in plain English, the way you'd explain it to a new hire.</p>
+    </div>
+    <div class="prompt"><div class="bar"><span>A tiny example</span><button class="copy" type="button">Copy</button></div>
+<pre>---
+name: booking-confirmations
+description: Use when I paste a booking request and need a confirmation message.
+---
+1. Thank them by first name.
+2. Repeat the day, time and service so there's no mix-up.
+3. Add our cancellation policy in one sentence.
+4. Keep it under 60 words and sign off as <em>[your name]</em>.</pre></div>
+
+    <div class="body">
+      <h2>5 skills every small business should have</h2>
+    </div>
+    <ul class="five">
+      <li><span class="hand">1</span><b>Review replies</b><span>Paste a review, get a reply that thanks them, mentions what they said, and handles complaints without excuses.</span></li>
+      <li><span class="hand">2</span><b>Weekly promo posts</b><span>A few notes about your week turn into five posts in your voice, planned around your slow days.</span></li>
+      <li><span class="hand">3</span><b>Booking confirmations and reminders</b><span>Every confirmation has the right day, time, service and policy, every time.</span></li>
+      <li><span class="hand">4</span><b>Weekly sales recap</b><span>Upload your sales report, get a plain-English recap and one thing to do next week.</span></li>
+      <li><span class="hand">5</span><b>Team questions</b><span>Your policies and how-tos in one place, so your team asks Claude before they come find you.</span></li>
+    </ul>
+
+    <div class="body">
+      <h2>How to add a skill to Claude</h2>
+      <p><strong>The easy way:</strong> do the job once in a chat, go back and forth until it's how you like it, then say <strong>"turn what we just did into a skill."</strong> Claude writes the file for you.</p>
+      <p><strong>Or upload one</strong>, like the free skill below:</p>
+      <ol class="steps">
+        <li><span>Download the skill. It comes as a .zip file. Don't unzip it.</span></li>
+        <li><span>In Claude, open <strong>Settings</strong>, go to <strong>Capabilities</strong>, and find <strong>Skills</strong>. (Claude moves its menus around sometimes. If you don't see it there, search the settings for "Skills.")</span></li>
+        <li><span>Make sure <strong>code execution and file creation</strong> is turned on. Skills need it.</span></li>
+        <li><span>Click <strong>Upload skill</strong>, pick the .zip file, and make sure the skill is switched on.</span></li>
+        <li><span>Open a new chat and ask for the job, like "write this week's posts." Claude picks up the skill on its own.</span></li>
+      </ol>
+      <p class="fine">Steps checked against Claude's help center in November 2026. Skills are available on Claude's free plan and paid plans.</p>
+    </div>
+
+    <section class="gatebox" id="skill" aria-labelledby="skill-h" style="padding-block:clamp(22px,4vw,40px)">
+      <div class="gcopy">
+        <span class="hand">free download</span>
+        <h2 id="skill-h">Get my Weekly Promo Posts skill</h2>
+        <p>The ready-made version of skill #2. Tell Claude what's happening this week, and it writes five posts in your voice: a hook, a caption, a call to action, a photo idea and local hashtags for each, planned around your slow days. It won't make up prices or deals.</p>
+        <ul class="inside">
+          <li><span>01</span>Works with Instagram, Facebook, Google and TikTok</li>
+          <li><span>02</span>Uses your real prices and hours from your project</li>
+          <li><span>03</span>Upload once, use every week</li>
+        </ul>
+      </div>
+      <div>
+        <form class="gate" id="sform" novalidate>
+      <label class="lbl" for="sname">First name</label>
+      <input type="text" id="sname" placeholder="First name" autocomplete="given-name">
+      <label class="lbl" for="semail">Email</label>
+      <input type="email" id="semail" placeholder="you@yourbusiness.com" autocomplete="email" required>
+      <label class="consent" for="sconsent"><input type="checkbox" id="sconsent"><span>I agree to the <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a> and to hearing from Elena.</span></label>
+      <button class="cta" type="submit" id="sbtn"><i aria-hidden="true"></i><span>Send me the skill</span></button>
+      <p class="hint" id="shint">No spam. Just the good stuff and the occasional useful thing.</p>
+    </form>
+        <div class="dl sheet" id="dl" hidden>
+          <span class="hand" style="font-size:30px;color:var(--olive-d)" id="dlhi">here you go.</span>
+          <p>Your skill is ready. Download it, then follow the upload steps above.</p>
+          <a class="cta" href="../assets/downloads/weekly-promo-posts.zip" download><i aria-hidden="true"></i>Download the skill (.zip)</a>
+          <a class="alt" href="../resources.html">See all free resources</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="body">
+      <h2>Quick questions</h2>
+    </div>
+    <div class="faq">
+<details><summary>What is a Claude skill?</summary><p>A Claude skill is a saved set of instructions Claude follows every time a certain job comes up, like replying to reviews or writing your weekly posts. You set it up once, and Claude uses it automatically when that job shows up.</p></details>
+<details><summary>Do I need to know how to code to use skills?</summary><p>No. A skill is a short text file written in plain English. You can also do a job once in a chat and ask Claude to turn it into a skill for you.</p></details>
+<details><summary>Do skills work on Claude's free plan?</summary><p>Yes. As of November 2026, skills are available on Claude's free plan as well as the paid plans. Paid plans give you more room to use them.</p></details>
+<details><summary>What's the difference between a skill and a project?</summary><p>A project holds what Claude knows about your business: your prices, policies and voice. A skill holds how to do one specific job, step by step. They work best together.</p></details>
+    </div>
+
+    <div class="close">
+      <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+        <h2>Want your skills built for you?</h2>
+        <p>In a free 30-minute Strategy Session, we find the jobs you repeat every week and pick the first one to hand off to AI.</p>
+      </div>
+      <div class="side">
+        <a class="cta terra" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a>
+        <a class="alt" href="../prompt-must-haves.html">or grab the Prompt Must-Haves</a>
+      </div>
+    </div>
+  </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Growth Strategy Consulting · St. Petersburg, FL · © 2026</span>
+    <span><a href="../resources.html">Resources</a> · <a href="../put-claude-to-work.html">Free Claude guide</a> · <a href="../privacy.html">Privacy</a></span>
+  </div>
+  <div class="wrap" style="margin-top:6px"><span>Growth Strategy Consulting is independent and not affiliated with Anthropic. Claude is a product of Anthropic.</span></div>
+</footer>
+
+<div class="dock"><a class="cta" href="https://calendly.com/corraoconsulting/30min" target="_blank" rel="noopener"><i aria-hidden="true"></i>Book a free Strategy Session</a></div>
+
+<script>
+
+var GSC=(function(){
+  var ACCOUNT='2518337';
+  var KEYS=['gsc-unlocked','gsc-claude-guide-unlocked'];
+  function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function known(){for(var i=0;i<KEYS.length;i++){try{var v=JSON.parse(localStorage.getItem(KEYS[i])||'null');if(v&&v.email)return v}catch(e){}}return null}
+  function remember(o){KEYS.forEach(function(k){try{localStorage.setItem(k,JSON.stringify(o))}catch(e){}})}
+  function send(form,fields,done){
+    var finished=false; function fin(){if(finished)return;finished=true;done()}
+    var fd=new FormData(); Object.keys(fields).forEach(function(k){if(fields[k])fd.append('fields['+k+']',fields[k])});
+    fd.append('ml-submit','1'); fd.append('anticsrf','true');
+    // MailerLite's reply can't be read from another site, so carry on either way and never leave anyone stuck.
+    setTimeout(fin,4000);
+    try{fetch('https://assets.mailerlite.com/jsonp/'+ACCOUNT+'/forms/'+form+'/subscribe',{method:'POST',body:fd}).then(fin,fin)}catch(e){fin()}
+  }
+  // Wire up a name/email/consent form. getResource() says what they asked for; onDone(name,email) runs after.
+  function wire(prefix,mlForm,getResource,busyText,onDone,opts){
+    opts=opts||{};
+    var f=document.getElementById(prefix+'form'); if(!f) return;
+    var k=known(); if(k){var e=document.getElementById(prefix+'email'),n=document.getElementById(prefix+'name');if(e&&!e.value)e.value=k.email;if(n&&!n.value&&k.name)n.value=k.name}
+    f.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var name=document.getElementById(prefix+'name').value.trim(), email=document.getElementById(prefix+'email').value.trim();
+      var ok=document.getElementById(prefix+'consent').checked, hint=document.getElementById(prefix+'hint'), btn=document.getElementById(prefix+'btn'), lbl=btn.querySelector('span');
+      hint.classList.remove('err');
+      if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){hint.textContent='Enter your email to get it.';hint.classList.add('err');return}
+      if(!ok){hint.textContent='Please tick the box so I’m allowed to email you.';hint.classList.add('err');return}
+      btn.disabled=true; lbl.textContent=busyText||'One sec…';
+      send(mlForm,{email:email,name:name,resource:getResource()},function(){
+        if(!opts.noRemember) remember({name:name,email:email});
+        onDone(name,email);
+      });
+    });
+  }
+  function copyButtons(){
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('.copy');if(!b)return;
+      var pre=b.closest('.prompt').querySelector('pre');var text=pre.innerText;
+      function ok(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent='Copy';b.classList.remove('done')},1600)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(pre);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl/Cmd+C'}
+      try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}}catch(err){fallback()}
+    });
+  }
+  function smooth(){return matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'}
+  return {esc:esc,known:known,remember:remember,wire:wire,copyButtons:copyButtons,smooth:smooth};
+})();
+
+(function(){
+  var f=document.getElementById('sform'), dl=document.getElementById('dl');
+  function show(name){f.hidden=true; dl.hidden=false; if(name) document.getElementById('dlhi').textContent='here you go, '+name+'.'}
+  var k=GSC.known(); if(k) show(k.name||'');
+  GSC.wire('s','203226760597211121',function(){return 'Weekly Promo Posts skill'},'Sending…',function(name){show(name); dl.scrollIntoView({behavior:GSC.smooth(),block:'nearest'})});
+  GSC.copyButtons();
+})();
+</script>
+</body>
+</html>
